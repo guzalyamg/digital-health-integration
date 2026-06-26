@@ -38,7 +38,7 @@ Alias: $encounter-diagnosis-use = http://hl7.org/fhir/ValueSet/encounter-diagnos
 Alias: $encounter-local-priority-cs = https://terminology.dhp.uz/fhir/core/CodeSystem/encounter-local-priority-cs
 Alias: $encounter-local-subject-status-cs = https://terminology.dhp.uz/fhir/core/CodeSystem/encounter-local-subject-status-cs
 
-Alias: $encounter-purpose-cs = https://terminology.dhp.uz/fhir/core/CodeSystem/encounter-purpose-cs
+// Alias: $encounter-purpose-cs = https://terminology.dhp.uz/fhir/core/CodeSystem/encounter-purpose-cs
 Alias: $diagnosis-role = https://dhp.uz/fhir/integrations/CodeSystem/diagnosis-role
 
 Alias: $encounter-status = http://hl7.org/fhir/encounter-status
@@ -202,8 +202,8 @@ Alias: $discharge-disposition = http://terminology.hl7.org/CodeSystem/discharge-
 Alias: $v3-ActPriority = http://terminology.hl7.org/CodeSystem/v3-ActPriority
 Alias: $v3-ParticipationType = http://terminology.hl7.org/CodeSystem/v3-ParticipationType
 Alias: $icd10 = http://hl7.org/fhir/sid/icd-10
-Alias: $diagnosis-role = https://terminology.dhp.uz/CodeSystem/diagnosis-role
-Alias: $local-observation-code = https://terminology.dhp.uz/CodeSystem/local-observation-code
+// Alias: $diagnosis-role = https://terminology.dhp.uz/CodeSystem/diagnosis-role
+// Alias: $local-observation-code = https://terminology.dhp.uz/CodeSystem/local-observation-code
 Alias: $education-cs = https://terminology.dhp.uz/fhir/core/CodeSystem/education-cs
 Alias: $occupation-cs = https://terminology.dhp.uz/fhir/core/CodeSystem/position-and-profession-cs
 Alias: $benefit-cs = https://terminology.dhp.uz/fhir/core/CodeSystem/benefits-cs
