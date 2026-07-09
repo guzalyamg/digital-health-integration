@@ -2,7 +2,6 @@ CodeSystem: DHISObservationMethodCS
 Id: dhis-observation-method-cs
 Title: "DHIS Observation Method CodeSystem"
 Description: "Local code system methods of tuberculosis diagnostic tests used by the DHIS information system, with Russian and English designations."
-
 * insert OriginalCodeSystemDraft(dhis-observation-method-cs)
 
 * #tub006-0001 "Petrov usuli – 4% NaOH"
