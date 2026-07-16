@@ -155,3 +155,6 @@ Alias: $diagnostic-report-status-vs = https://terminology.dhp.uz/fhir/core/Value
 
 Alias: $comparator = http://hl7.org/fhir/quantity-comparator
 Alias: $specimen-role = http://hl7.org/fhir/specimen-role
+
+Alias: $document-section-cs = https://terminology.dhp.uz/fhir/core/CodeSystem/document-section-cs
+Alias: $observation-day-cs = https://terminology.dhp.uz/fhir/core/CodeSystem/observation-day-cs
