@@ -166,3 +166,41 @@ Alias: $signature-type-cs = https://terminology.dhp.uz/fhir/core/CodeSystem/sign
 
 Alias: $flag-status-cs = http://hl7.org/fhir/flag-status
 Alias: $profession-specialization-cs = https://terminology.dhp.uz/fhir/core/CodeSystem/profession-specialization-cs
+
+
+Alias: $newborn-daily-observation-component-cs = https://terminology.dhp.uz/fhir/integrations/CodeSystem/newborn-daily-observation-component-cs
+
+Alias: $delivery-timeliness-cs = https://terminology.dhp.uz/fhir/chr/CodeSystem/delivery-timeliness-cs
+Alias: $newborn-term-status-cs = https://terminology.dhp.uz/fhir/chr/CodeSystem/newborn-term-status-cs
+Alias: $infant-feeding-type-cs = https://terminology.dhp.uz/fhir/chr/CodeSystem/infant-feeding-type-cs
+Alias: $apgar-component-score-cs = https://terminology.dhp.uz/fhir/chr/CodeSystem/apgar-component-score-cs
+Alias: $satisfactory-status-cs = https://terminology.dhp.uz/fhir/chr/CodeSystem/satisfactory-status-cs
+Alias: $yes-no-cs = https://terminology.dhp.uz/fhir/chr/CodeSystem/yes-no-cs
+
+Alias: $ballard-skin-maturity-cs = https://terminology.dhp.uz/fhir/chr/CodeSystem/ballard-skin-maturity-cs
+Alias: $ballard-lanugo-maturity-cs = https://terminology.dhp.uz/fhir/chr/CodeSystem/ballard-lanugo-maturity-cs
+Alias: $ballard-plantar-surface-cs = https://terminology.dhp.uz/fhir/chr/CodeSystem/ballard-plantar-surface-cs
+Alias: $ballard-breast-maturity-cs = https://terminology.dhp.uz/fhir/chr/CodeSystem/ballard-breast-maturity-cs
+Alias: $ballard-eye-ear-maturity-cs = https://terminology.dhp.uz/fhir/chr/CodeSystem/ballard-eye-ear-maturity-cs
+Alias: $ballard-male-genital-maturity-cs = https://terminology.dhp.uz/fhir/chr/CodeSystem/ballard-male-genital-maturity-cs
+Alias: $ballard-female-genital-maturity-cs = https://terminology.dhp.uz/fhir/chr/CodeSystem/ballard-female-genital-maturity-cs
+Alias: $ballard-neuromuscular-score-cs = https://terminology.dhp.uz/fhir/chr/CodeSystem/ballard-neuromuscular-score-cs
+Alias: $ballard-square-window-cs = https://terminology.dhp.uz/fhir/chr/CodeSystem/ballard-square-window-cs
+Alias: $ballard-arm-recoil-cs = https://terminology.dhp.uz/fhir/chr/CodeSystem/ballard-arm-recoil-cs
+Alias: $ballard-popliteal-angle-cs = https://terminology.dhp.uz/fhir/chr/CodeSystem/ballard-popliteal-angle-cs
+
+Alias: $newborn-skin-color-basic-cs = https://terminology.dhp.uz/fhir/chr/CodeSystem/newborn-skin-color-basic-cs
+Alias: $newborn-skin-color-detailed-cs = https://terminology.dhp.uz/fhir/chr/CodeSystem/newborn-skin-color-detailed-cs
+Alias: $cyanosis-distribution-cs = https://terminology.dhp.uz/fhir/chr/CodeSystem/cyanosis-distribution-cs
+Alias: $muscle-tone-status-cs = https://terminology.dhp.uz/fhir/chr/CodeSystem/muscle-tone-status-cs
+Alias: $normal-abnormal-status-cs = https://terminology.dhp.uz/fhir/chr/CodeSystem/normal-abnormal-status-cs
+Alias: $eyelid-shape-cs = https://terminology.dhp.uz/fhir/chr/CodeSystem/eyelid-shape-cs
+Alias: $ear-morphology-cs = https://terminology.dhp.uz/fhir/chr/CodeSystem/ear-morphology-cs
+Alias: $respiratory-auscultation-cs = https://terminology.dhp.uz/fhir/chr/CodeSystem/respiratory-auscultation-cs
+Alias: $silverman-respiratory-severity-cs = https://terminology.dhp.uz/fhir/chr/CodeSystem/silverman-respiratory-severity-cs
+Alias: $cardiac-examination-aspect-cs = https://terminology.dhp.uz/fhir/chr/CodeSystem/cardiac-examination-aspect-cs
+Alias: $urination-ease-cs = https://terminology.dhp.uz/fhir/chr/CodeSystem/urination-ease-cs
+Alias: $external-genital-pattern-cs = https://terminology.dhp.uz/fhir/chr/CodeSystem/external-genital-pattern-cs
+
+Alias: $primitive-reflex-type-cs = https://terminology.dhp.uz/fhir/chr/CodeSystem/primitive-reflex-type-cs
+Alias: $newborn-activity-level-cs = https://terminology.dhp.uz/fhir/chr/CodeSystem/newborn-activity-level-cs
