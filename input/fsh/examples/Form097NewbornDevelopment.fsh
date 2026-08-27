@@ -438,7 +438,7 @@ Usage: #inline
 * language = #en
 * status = #final
 * code = $loinc#90905-1 "ABO + Rh Bld Mother"
-* subject = Reference(urn:uuid:09700003-1111-2222-3333-444444444444)
+* subject = Reference(urn:uuid:0970003b-1111-2222-3333-444444444444)
 * valueCodeableConcept = $sct#278152006 "Blood group A Rh(D) negative"
 
 Instance: observation-father-blood-type-097
@@ -475,8 +475,8 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $loinc#11996-6 "Number of pregnancies"
-* subject = Reference(urn:uuid:09700003-1111-2222-3333-444444444444)
+* code = $loinc#11996-6 "Pregnancies"
+* subject = Reference(urn:uuid:0970003b-1111-2222-3333-444444444444)
 * valueInteger = 4
 
 Instance: observation-para-097
@@ -484,8 +484,8 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $loinc#11977-6 "Number of births"
-* subject = Reference(urn:uuid:09700003-1111-2222-3333-444444444444)
+* code = $loinc#11977-6 "Parity"
+* subject = Reference(urn:uuid:0970003b-1111-2222-3333-444444444444)
 * valueInteger = 2
 
 Instance: observation-gestational-age-097
@@ -493,8 +493,8 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $loinc#11884-4 "Gestational age"
-* subject = Reference(urn:uuid:09700003-1111-2222-3333-444444444444)
+* code = $loinc#11884-4 "Gestational age Estimated"
+* subject = Reference(urn:uuid:0970003b-1111-2222-3333-444444444444)
 * valueQuantity = 40 'wk' "weeks"
 
 // observation-rom-to-delivery-097 — still commented out, $labor-course CS pending
@@ -518,7 +518,7 @@ Usage: #inline
 // TODO(Ernest-CS): "obstetrics/antenatal" condition-category code still pending
 * code.coding.system = $icd10
 * code.coding.code = #TBD
-* subject = Reference(urn:uuid:09700003-1111-2222-3333-444444444444)
+* subject = Reference(urn:uuid:0970003b-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 
 Instance: observation-amniotic-fluid-097
@@ -527,7 +527,7 @@ Usage: #inline
 * language = #en
 * status = #final
 * code = $loinc#57071-2 "Amniotic fluid appearance"
-* subject = Reference(urn:uuid:09700003-1111-2222-3333-444444444444)
+* subject = Reference(urn:uuid:0970003b-1111-2222-3333-444444444444)
 * valueCodeableConcept = $sct#168090003 "Transparent"
 
 Instance: observation-birth-height-097
@@ -545,7 +545,7 @@ Usage: #inline
 * language = #en
 * status = #final
 * code.text = "Delivery timeliness"
-* subject = Reference(urn:uuid:09700003-1111-2222-3333-444444444444)
+* subject = Reference(urn:uuid:0970003b-1111-2222-3333-444444444444)
 * valueCodeableConcept = $delivery-timeliness-cs#chr-0052-00001 "Timely delivery"
 
 Instance: observation-newborn-term-status-097
@@ -564,7 +564,7 @@ Usage: #inline
 * status = #final
 * code.text = "Fetal outcome"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
-* valueCodeableConcept = $sct#281050002 "Alive"
+* valueCodeableConcept = $sct#281050002 "Livebirth"
 
 Instance: observation-skin-to-skin-timing-097
 InstanceOf: UZCoreObservation
