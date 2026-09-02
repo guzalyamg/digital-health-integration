@@ -167,9 +167,9 @@ Alias: $signature-type-cs = https://terminology.dhp.uz/fhir/core/CodeSystem/sign
 Alias: $flag-status-cs = http://hl7.org/fhir/flag-status
 Alias: $profession-specialization-cs = https://terminology.dhp.uz/fhir/core/CodeSystem/profession-specialization-cs
 
-
+Alias: $document-category-cs = https://terminology.dhp.uz/fhir/integrations/CodeSystem/document-category-cs
+Alias: $loinc = http://loinc.org
 Alias: $newborn-daily-observation-component-cs = https://terminology.dhp.uz/fhir/integrations/CodeSystem/newborn-daily-observation-component-cs
-
 Alias: $delivery-timeliness-cs = https://terminology.dhp.uz/fhir/chr/CodeSystem/delivery-timeliness-cs
 Alias: $newborn-term-status-cs = https://terminology.dhp.uz/fhir/chr/CodeSystem/newborn-term-status-cs
 Alias: $infant-feeding-type-cs = https://terminology.dhp.uz/fhir/chr/CodeSystem/infant-feeding-type-cs
@@ -204,3 +204,4 @@ Alias: $external-genital-pattern-cs = https://terminology.dhp.uz/fhir/chr/CodeSy
 
 Alias: $primitive-reflex-type-cs = https://terminology.dhp.uz/fhir/chr/CodeSystem/primitive-reflex-type-cs
 Alias: $newborn-activity-level-cs = https://terminology.dhp.uz/fhir/chr/CodeSystem/newborn-activity-level-cs
+Alias: $form-097-section-cs = https://terminology.dhp.uz/fhir/integrations/CodeSystem/form-097-section-cs
