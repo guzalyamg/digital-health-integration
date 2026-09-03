@@ -9,15 +9,31 @@ Description: "Example of Form 097 newborn development medical record"
 * type = #document
 * timestamp = "2026-06-01T09:00:00+05:00"
 
-// TODO(Gulhayo): subject model — newborn as primary Patient (current assumption),
-// mother as RelatedPerson. Several mother fields (nationality, address,
-// managingOrganization) are only defined on UZCorePatient, not UZCoreRelatedPerson.
-// TODO(Gulhayo): father not modeled as any resource yet — needed for blood type/Rh.
-// TODO: chr namespace dependency (see /topics/development-environment.md) — not
-// yet listed in sushi-config.yaml; Aliases above may warn until resolved, non-blocking.
-// TODO: confirm with Ernest whether Composition.type ($loinc#18842-5 "Discharge
-// summary", reused from Form066) was deliberately chosen for Form097 or inherited
-// from copying Form066's structure.
+// TODO(Gulhayo): subject model — newborn as primary Patient, mother as
+// RelatedPerson. Confirmed by validator: UZCoreRelatedPerson cannot carry
+// nationality/workplace/position/maritalStatus/address (rows 13-17 of the
+// mapping sheet all specify these as UZCorePatient elements). These fields
+// are therefore NOT modeled below - they are blocked on this decision, not
+// forgotten.
+// TODO(Gulhayo): chr namespace dependency — not yet in sushi-config.yaml.
+// TODO: fontanelle modeled as 2 instances vs. sheet's single chr-0123-0019
+// field. TODO: urination/stool modeled as 2 daily-review components vs.
+// sheet's single chr-0125-0007 field. Both kept separate (existing
+// structure) pending a modeling decision.
+// TODO: posture, scarf sign, heel-to-ear — no Ballard neuromuscular VS
+// exists yet.
+// TODO: chest circumference (row 53) and the four "signs of life" fields
+// (rows 54-57) have no LOINC/SNOMED code given in the sheet's mapping hint
+// column and none could be verified independently - modeled with code.text
+// placeholders rather than guessed codes.
+// TODO: labor first/second stage duration (rows 38-39) - sheet gives no
+// code hint at all, only element type (valueString) - code.text placeholder.
+// TODO: department-transfer sub-encounter (rows 88-90, UZCoreEncounter.partOf)
+// not modeled - would require a second Encounter resource; flagging as
+// unbuilt rather than guessing the intended structure.
+// TODO: death path (rows 26-27, Patient.deceasedDateTime) not modeled -
+// this example represents a live discharge; deceasedDateTime/deceasedBoolean
+// are mutually exclusive with the live-discharge instances already built.
 
 * entry[0].fullUrl = "urn:uuid:09700001-1111-2222-3333-444444444444"
 * entry[=].resource = composition-097-001
@@ -45,11 +61,22 @@ Description: "Example of Form 097 newborn development medical record"
 * entry[=].resource = observation-para-097
 * entry[+].fullUrl = "urn:uuid:09700016-1111-2222-3333-444444444444"
 * entry[=].resource = observation-gestational-age-097
-// observation-rom-to-delivery-097 stays commented out — $labor-course CS still doesn't exist
 * entry[+].fullUrl = "urn:uuid:09700018-1111-2222-3333-444444444444"
 * entry[=].resource = condition-pregnancy-complication-097
 * entry[+].fullUrl = "urn:uuid:09700019-1111-2222-3333-444444444444"
 * entry[=].resource = observation-amniotic-fluid-097
+* entry[+].fullUrl = "urn:uuid:097000e2-1111-2222-3333-444444444444"
+* entry[=].resource = observation-mother-rh-factor-097
+* entry[+].fullUrl = "urn:uuid:097000e3-1111-2222-3333-444444444444"
+* entry[=].resource = observation-father-rh-factor-097
+* entry[+].fullUrl = "urn:uuid:097000e4-1111-2222-3333-444444444444"
+* entry[=].resource = location-ward-097
+* entry[+].fullUrl = "urn:uuid:097000f3-1111-2222-3333-444444444444"
+* entry[=].resource = observation-labor-first-stage-097
+* entry[+].fullUrl = "urn:uuid:097000f4-1111-2222-3333-444444444444"
+* entry[=].resource = observation-labor-second-stage-097
+* entry[+].fullUrl = "urn:uuid:097000f5-1111-2222-3333-444444444444"
+* entry[=].resource = procedure-labor-surgical-097
 
 // Birth event
 * entry[+].fullUrl = "urn:uuid:09700020-1111-2222-3333-444444444444"
@@ -74,6 +101,38 @@ Description: "Example of Form 097 newborn development medical record"
 * entry[=].resource = observation-apgar-1min-097
 * entry[+].fullUrl = "urn:uuid:09700036-1111-2222-3333-444444444444"
 * entry[=].resource = observation-apgar-5min-097
+* entry[+].fullUrl = "urn:uuid:097000e0-1111-2222-3333-444444444444"
+* entry[=].resource = observation-newborn-blood-type-097
+* entry[+].fullUrl = "urn:uuid:097000e1-1111-2222-3333-444444444444"
+* entry[=].resource = observation-newborn-rh-factor-097
+* entry[+].fullUrl = "urn:uuid:097000e5-1111-2222-3333-444444444444"
+* entry[=].resource = observation-newborn-head-circumference-097
+* entry[+].fullUrl = "urn:uuid:097000e6-1111-2222-3333-444444444444"
+* entry[=].resource = observation-newborn-chest-circumference-097
+* entry[+].fullUrl = "urn:uuid:097000e7-1111-2222-3333-444444444444"
+* entry[=].resource = observation-signs-of-life-respiration-097
+* entry[+].fullUrl = "urn:uuid:097000e8-1111-2222-3333-444444444444"
+* entry[=].resource = observation-signs-of-life-heartbeat-097
+* entry[+].fullUrl = "urn:uuid:097000e9-1111-2222-3333-444444444444"
+* entry[=].resource = observation-signs-of-life-cord-pulsation-097
+* entry[+].fullUrl = "urn:uuid:097000ea-1111-2222-3333-444444444444"
+* entry[=].resource = observation-signs-of-life-muscle-movement-097
+* entry[+].fullUrl = "urn:uuid:097000eb-1111-2222-3333-444444444444"
+* entry[=].resource = observation-skin-to-skin-absence-reason-097
+* entry[+].fullUrl = "urn:uuid:097000ec-1111-2222-3333-444444444444"
+* entry[=].resource = observation-breastfeeding-absence-reason-097
+* entry[+].fullUrl = "urn:uuid:097000ed-1111-2222-3333-444444444444"
+* entry[=].resource = condition-developmental-disorder-097
+* entry[+].fullUrl = "urn:uuid:097000ee-1111-2222-3333-444444444444"
+* entry[=].resource = observation-temperature-reading1-097
+* entry[+].fullUrl = "urn:uuid:097000ef-1111-2222-3333-444444444444"
+* entry[=].resource = observation-temperature-reading2-097
+* entry[+].fullUrl = "urn:uuid:097000f0-1111-2222-3333-444444444444"
+* entry[=].resource = observation-exam-delivery-room-condition-097
+* entry[+].fullUrl = "urn:uuid:097000f1-1111-2222-3333-444444444444"
+* entry[=].resource = observation-exam-skin-color-description-097
+* entry[+].fullUrl = "urn:uuid:097000f2-1111-2222-3333-444444444444"
+* entry[=].resource = observation-exam-skin-appearance-097
 
 // First Newborn Exam
 * entry[+].fullUrl = "urn:uuid:09700050-1111-2222-3333-444444444444"
@@ -178,8 +237,24 @@ Description: "Example of Form 097 newborn development medical record"
 * entry[=].resource = observation-birth-weight-097
 * entry[+].fullUrl = "urn:uuid:09700081-1111-2222-3333-444444444444"
 * entry[=].resource = observation-weight-day1-097
-// observation-weight-day2-097 through observation-weight-day10-097 follow the
-// same pattern, entries 09700082 through 0970008a
+* entry[+].fullUrl = "urn:uuid:09700082-1111-2222-3333-444444444444"
+* entry[=].resource = observation-weight-day2-097
+* entry[+].fullUrl = "urn:uuid:09700083-1111-2222-3333-444444444444"
+* entry[=].resource = observation-weight-day3-097
+* entry[+].fullUrl = "urn:uuid:09700084-1111-2222-3333-444444444444"
+* entry[=].resource = observation-weight-day4-097
+* entry[+].fullUrl = "urn:uuid:09700085-1111-2222-3333-444444444444"
+* entry[=].resource = observation-weight-day5-097
+* entry[+].fullUrl = "urn:uuid:09700086-1111-2222-3333-444444444444"
+* entry[=].resource = observation-weight-day6-097
+* entry[+].fullUrl = "urn:uuid:09700087-1111-2222-3333-444444444444"
+* entry[=].resource = observation-weight-day7-097
+* entry[+].fullUrl = "urn:uuid:09700088-1111-2222-3333-444444444444"
+* entry[=].resource = observation-weight-day8-097
+* entry[+].fullUrl = "urn:uuid:09700089-1111-2222-3333-444444444444"
+* entry[=].resource = observation-weight-day9-097
+* entry[+].fullUrl = "urn:uuid:0970008a-1111-2222-3333-444444444444"
+* entry[=].resource = observation-weight-day10-097
 
 // Prophylaxis / Immunization
 * entry[+].fullUrl = "urn:uuid:09700090-1111-2222-3333-444444444444"
@@ -213,11 +288,21 @@ Description: "Example of Form 097 newborn development medical record"
 * entry[+].fullUrl = "urn:uuid:0970000c-1111-2222-3333-444444444444"
 * entry[=].resource = observation-daily-day6-097
 
-// Newborn Observation Sheet (Day 0-6) — physician's narrative review, kept
-// separate from the panel above per the modeling decision this session
+// Newborn Observation Sheet (Day 0-6) — physician's narrative review
 * entry[+].fullUrl = "urn:uuid:097000b0-1111-2222-3333-444444444444"
 * entry[=].resource = observation-newborn-daily-review-day0-097
-// day1-097 through day6-097 follow, entries 097000b1 through 097000b6
+* entry[+].fullUrl = "urn:uuid:097000b1-1111-2222-3333-444444444444"
+* entry[=].resource = observation-newborn-daily-review-day1-097
+* entry[+].fullUrl = "urn:uuid:097000b2-1111-2222-3333-444444444444"
+* entry[=].resource = observation-newborn-daily-review-day2-097
+* entry[+].fullUrl = "urn:uuid:097000b3-1111-2222-3333-444444444444"
+* entry[=].resource = observation-newborn-daily-review-day3-097
+* entry[+].fullUrl = "urn:uuid:097000b4-1111-2222-3333-444444444444"
+* entry[=].resource = observation-newborn-daily-review-day4-097
+* entry[+].fullUrl = "urn:uuid:097000b5-1111-2222-3333-444444444444"
+* entry[=].resource = observation-newborn-daily-review-day5-097
+* entry[+].fullUrl = "urn:uuid:097000b6-1111-2222-3333-444444444444"
+* entry[=].resource = observation-newborn-daily-review-day6-097
 
 // Discharge / Transfer / Death
 * entry[+].fullUrl = "urn:uuid:097000c0-1111-2222-3333-444444444444"
@@ -227,8 +312,7 @@ Description: "Example of Form 097 newborn development medical record"
 * entry[+].fullUrl = "urn:uuid:097000c2-1111-2222-3333-444444444444"
 * entry[=].resource = observation-discharge-recommendations-097
 
-// Responsible persons / staff (added to resolve TBD-author/physician/nurse/
-// father references - see the new Instance definitions below)
+// Responsible persons / staff
 * entry[+].fullUrl = "urn:uuid:097000d0-1111-2222-3333-444444444444"
 * entry[=].resource = practitioner-physician-097
 * entry[+].fullUrl = "urn:uuid:097000d1-1111-2222-3333-444444444444"
@@ -249,7 +333,9 @@ Description: "Example of Form 097 newborn development medical record"
 * entry[=].resource = provenance-institution-transfer-097
 * entry[+].fullUrl = "urn:uuid:09700043-1111-2222-3333-444444444444"
 * entry[=].resource = provenance-birth-certificate-097
-
+// ============================================================
+// COMPOSITION — Form097 Newborn Development
+// ============================================================
 
 Instance: composition-097-001
 InstanceOf: Form097NewbornDevelopmentComposition
@@ -281,6 +367,12 @@ Usage: #inline
 * section[=].entry[+] = Reference(urn:uuid:09700016-1111-2222-3333-444444444444)
 * section[=].entry[+] = Reference(urn:uuid:09700018-1111-2222-3333-444444444444)
 * section[=].entry[+] = Reference(urn:uuid:09700019-1111-2222-3333-444444444444)
+* section[=].entry[+] = Reference(urn:uuid:097000e2-1111-2222-3333-444444444444)
+* section[=].entry[+] = Reference(urn:uuid:097000e3-1111-2222-3333-444444444444)
+* section[=].entry[+] = Reference(urn:uuid:097000e4-1111-2222-3333-444444444444)
+* section[=].entry[+] = Reference(urn:uuid:097000f3-1111-2222-3333-444444444444)
+* section[=].entry[+] = Reference(urn:uuid:097000f4-1111-2222-3333-444444444444)
+* section[=].entry[+] = Reference(urn:uuid:097000f5-1111-2222-3333-444444444444)
 
 * section[birthEvent].title = "Birth Event"
 * section[=].code = $loinc#57075-4 "Newborn delivery information"
@@ -293,8 +385,22 @@ Usage: #inline
 * section[=].entry[+] = Reference(urn:uuid:09700034-1111-2222-3333-444444444444)
 * section[=].entry[+] = Reference(urn:uuid:09700035-1111-2222-3333-444444444444)
 * section[=].entry[+] = Reference(urn:uuid:09700036-1111-2222-3333-444444444444)
-// FIXED: skin-to-skin entries (09700030, 09700031) removed from here — now only
-// referenced under section[feeding], no more duplicate entries across sections
+* section[=].entry[+] = Reference(urn:uuid:097000e0-1111-2222-3333-444444444444)
+* section[=].entry[+] = Reference(urn:uuid:097000e1-1111-2222-3333-444444444444)
+* section[=].entry[+] = Reference(urn:uuid:097000e5-1111-2222-3333-444444444444)
+* section[=].entry[+] = Reference(urn:uuid:097000e6-1111-2222-3333-444444444444)
+* section[=].entry[+] = Reference(urn:uuid:097000e7-1111-2222-3333-444444444444)
+* section[=].entry[+] = Reference(urn:uuid:097000e8-1111-2222-3333-444444444444)
+* section[=].entry[+] = Reference(urn:uuid:097000e9-1111-2222-3333-444444444444)
+* section[=].entry[+] = Reference(urn:uuid:097000ea-1111-2222-3333-444444444444)
+* section[=].entry[+] = Reference(urn:uuid:097000eb-1111-2222-3333-444444444444)
+* section[=].entry[+] = Reference(urn:uuid:097000ec-1111-2222-3333-444444444444)
+* section[=].entry[+] = Reference(urn:uuid:097000ed-1111-2222-3333-444444444444)
+* section[=].entry[+] = Reference(urn:uuid:097000ee-1111-2222-3333-444444444444)
+* section[=].entry[+] = Reference(urn:uuid:097000ef-1111-2222-3333-444444444444)
+* section[=].entry[+] = Reference(urn:uuid:097000f0-1111-2222-3333-444444444444)
+* section[=].entry[+] = Reference(urn:uuid:097000f1-1111-2222-3333-444444444444)
+* section[=].entry[+] = Reference(urn:uuid:097000f2-1111-2222-3333-444444444444)
 
 * section[firstNewbornExam].title = "First Newborn Examination"
 * section[=].code = $form-097-section-cs#first-newborn-exam "First newborn examination"
@@ -365,13 +471,26 @@ Usage: #inline
 * section[dailyReview].title = "Newborn Observation Sheet (Day 0-6)"
 * section[=].code = $form-097-section-cs#daily-review "Daily review"
 * section[=].entry[0] = Reference(urn:uuid:097000b0-1111-2222-3333-444444444444)
-// entries for day1-day6 follow (097000b1 - 097000b6)
+* section[=].entry[+] = Reference(urn:uuid:097000b1-1111-2222-3333-444444444444)
+* section[=].entry[+] = Reference(urn:uuid:097000b2-1111-2222-3333-444444444444)
+* section[=].entry[+] = Reference(urn:uuid:097000b3-1111-2222-3333-444444444444)
+* section[=].entry[+] = Reference(urn:uuid:097000b4-1111-2222-3333-444444444444)
+* section[=].entry[+] = Reference(urn:uuid:097000b5-1111-2222-3333-444444444444)
+* section[=].entry[+] = Reference(urn:uuid:097000b6-1111-2222-3333-444444444444)
 
 * section[weightDynamics].title = "Weight Dynamics"
 * section[=].code = $form-097-section-cs#weight-dynamics "Weight dynamics"
 * section[=].entry[0] = Reference(urn:uuid:09700080-1111-2222-3333-444444444444)
 * section[=].entry[+] = Reference(urn:uuid:09700081-1111-2222-3333-444444444444)
-// entries for day2-day10 follow (09700082 - 0970008a)
+* section[=].entry[+] = Reference(urn:uuid:09700082-1111-2222-3333-444444444444)
+* section[=].entry[+] = Reference(urn:uuid:09700083-1111-2222-3333-444444444444)
+* section[=].entry[+] = Reference(urn:uuid:09700084-1111-2222-3333-444444444444)
+* section[=].entry[+] = Reference(urn:uuid:09700085-1111-2222-3333-444444444444)
+* section[=].entry[+] = Reference(urn:uuid:09700086-1111-2222-3333-444444444444)
+* section[=].entry[+] = Reference(urn:uuid:09700087-1111-2222-3333-444444444444)
+* section[=].entry[+] = Reference(urn:uuid:09700088-1111-2222-3333-444444444444)
+* section[=].entry[+] = Reference(urn:uuid:09700089-1111-2222-3333-444444444444)
+* section[=].entry[+] = Reference(urn:uuid:0970008a-1111-2222-3333-444444444444)
 
 * section[prophylaxisImmunization].title = "Prophylaxis and Immunization"
 * section[=].code = $form-097-section-cs#prophylaxis-immunization "Prophylaxis / immunization"
@@ -398,15 +517,9 @@ Usage: #inline
 * section[=].code = $loinc#LP35157-4 "Responsible party"
 * section[=].entry[0] = Reference(urn:uuid:097000d1-1111-2222-3333-444444444444)
 * section[=].entry[+] = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
-
-
 // ============================================================
-// PATIENT / RELATEDPERSON / ORGANIZATION / ENCOUNTER
+// STAFF / PATIENT / RELATEDPERSON / ORGANIZATION / ENCOUNTER / LOCATION
 // ============================================================
-
-// ------------------------------------------------------------
-// Responsible persons / staff
-// ------------------------------------------------------------
 
 Instance: practitioner-physician-097
 InstanceOf: UZCorePractitioner
@@ -460,10 +573,6 @@ Usage: #inline
 * name.given[+] = "Rustamovich"
 * gender = #male
 * birthDate = "1990-02-18"
-// TODO(Gulhayo): father still not modeled beyond this RelatedPerson -
-// confirm whether UZCoreRelatedPerson can carry the blood-type/Rh-relevant
-// fields the mapping needs, or whether a full Patient resource is
-// required instead (see original TODO above).
 
 Instance: new-born-baby-097
 InstanceOf: UZCorePatient
@@ -495,8 +604,12 @@ Usage: #inline
 * name.given[+] = "Farkhodovna"
 * gender = #female
 * birthDate = "1992-03-12"
-// TODO(Gulhayo): nationality/address/managingOrganization still only
-// defined on UZCorePatient, not UZCoreRelatedPerson - mismatch still open
+// TODO(Gulhayo): nationality (row 13), workplace (row 14), position (row 15),
+// maritalStatus (row 16), address (row 17) are all in the mapping sheet as
+// UZCorePatient elements - not modeled here since mother is a RelatedPerson
+// and the profile does not support them (confirmed: validator rejected
+// maritalStatus on RelatedPerson earlier this session). Blocked pending the
+// subject-model decision, not an oversight.
 
 Instance: organization-097-001
 InstanceOf: Organization
@@ -505,6 +618,17 @@ Usage: #inline
 * identifier.system = "https://dhp.uz/fhir/core/sid/uz/organization-code"
 * identifier.value = "200001"
 * name = "Toshkent shahar perinatal markazi"
+
+Instance: location-ward-097
+InstanceOf: UZCoreLocation
+Usage: #inline
+* language = #en
+* identifier[unit].type.text = "Ward/unit number"
+* identifier[unit].value = "12"
+* name = "Neonatal ward, room 12"
+* managingOrganization = Reference(urn:uuid:09700004-1111-2222-3333-444444444444)
+// Row 19: "Палата №______" (ward number). Mapping specifies
+// UZCoreLocation.identifier[unit] as the target element.
 
 Instance: encounter-097-001
 InstanceOf: UZCoreEncounter
@@ -526,14 +650,17 @@ Usage: #inline
 * location[0].form = $location-form#101.0 "Neonatal ward"
 * location[0].period.start = "2026-06-01T09:00:00+05:00"
 * location[0].period.end = "2026-06-07T12:00:00+05:00"
-* location[0].location = Reference(urn:uuid:09700004-1111-2222-3333-444444444444)
+* location[0].location = Reference(urn:uuid:097000e4-1111-2222-3333-444444444444)
 * participant[0].actor = Reference(urn:uuid:097000d1-1111-2222-3333-444444444444)
 * participant[+].actor = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * priority = $v3ActPriority#R "Routine"
-
-
+// FIXED: location[0].location now points at the real location-ward-097
+// instance (was pointing at the Organization before).
+// TODO: rows 88-90 (department transfer, UZCoreEncounter.partOf + a second
+// actualPeriod) not modeled - would require a second Encounter resource
+// linked via partOf; not built, not guessed.
 // ============================================================
-// MOTHER INFORMATION / ANTENATAL HISTORY  (unchanged)
+// MOTHER INFORMATION / ANTENATAL HISTORY
 // ============================================================
 
 Instance: observation-mother-blood-type-097
@@ -547,6 +674,21 @@ Usage: #inline
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * valueCodeableConcept = $sct#278152006 "Blood group A Rh(D) negative"
 
+Instance: observation-mother-rh-factor-097
+InstanceOf: UZCoreObservation
+Usage: #inline
+* language = #en
+* status = #final
+* code = $loinc#54416-3 "Rh Bld Fetus"
+// NOTE: LOINC 54416-3's display name is about "Fetus", not the mother -
+// this mismatch was flagged early in the session (Gulhayo confirmation
+// pending) and is still open. Using the code as given in the mapping
+// sheet's row 5 hint; display name accuracy is a separate open question.
+* subject = Reference(urn:uuid:09700003-1111-2222-3333-444444444444)
+* encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
+* performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* valueCodeableConcept = $rh-factor-cs#165746003 "Rh negative"
+
 Instance: observation-father-blood-type-097
 InstanceOf: UZCoreObservation
 Usage: #inline
@@ -556,7 +698,18 @@ Usage: #inline
 * subject = Reference(urn:uuid:097000d4-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
-* valueCodeableConcept = $sct#112144000 "Blood group O Rh(D) positive"
+* valueCodeableConcept = $sct#112144000 "Blood group A"
+
+Instance: observation-father-rh-factor-097
+InstanceOf: UZCoreObservation
+Usage: #inline
+* language = #en
+* status = #final
+* code = $loinc#52792-9 "Rh Bld Father"
+* subject = Reference(urn:uuid:097000d4-1111-2222-3333-444444444444)
+* encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
+* performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* valueCodeableConcept = $rh-factor-cs#165747007 "Rh positive"
 
 Instance: familymemberhistory-mother-097
 InstanceOf: FamilyMemberHistory
@@ -611,20 +764,42 @@ Usage: #inline
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * valueQuantity = 40 'wk' "weeks"
 
-// observation-rom-to-delivery-097 — still commented out, $labor-course CS pending
-/*
-Instance: observation-rom-to-delivery-097
+Instance: observation-labor-first-stage-097
 InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* category[0] = http://terminology.hl7.org/CodeSystem/observation-category#procedure
-* code = $labor-course#rom-to-delivery "Rupture of membranes to delivery interval"
+* code.text = "TBD - labor first stage duration/specifics identifier code"
+// Row 38: no code hint given in mapping sheet at all, only element type
+// (valueString) - genuinely unresolved, not a guess.
 * subject = Reference(urn:uuid:09700003-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
-* valueQuantity = 6.5 'h' "hours"
-*/
+* valueString = "TBD"
+
+Instance: observation-labor-second-stage-097
+InstanceOf: UZCoreObservation
+Usage: #inline
+* language = #en
+* status = #final
+* code.text = "TBD - labor second stage duration/specifics identifier code"
+* subject = Reference(urn:uuid:09700003-1111-2222-3333-444444444444)
+* encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
+* performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* valueString = "TBD"
+
+Instance: procedure-labor-surgical-097
+InstanceOf: UZCoreProcedure
+Usage: #inline
+* language = #en
+* status = #not-done
+* code.text = "TBD - surgical procedures during labor identifier code"
+* subject = Reference(urn:uuid:09700003-1111-2222-3333-444444444444)
+* encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
+* note.text = "No surgical intervention during labor"
+// Row 40: yes/no question with details in note. Modeled as #not-done since
+// example data has no surgical intervention; set to #completed with a
+// real code and note detail if the real case involved one.
 
 Instance: condition-pregnancy-complication-097
 InstanceOf: UZCoreCondition
@@ -632,7 +807,6 @@ Usage: #inline
 * language = #en
 * clinicalStatus = $condition-clinical#active
 * category = $diagnosis-role#complication
-// Illustrative code only - confirm the actual complication with clinical review
 * code.coding.system = $icd10
 * code.coding.code = #O24.4
 * code.coding.display = "Gestational diabetes mellitus"
@@ -645,11 +819,16 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $loinc#57071-2 "Amniotic fluid appearance"
+* code = $loinc#1887-9 "Appearance of amniotic fluid"
 * subject = Reference(urn:uuid:09700003-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * valueCodeableConcept = $sct#168090003 "Transparent"
+
+
+// ============================================================
+// BIRTH EVENT
+// ============================================================
 
 Instance: observation-birth-height-097
 InstanceOf: UZCoreObservation
@@ -661,6 +840,96 @@ Usage: #inline
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * valueQuantity = 51 'cm' "cm"
+
+Instance: observation-newborn-blood-type-097
+InstanceOf: UZCoreObservation
+Usage: #inline
+* language = #en
+* status = #final
+* code = $loinc#883-9 "ABO group [Type] in Blood"
+* subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
+* encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
+* performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* valueCodeableConcept = $abo-blood-group-cs#112144000 "Group II (A)"
+
+Instance: observation-newborn-rh-factor-097
+InstanceOf: UZCoreObservation
+Usage: #inline
+* language = #en
+* status = #final
+* code = $loinc#14908-8 "Rh [Type] in Blood from Newborn"
+* subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
+* encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
+* performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* valueCodeableConcept = $rh-factor-cs#165747007 "Rh positive"
+
+Instance: observation-newborn-head-circumference-097
+InstanceOf: UZCoreObservation
+Usage: #inline
+* language = #en
+* status = #final
+* code = $loinc#9843-4 "Head Occipital-frontal circumference"
+* subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
+* encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
+* performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* valueQuantity = 34 'cm' "cm"
+
+Instance: observation-newborn-chest-circumference-097
+InstanceOf: UZCoreObservation
+Usage: #inline
+* language = #en
+* status = #final
+* code.text = "TBD - chest circumference identifier code"
+// Row 53: mapping sheet says "SNOMED Chest circumference" but gives no
+// actual code; could not verify one independently via search this session.
+* subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
+* encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
+* performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* valueQuantity = 33 'cm' "cm"
+
+Instance: observation-signs-of-life-respiration-097
+InstanceOf: UZCoreObservation
+Usage: #inline
+* language = #en
+* status = #final
+* code.text = "TBD - presence of respiration identifier code"
+* subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
+* encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
+* performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* valueBoolean = true
+
+Instance: observation-signs-of-life-heartbeat-097
+InstanceOf: UZCoreObservation
+Usage: #inline
+* language = #en
+* status = #final
+* code.text = "TBD - presence of heartbeat identifier code"
+* subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
+* encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
+* performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* valueBoolean = true
+
+Instance: observation-signs-of-life-cord-pulsation-097
+InstanceOf: UZCoreObservation
+Usage: #inline
+* language = #en
+* status = #final
+* code.text = "TBD - presence of umbilical cord pulsation identifier code"
+* subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
+* encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
+* performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* valueBoolean = true
+
+Instance: observation-signs-of-life-muscle-movement-097
+InstanceOf: UZCoreObservation
+Usage: #inline
+* language = #en
+* status = #final
+* code.text = "TBD - presence of involuntary muscle movement identifier code"
+* subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
+* encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
+* performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* valueBoolean = true
 
 Instance: observation-delivery-timeliness-097
 InstanceOf: UZCoreObservation
@@ -678,11 +947,11 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code.text = "Newborn term status"
+* code = $newborn-maturity-assessment-cs#chr-0126-0001 "Newborn term status assessment"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
-* interpretation = $newborn-term-status-cs#chr-0075-00002 "Term"
+* valueCodeableConcept = $newborn-term-status-cs#chr-0075-00002 "Term"
 
 Instance: observation-fetal-outcome-097
 InstanceOf: UZCoreObservation
@@ -700,7 +969,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $sct#733646009 "Skin-to-skin contact after birth"
+* code.text = "TBD - skin-to-skin contact timing identifier code"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
@@ -711,11 +980,54 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $sct#225216007 "Duration of procedure"
+* code.text = "TBD - duration of procedure identifier code"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * valueQuantity = 40 'min' "minutes"
+
+Instance: observation-skin-to-skin-absence-reason-097
+InstanceOf: UZCoreObservation
+Usage: #inline
+* language = #en
+* status = #cancelled
+* code = $newborn-birth-anthropometry-cs#chr-0122-0004 "Skin-to-skin contact between mother and newborn"
+* subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
+* encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
+* performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* dataAbsentReason = http://terminology.hl7.org/CodeSystem/data-absent-reason#not-applicable "Not applicable"
+* note.text = "Skin-to-skin contact occurred - reason field not applicable for this example"
+// Row 78: only relevant when skin-to-skin did NOT occur. Example patient
+// did have skin-to-skin contact (see timing/duration above), so this is
+// modeled as #cancelled/not-applicable rather than fabricating a reason.
+
+Instance: observation-breastfeeding-absence-reason-097
+InstanceOf: UZCoreObservation
+Usage: #inline
+* language = #en
+* status = #cancelled
+* code = $newborn-birth-anthropometry-cs#chr-0122-0002 "Reason for not breastfeeding"
+* subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
+* encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
+* performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* dataAbsentReason = http://terminology.hl7.org/CodeSystem/data-absent-reason#not-applicable "Not applicable"
+* note.text = "Mother breastfed - reason field not applicable for this example"
+
+Instance: condition-developmental-disorder-097
+InstanceOf: UZCoreCondition
+Usage: #inline
+* language = #en
+* clinicalStatus = $condition-clinical#inactive
+* category = $diagnosis-role#complication
+* code.coding.system = $icd10
+* code.coding.code = #Q00-Q99
+* code.coding.display = "TBD - specific developmental disorder code"
+// Row 81: "Нарушения развития" (developmental disorders), distinct from
+// birth trauma (row 82, already modeled). Example patient has no
+// developmental disorder; kept clinicalStatus inactive as a placeholder
+// structure rather than fabricating a diagnosis.
+* subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
+* encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 
 Instance: procedure-gonoblenorrhea-prophylaxis-097
 InstanceOf: UZCoreProcedure
@@ -730,29 +1042,86 @@ Usage: #inline
 * performer.actor = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * note.text = "TBD - medication name (e.g. tetracycline/erythromycin ointment)"
 
+Instance: observation-temperature-reading1-097
+InstanceOf: UZCoreObservation
+Usage: #inline
+* language = #en
+* status = #final
+* code = $loinc#8310-5 "Body temperature"
+* subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
+* encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
+* performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T15:00:00+05:00"
+* valueQuantity = 36.9 'Cel' "°C"
+
+Instance: observation-temperature-reading2-097
+InstanceOf: UZCoreObservation
+Usage: #inline
+* language = #en
+* status = #final
+* code = $loinc#8310-5 "Body temperature"
+* subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
+* encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
+* performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T17:00:00+05:00"
+* valueQuantity = 36.8 'Cel' "°C"
+
+Instance: observation-exam-delivery-room-condition-097
+InstanceOf: UZCoreObservation
+Usage: #inline
+* language = #en
+* status = #final
+* code = $newborn-physical-examination-cs#chr-0123-0005 "Infant condition at discharge from delivery room"
+* subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
+* encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
+* performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* valueCodeableConcept = $satisfactory-status-cs#chr-0040-00001 "Satisfactory"
+
+Instance: observation-exam-skin-color-description-097
+InstanceOf: UZCoreObservation
+Usage: #inline
+* language = #en
+* status = #final
+* code = $loinc#67524-9 "Skin color"
+* subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
+* encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
+* performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* valueString = "TBD"
+
+Instance: observation-exam-skin-appearance-097
+InstanceOf: UZCoreObservation
+Usage: #inline
+* language = #en
+* status = #final
+* code = $loinc#39106-0 "Skin appearance"
+* subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
+* encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
+* performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* valueString = "TBD"
+
 Instance: observation-ballard-physical-maturity-097
 InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $sct#431314004 "Physical maturity assessment of newborn"
+* code = $newborn-maturity-assessment-cs#chr-0126-0007 "Newborn physical maturity assessment"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-06-01T09:00:00+05:00"
-* component[0].code = $sct#301333006 "Skin color/appearance"
+* component[0].code = $newborn-maturity-assessment-cs#chr-0126-0003 "Skin maturity"
 * component[0].valueCodeableConcept = $ballard-skin-maturity-cs#chr-0068-00003 "1: smooth pink, visible veins"
-* component[1].code = $sct#119191000 "Hair distribution"
+* component[1].code = $newborn-maturity-assessment-cs#chr-0126-0002 "Lanugo maturity"
 * component[1].valueCodeableConcept = $ballard-lanugo-maturity-cs#chr-0069-00003 "1: abundant"
-* component[2].code = $sct#364475006 "Sole of foot appearance"
+* component[2].code = $newborn-maturity-assessment-cs#chr-0126-0004 "Plantar surface maturity"
 * component[2].valueCodeableConcept = $ballard-plantar-surface-cs#chr-0070-00004 "1: faint red marks"
-* component[3].code.text = "TBD - breast maturity identifier code"
+* component[3].code = $newborn-maturity-assessment-cs#chr-0126-0005 "Breast maturity"
 * component[3].valueCodeableConcept = $ballard-breast-maturity-cs#chr-0071-00003 "1: flat areola, no bud"
-* component[4].code = $sct#364657006 "Eye and ear assessment"
+* component[4].code = $newborn-maturity-assessment-cs#chr-0126-0006 "Eye and ear maturity"
 * component[4].valueCodeableConcept = $ballard-eye-ear-maturity-cs#chr-0072-00005 "2: curved pinna, soft"
-* component[5].code.text = "TBD - male genital maturity identifier code"
+* component[5].code = $newborn-maturity-assessment-cs#chr-0126-0008 "Male genital maturity"
 * component[5].valueCodeableConcept = $ballard-male-genital-maturity-cs#chr-0073-00003 "1: testes in upper canal"
-* component[6].code.text = "TBD - female genital maturity identifier code"
+* component[6].code = $newborn-maturity-assessment-cs#chr-0126-0009 "Female genital maturity"
 * component[6].valueCodeableConcept = $ballard-female-genital-maturity-cs#chr-0074-00003 "1: prominent clitoris and labia minora"
 
 Instance: observation-ballard-neuromuscular-maturity-097
@@ -815,13 +1184,16 @@ Usage: #inline
 * component[3].valueInteger = 2
 * component[4].code = $loinc#32415-2 "5 minute Apgar Respiratory effort"
 * component[4].valueInteger = 1
+// ============================================================
+// FIRST NEWBORN EXAM
+// ============================================================
 
 Instance: observation-exam-general-appearance-097
 InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $loinc#8716-3 "Appearance"
+* code = $newborn-physical-examination-cs#chr-0123-0001 "General appearance of newborn"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
@@ -833,7 +1205,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $loinc#39156-5 "Skin color"
+* code = $newborn-physical-examination-cs#chr-0123-0003 "Skin color"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
@@ -878,7 +1250,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $sct#271809000 "Edema"
+* code = $sct#271809000 "Peripheral edema"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
@@ -889,7 +1261,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $sct#271807003 "Rash"
+* code = $sct#271807003 "Eruption"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
@@ -901,18 +1273,20 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $loinc#73714-8 "Umbilical cord [Identifier]"
+* code = $newborn-physical-examination-cs#chr-0123-0004 "Umbilical stump status"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
-* valueString = "TBD"
+* valueCodeableConcept = $satisfactory-status-cs#chr-0040-00001 "Satisfactory"
+// FIXED: value type changed from valueString "TBD" to valueCodeableConcept -
+// mapping sheet row 96 specifies this field is bound to satisfactory-status-vs
 
 Instance: observation-exam-neurological-status-097
 InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $sct#248544006 "Neurological status"
+* code = $newborn-physical-examination-cs#chr-0123-0014 "Neurological status"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
@@ -935,7 +1309,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $sct#15994005 "Structure of posterior fontanelle"
+* code = $sct#15994005 "Structure of posterior fontanel of skull"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
@@ -946,7 +1320,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $sct#248639001 "Cranial sutures finding"
+* code = $newborn-physical-examination-cs#chr-0123-0018 "Cranial suture condition"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
@@ -971,7 +1345,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $sct#301364000 "Asymmetry of body structure"
+* code = $newborn-physical-examination-cs#chr-0123-0031 "Left-sided asymmetry"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
@@ -982,7 +1356,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $sct#43215004 "Joint reflex"
+* code = $newborn-physical-examination-cs#chr-0123-0008 "Joint reflexes"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
@@ -993,7 +1367,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $sct#36652000 "Primitive reflexes"
+* code = $newborn-physical-examination-cs#chr-0123-0007 "Physiological reflexes"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
@@ -1004,7 +1378,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $sct#249253008 "Spinal abnormality"
+* code = $newborn-physical-examination-cs#chr-0123-0020 "Spinal condition"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
@@ -1028,7 +1402,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $sct#246968003 "Eye shape"
+* code = $newborn-physical-examination-cs#chr-0123-0013 "Eye shape"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
@@ -1039,7 +1413,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $loinc#19155-1 "Pupillary light reflex"
+* code = $newborn-physical-examination-cs#chr-0123-0002 "Pupillary reaction to light"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
@@ -1050,7 +1424,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $sct#301329000 "Shape of auricle"
+* code = $newborn-physical-examination-cs#chr-0123-0030 "Position and shape of auricles"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
@@ -1061,7 +1435,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $sct#248633004 "Shape of thorax"
+* code = $newborn-physical-examination-cs#chr-0123-0017 "Chest shape"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
@@ -1086,7 +1460,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $sct#86290005 "Breathing pattern"
+* code = $newborn-physical-examination-cs#chr-0123-0009 "Respiratory rhythm"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
@@ -1097,7 +1471,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $sct#248573001 "Grunting respiration"
+* code = $newborn-physical-examination-cs#chr-0123-0016 "Grunting"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
@@ -1108,7 +1482,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $sct#364075005 "Breath sounds"
+* code = $newborn-physical-examination-cs#chr-0123-0032 "Breath sounds on auscultation"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
@@ -1141,7 +1515,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $sct#162057007 "Nasal discharge"
+* code = $newborn-physical-examination-cs#chr-0123-0011 "Nasopharyngeal discharge"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
@@ -1152,7 +1526,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $sct#16518851000119100 "Silverman score for neonatal respiratory distress"
+* code = $newborn-physical-examination-cs#chr-0123-0034 "Total Silverman respiratory score"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
@@ -1202,6 +1576,8 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* category = http://terminology.hl7.org/CodeSystem/observation-category#vital-signs "Vital Signs"
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueQuantity = 140 '/min' "beats/min"
 
 Instance: observation-exam-capillary-refill-097
@@ -1209,7 +1585,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $sct#251000003 "Capillary refill time"
+* code = $newborn-physical-examination-cs#chr-0123-0026 "Capillary refill time"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
@@ -1220,7 +1596,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $sct#301011002 "Abdominal examination"
+* code = $newborn-physical-examination-cs#chr-0123-0028 "Abdominal condition"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
@@ -1232,7 +1608,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $sct#249524002 "Bowel sounds"
+* code = $newborn-physical-examination-cs#chr-0123-0021 "Bowel peristalsis"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
@@ -1256,7 +1632,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $sct#249620008 "Liver size finding"
+* code = $newborn-physical-examination-cs#chr-0123-0023 "Liver size"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
@@ -1267,7 +1643,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $sct#249624004 "Spleen finding"
+* code = $newborn-physical-examination-cs#chr-0123-0024 "Spleen condition"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
@@ -1289,7 +1665,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $sct#289443002 "Passage of meconium"
+* code = $newborn-physical-examination-cs#chr-0123-0027 "Meconium passage"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
@@ -1300,7 +1676,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $sct#249565004 "Anal orifice finding"
+* code = $newborn-physical-examination-cs#chr-0123-0022 "Anal opening condition"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
@@ -1311,7 +1687,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $sct#162116003 "Urination finding"
+* code = $newborn-physical-examination-cs#chr-0123-0012 "Urination"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
@@ -1322,7 +1698,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $sct#248561001 "Genital appearance"
+* code = $newborn-physical-examination-cs#chr-0123-0015 "External genitalia condition"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
@@ -1333,7 +1709,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $sct#249913002 "Hip joint finding"
+* code = $newborn-physical-examination-cs#chr-0123-0025 "Hip joint condition"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
@@ -1345,7 +1721,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $sct#5880005 "Physical examination"
+* code = $newborn-physical-examination-cs#chr-0123-0006 "Newborn examination conclusion"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
@@ -1358,13 +1734,15 @@ Usage: #inline
 * clinicalStatus = $condition-clinical#active
 * verificationStatus = $condition-ver-status#provisional
 * category = $diagnosis-role#main
-// Illustrative code only - confirm the actual provisional diagnosis with clinical review
 * code.coding.system = $icd10
 * code.coding.code = #P59.9
 * code.coding.display = "Neonatal jaundice, unspecified"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * onsetDateTime = "2026-06-03"
+// ============================================================
+// WEIGHT DYNAMICS
+// ============================================================
 
 Instance: observation-birth-weight-097
 InstanceOf: UZCoreObservation
@@ -1383,6 +1761,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
+* category = http://terminology.hl7.org/CodeSystem/observation-category#vital-signs "Vital Signs"
 * code = $loinc#3141-9 "Body weight Measured"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
@@ -1390,8 +1769,127 @@ Usage: #inline
 * effectiveDateTime = "2026-06-02T09:00:00+05:00"
 * valueQuantity = 3100 'g' "g"
 
-// observation-weight-day2-097 through observation-weight-day10-097 follow the
-// same shape, incrementing effectiveDateTime by one day each time
+Instance: observation-weight-day2-097
+InstanceOf: UZCoreObservation
+Usage: #inline
+* language = #en
+* status = #final
+* category = http://terminology.hl7.org/CodeSystem/observation-category#vital-signs "Vital Signs"
+* code = $loinc#3141-9 "Body weight Measured"
+* subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
+* encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
+* performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-03T09:00:00+05:00"
+* valueQuantity = 3050 'g' "g"
+
+Instance: observation-weight-day3-097
+InstanceOf: UZCoreObservation
+Usage: #inline
+* language = #en
+* status = #final
+* category = http://terminology.hl7.org/CodeSystem/observation-category#vital-signs "Vital Signs"
+* code = $loinc#3141-9 "Body weight Measured"
+* subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
+* encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
+* performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-04T09:00:00+05:00"
+* valueQuantity = 3050 'g' "g"
+
+Instance: observation-weight-day4-097
+InstanceOf: UZCoreObservation
+Usage: #inline
+* language = #en
+* status = #final
+* category = http://terminology.hl7.org/CodeSystem/observation-category#vital-signs "Vital Signs"
+* code = $loinc#3141-9 "Body weight Measured"
+* subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
+* encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
+* performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-05T09:00:00+05:00"
+* valueQuantity = 3100 'g' "g"
+
+Instance: observation-weight-day5-097
+InstanceOf: UZCoreObservation
+Usage: #inline
+* language = #en
+* status = #final
+* category = http://terminology.hl7.org/CodeSystem/observation-category#vital-signs "Vital Signs"
+* code = $loinc#3141-9 "Body weight Measured"
+* subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
+* encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
+* performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-06T09:00:00+05:00"
+* valueQuantity = 3150 'g' "g"
+
+Instance: observation-weight-day6-097
+InstanceOf: UZCoreObservation
+Usage: #inline
+* language = #en
+* status = #final
+* category = http://terminology.hl7.org/CodeSystem/observation-category#vital-signs "Vital Signs"
+* code = $loinc#3141-9 "Body weight Measured"
+* subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
+* encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
+* performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-07T09:00:00+05:00"
+* valueQuantity = 3200 'g' "g"
+
+Instance: observation-weight-day7-097
+InstanceOf: UZCoreObservation
+Usage: #inline
+* language = #en
+* status = #final
+* category = http://terminology.hl7.org/CodeSystem/observation-category#vital-signs "Vital Signs"
+* code = $loinc#3141-9 "Body weight Measured"
+* subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
+* encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
+* performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-08T09:00:00+05:00"
+* valueQuantity = 3230 'g' "g"
+
+Instance: observation-weight-day8-097
+InstanceOf: UZCoreObservation
+Usage: #inline
+* language = #en
+* status = #final
+* category = http://terminology.hl7.org/CodeSystem/observation-category#vital-signs "Vital Signs"
+* code = $loinc#3141-9 "Body weight Measured"
+* subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
+* encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
+* performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-09T09:00:00+05:00"
+* valueQuantity = 3260 'g' "g"
+
+Instance: observation-weight-day9-097
+InstanceOf: UZCoreObservation
+Usage: #inline
+* language = #en
+* status = #final
+* category = http://terminology.hl7.org/CodeSystem/observation-category#vital-signs "Vital Signs"
+* code = $loinc#3141-9 "Body weight Measured"
+* subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
+* encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
+* performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-10T09:00:00+05:00"
+* valueQuantity = 3290 'g' "g"
+
+Instance: observation-weight-day10-097
+InstanceOf: UZCoreObservation
+Usage: #inline
+* language = #en
+* status = #final
+* category = http://terminology.hl7.org/CodeSystem/observation-category#vital-signs "Vital Signs"
+* code = $loinc#3141-9 "Body weight Measured"
+* subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
+* encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
+* performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-11T09:00:00+05:00"
+* valueQuantity = 3320 'g' "g"
+
+
+// ============================================================
+// PROPHYLAXIS / IMMUNIZATION
+// ============================================================
 
 Instance: medication-vitamin-k-097
 InstanceOf: Medication
@@ -1442,17 +1940,22 @@ Usage: #inline
 * expirationDate = "2028-01-01"
 * performer.actor = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 
+
+// ============================================================
+// SCREENING
+// ============================================================
+
 Instance: observation-screening-audiology-097
 InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $sct#443849008 "Neonatal hearing screening"
+* code = $newborn-care-feeding-cs#chr-0124-0003 "Neonatal audiological screening"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-06-04T09:00:00+05:00"
 * note.text = "TBD - day of life"
-* valueString = "TBD"
+* valueString = "Pass"
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 
 Instance: observation-screening-hypothyroidism-097
@@ -1460,13 +1963,18 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $sct#443846001 "Neonatal screening for congenital hypothyroidism"
+* code = $newborn-care-feeding-cs#chr-0124-0004 "Neonatal screening for congenital hypothyroidism"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-06-04T09:00:00+05:00"
 * note.text = "TBD - day of life"
-* valueString = "TBD"
+* valueString = "Normal (negative)"
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+
+
+// ============================================================
+// DAILY OBSERVATION (nurse's checklist, Day 0-6)
+// ============================================================
 
 Instance: observation-daily-day0-097
 InstanceOf: UZCoreObservation
@@ -1490,7 +1998,7 @@ Usage: #inline
 * component[4].valueQuantity = 36.8 'Cel' "°C"
 * component[5].code = $loinc#63895-7 "Breastfeeding status"
 * component[5].valueCodeableConcept = $infant-feeding-type-cs#chr-0067-00001 "Exclusive breastfeeding"
-* component[6].code = $sct#274540003 "Feeding difficulties and mismanagement"
+* component[6].code = $newborn-daily-monitoring-cs#chr-0125-0003 "Feeding tolerance"
 * component[6].valueCodeableConcept.text = "TBD"
 * component[7].code = $sct#62315008 "Diarrhea"
 * component[7].valueCodeableConcept = $sct#373067005 "No"
@@ -1500,7 +2008,6 @@ Usage: #inline
 * component[9].valueDateTime = "2026-06-01T00:00:00+05:00"
 * component[10].code = $sct#210458004 "Open wound umbilical region"
 * component[10].valueCodeableConcept = $sct#373067005 "No"
-
 
 Instance: observation-daily-day1-097
 InstanceOf: UZCoreObservation
@@ -1524,7 +2031,7 @@ Usage: #inline
 * component[4].valueQuantity = 36.8 'Cel' "°C"
 * component[5].code = $loinc#63895-7 "Breastfeeding status"
 * component[5].valueCodeableConcept = $infant-feeding-type-cs#chr-0067-00001 "Exclusive breastfeeding"
-* component[6].code = $sct#274540003 "Feeding difficulties and mismanagement"
+* component[6].code = $newborn-daily-monitoring-cs#chr-0125-0003 "Feeding tolerance"
 * component[6].valueCodeableConcept.text = "TBD"
 * component[7].code = $sct#62315008 "Diarrhea"
 * component[7].valueCodeableConcept = $sct#373067005 "No"
@@ -1534,7 +2041,6 @@ Usage: #inline
 * component[9].valueDateTime = "2026-06-02T00:00:00+05:00"
 * component[10].code = $sct#210458004 "Open wound umbilical region"
 * component[10].valueCodeableConcept = $sct#373067005 "No"
-
 
 Instance: observation-daily-day2-097
 InstanceOf: UZCoreObservation
@@ -1558,7 +2064,7 @@ Usage: #inline
 * component[4].valueQuantity = 36.8 'Cel' "°C"
 * component[5].code = $loinc#63895-7 "Breastfeeding status"
 * component[5].valueCodeableConcept = $infant-feeding-type-cs#chr-0067-00001 "Exclusive breastfeeding"
-* component[6].code = $sct#274540003 "Feeding difficulties and mismanagement"
+* component[6].code = $newborn-daily-monitoring-cs#chr-0125-0003 "Feeding tolerance"
 * component[6].valueCodeableConcept.text = "TBD"
 * component[7].code = $sct#62315008 "Diarrhea"
 * component[7].valueCodeableConcept = $sct#373067005 "No"
@@ -1568,7 +2074,6 @@ Usage: #inline
 * component[9].valueDateTime = "2026-06-03T00:00:00+05:00"
 * component[10].code = $sct#210458004 "Open wound umbilical region"
 * component[10].valueCodeableConcept = $sct#373067005 "No"
-
 
 Instance: observation-daily-day3-097
 InstanceOf: UZCoreObservation
@@ -1592,7 +2097,7 @@ Usage: #inline
 * component[4].valueQuantity = 36.8 'Cel' "°C"
 * component[5].code = $loinc#63895-7 "Breastfeeding status"
 * component[5].valueCodeableConcept = $infant-feeding-type-cs#chr-0067-00001 "Exclusive breastfeeding"
-* component[6].code = $sct#274540003 "Feeding difficulties and mismanagement"
+* component[6].code = $newborn-daily-monitoring-cs#chr-0125-0003 "Feeding tolerance"
 * component[6].valueCodeableConcept.text = "TBD"
 * component[7].code = $sct#62315008 "Diarrhea"
 * component[7].valueCodeableConcept = $sct#373067005 "No"
@@ -1602,7 +2107,6 @@ Usage: #inline
 * component[9].valueDateTime = "2026-06-04T00:00:00+05:00"
 * component[10].code = $sct#210458004 "Open wound umbilical region"
 * component[10].valueCodeableConcept = $sct#373067005 "No"
-
 
 Instance: observation-daily-day4-097
 InstanceOf: UZCoreObservation
@@ -1626,7 +2130,7 @@ Usage: #inline
 * component[4].valueQuantity = 36.8 'Cel' "°C"
 * component[5].code = $loinc#63895-7 "Breastfeeding status"
 * component[5].valueCodeableConcept = $infant-feeding-type-cs#chr-0067-00001 "Exclusive breastfeeding"
-* component[6].code = $sct#274540003 "Feeding difficulties and mismanagement"
+* component[6].code = $newborn-daily-monitoring-cs#chr-0125-0003 "Feeding tolerance"
 * component[6].valueCodeableConcept.text = "TBD"
 * component[7].code = $sct#62315008 "Diarrhea"
 * component[7].valueCodeableConcept = $sct#373067005 "No"
@@ -1636,7 +2140,6 @@ Usage: #inline
 * component[9].valueDateTime = "2026-06-05T00:00:00+05:00"
 * component[10].code = $sct#210458004 "Open wound umbilical region"
 * component[10].valueCodeableConcept = $sct#373067005 "No"
-
 
 Instance: observation-daily-day5-097
 InstanceOf: UZCoreObservation
@@ -1660,7 +2163,7 @@ Usage: #inline
 * component[4].valueQuantity = 36.8 'Cel' "°C"
 * component[5].code = $loinc#63895-7 "Breastfeeding status"
 * component[5].valueCodeableConcept = $infant-feeding-type-cs#chr-0067-00001 "Exclusive breastfeeding"
-* component[6].code = $sct#274540003 "Feeding difficulties and mismanagement"
+* component[6].code = $newborn-daily-monitoring-cs#chr-0125-0003 "Feeding tolerance"
 * component[6].valueCodeableConcept.text = "TBD"
 * component[7].code = $sct#62315008 "Diarrhea"
 * component[7].valueCodeableConcept = $sct#373067005 "No"
@@ -1670,7 +2173,6 @@ Usage: #inline
 * component[9].valueDateTime = "2026-06-06T00:00:00+05:00"
 * component[10].code = $sct#210458004 "Open wound umbilical region"
 * component[10].valueCodeableConcept = $sct#373067005 "No"
-
 
 Instance: observation-daily-day6-097
 InstanceOf: UZCoreObservation
@@ -1694,7 +2196,7 @@ Usage: #inline
 * component[4].valueQuantity = 36.8 'Cel' "°C"
 * component[5].code = $loinc#63895-7 "Breastfeeding status"
 * component[5].valueCodeableConcept = $infant-feeding-type-cs#chr-0067-00001 "Exclusive breastfeeding"
-* component[6].code = $sct#274540003 "Feeding difficulties and mismanagement"
+* component[6].code = $newborn-daily-monitoring-cs#chr-0125-0003 "Feeding tolerance"
 * component[6].valueCodeableConcept.text = "TBD"
 * component[7].code = $sct#62315008 "Diarrhea"
 * component[7].valueCodeableConcept = $sct#373067005 "No"
@@ -1706,6 +2208,10 @@ Usage: #inline
 * component[10].valueCodeableConcept = $sct#373067005 "No"
 
 
+// ============================================================
+// NEWBORN OBSERVATION SHEET (physician's narrative review, Day 0-6)
+// ============================================================
+
 Instance: observation-newborn-daily-review-day0-097
 InstanceOf: UZCoreObservation
 Usage: #inline
@@ -1716,34 +2222,250 @@ Usage: #inline
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-06-01T00:00:00+05:00"
 * performer = Reference(urn:uuid:097000d1-1111-2222-3333-444444444444)
-* component[0].code = $sct#248262006 "General condition of infant"
+* component[0].code = $newborn-daily-monitoring-cs#chr-0125-0009 "General condition of newborn"
 * component[0].valueCodeableConcept = $satisfactory-status-cs#chr-0040-00001 "Satisfactory"
-* component[1].code = $sct#364393001 "Level of activity"
+* component[1].code = $newborn-daily-monitoring-cs#chr-0125-0013 "Activity level"
 * component[1].valueCodeableConcept = $newborn-activity-level-cs#chr-0076-00002 "Moderate"
-* component[2].code = $sct#36652000 "Primitive reflexes"
+* component[2].code = $newborn-daily-monitoring-cs#chr-0125-0004 "Reflex status"
 * component[2].valueCodeableConcept = $primitive-reflex-type-cs#chr-0077-00002 "Sucking reflex"
-* component[3].code = $sct#37042000 "Muscle tone finding"
+* component[3].code = $newborn-daily-monitoring-cs#chr-0125-0005 "Muscle tone"
 * component[3].valueCodeableConcept = $muscle-tone-status-cs#chr-0056-00001 "Normal"
-* component[4].code = $sct#301333006 "Skin color finding"
+* component[4].code = $newborn-daily-monitoring-cs#chr-0125-0011 "Skin color"
 * component[4].valueCodeableConcept = $newborn-skin-color-detailed-cs#chr-0078-00001 "Normal color"
-* component[5].code = $sct#364075005 "Breathing observation"
+* component[5].code = $newborn-daily-monitoring-cs#chr-0125-0012 "Respiratory condition"
 * component[5].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
-* component[6].code = $sct#301282008 "Examination of heart"
+* component[6].code = $newborn-daily-monitoring-cs#chr-0125-0010 "Cardiovascular system condition"
 * component[6].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
 * component[7].code = $loinc#8310-5 "Body temperature"
 * component[7].valueQuantity = 37.0 'Cel' "°C"
-* component[8].code.text = "Abdominal finding"
+* component[8].code = $newborn-daily-monitoring-cs#chr-0125-0002 "Abdominal organ condition"
 * component[8].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
-* component[9].code = $sct#162116003 "Micturition"
+* component[9].code.text = "Micturition"
 * component[9].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
-* component[10].code = $sct#271863002 "Stool finding"
+* component[10].code.text = "Stool finding"
 * component[10].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
 * component[11].code.text = "Laboratory investigations"
 * component[11].valueString = "TBD"
 * note.text = "TBD - problems and plans"
 
-// observation-newborn-daily-review-day1-097 through day6-097 follow the same
-// shape, incrementing effectiveDateTime by one day each time
+Instance: observation-newborn-daily-review-day1-097
+InstanceOf: UZCoreObservation
+Usage: #inline
+* language = #en
+* status = #final
+* code.text = "TBD - daily review panel identifier (Лист наблюдения за новорожденным)"
+* subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
+* encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-02T00:00:00+05:00"
+* performer = Reference(urn:uuid:097000d1-1111-2222-3333-444444444444)
+* component[0].code = $newborn-daily-monitoring-cs#chr-0125-0009 "General condition of newborn"
+* component[0].valueCodeableConcept = $satisfactory-status-cs#chr-0040-00001 "Satisfactory"
+* component[1].code = $newborn-daily-monitoring-cs#chr-0125-0013 "Activity level"
+* component[1].valueCodeableConcept = $newborn-activity-level-cs#chr-0076-00002 "Moderate"
+* component[2].code = $newborn-daily-monitoring-cs#chr-0125-0004 "Reflex status"
+* component[2].valueCodeableConcept = $primitive-reflex-type-cs#chr-0077-00002 "Sucking reflex"
+* component[3].code = $newborn-daily-monitoring-cs#chr-0125-0005 "Muscle tone"
+* component[3].valueCodeableConcept = $muscle-tone-status-cs#chr-0056-00001 "Normal"
+* component[4].code = $newborn-daily-monitoring-cs#chr-0125-0011 "Skin color"
+* component[4].valueCodeableConcept = $newborn-skin-color-detailed-cs#chr-0078-00001 "Normal color"
+* component[5].code = $newborn-daily-monitoring-cs#chr-0125-0012 "Respiratory condition"
+* component[5].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[6].code = $newborn-daily-monitoring-cs#chr-0125-0010 "Cardiovascular system condition"
+* component[6].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[7].code = $loinc#8310-5 "Body temperature"
+* component[7].valueQuantity = 37.0 'Cel' "°C"
+* component[8].code = $newborn-daily-monitoring-cs#chr-0125-0002 "Abdominal organ condition"
+* component[8].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[9].code.text = "Micturition"
+* component[9].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[10].code.text = "Stool finding"
+* component[10].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[11].code.text = "Laboratory investigations"
+* component[11].valueString = "TBD"
+* note.text = "TBD - problems and plans"
+
+Instance: observation-newborn-daily-review-day2-097
+InstanceOf: UZCoreObservation
+Usage: #inline
+* language = #en
+* status = #final
+* code.text = "TBD - daily review panel identifier (Лист наблюдения за новорожденным)"
+* subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
+* encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-03T00:00:00+05:00"
+* performer = Reference(urn:uuid:097000d1-1111-2222-3333-444444444444)
+* component[0].code = $newborn-daily-monitoring-cs#chr-0125-0009 "General condition of newborn"
+* component[0].valueCodeableConcept = $satisfactory-status-cs#chr-0040-00001 "Satisfactory"
+* component[1].code = $newborn-daily-monitoring-cs#chr-0125-0013 "Activity level"
+* component[1].valueCodeableConcept = $newborn-activity-level-cs#chr-0076-00002 "Moderate"
+* component[2].code = $newborn-daily-monitoring-cs#chr-0125-0004 "Reflex status"
+* component[2].valueCodeableConcept = $primitive-reflex-type-cs#chr-0077-00002 "Sucking reflex"
+* component[3].code = $newborn-daily-monitoring-cs#chr-0125-0005 "Muscle tone"
+* component[3].valueCodeableConcept = $muscle-tone-status-cs#chr-0056-00001 "Normal"
+* component[4].code = $newborn-daily-monitoring-cs#chr-0125-0011 "Skin color"
+* component[4].valueCodeableConcept = $newborn-skin-color-detailed-cs#chr-0078-00001 "Normal color"
+* component[5].code = $newborn-daily-monitoring-cs#chr-0125-0012 "Respiratory condition"
+* component[5].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[6].code = $newborn-daily-monitoring-cs#chr-0125-0010 "Cardiovascular system condition"
+* component[6].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[7].code = $loinc#8310-5 "Body temperature"
+* component[7].valueQuantity = 37.0 'Cel' "°C"
+* component[8].code = $newborn-daily-monitoring-cs#chr-0125-0002 "Abdominal organ condition"
+* component[8].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[9].code.text = "Micturition"
+* component[9].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[10].code.text = "Stool finding"
+* component[10].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[11].code.text = "Laboratory investigations"
+* component[11].valueString = "TBD"
+* note.text = "TBD - problems and plans"
+
+Instance: observation-newborn-daily-review-day3-097
+InstanceOf: UZCoreObservation
+Usage: #inline
+* language = #en
+* status = #final
+* code.text = "TBD - daily review panel identifier (Лист наблюдения за новорожденным)"
+* subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
+* encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-04T00:00:00+05:00"
+* performer = Reference(urn:uuid:097000d1-1111-2222-3333-444444444444)
+* component[0].code = $newborn-daily-monitoring-cs#chr-0125-0009 "General condition of newborn"
+* component[0].valueCodeableConcept = $satisfactory-status-cs#chr-0040-00001 "Satisfactory"
+* component[1].code = $newborn-daily-monitoring-cs#chr-0125-0013 "Activity level"
+* component[1].valueCodeableConcept = $newborn-activity-level-cs#chr-0076-00002 "Moderate"
+* component[2].code = $newborn-daily-monitoring-cs#chr-0125-0004 "Reflex status"
+* component[2].valueCodeableConcept = $primitive-reflex-type-cs#chr-0077-00002 "Sucking reflex"
+* component[3].code = $newborn-daily-monitoring-cs#chr-0125-0005 "Muscle tone"
+* component[3].valueCodeableConcept = $muscle-tone-status-cs#chr-0056-00001 "Normal"
+* component[4].code = $newborn-daily-monitoring-cs#chr-0125-0011 "Skin color"
+* component[4].valueCodeableConcept = $newborn-skin-color-detailed-cs#chr-0078-00001 "Normal color"
+* component[5].code = $newborn-daily-monitoring-cs#chr-0125-0012 "Respiratory condition"
+* component[5].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[6].code = $newborn-daily-monitoring-cs#chr-0125-0010 "Cardiovascular system condition"
+* component[6].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[7].code = $loinc#8310-5 "Body temperature"
+* component[7].valueQuantity = 37.0 'Cel' "°C"
+* component[8].code = $newborn-daily-monitoring-cs#chr-0125-0002 "Abdominal organ condition"
+* component[8].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[9].code.text = "Micturition"
+* component[9].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[10].code.text = "Stool finding"
+* component[10].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[11].code.text = "Laboratory investigations"
+* component[11].valueString = "TBD"
+* note.text = "TBD - problems and plans"
+
+Instance: observation-newborn-daily-review-day4-097
+InstanceOf: UZCoreObservation
+Usage: #inline
+* language = #en
+* status = #final
+* code.text = "TBD - daily review panel identifier (Лист наблюдения за новорожденным)"
+* subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
+* encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-05T00:00:00+05:00"
+* performer = Reference(urn:uuid:097000d1-1111-2222-3333-444444444444)
+* component[0].code = $newborn-daily-monitoring-cs#chr-0125-0009 "General condition of newborn"
+* component[0].valueCodeableConcept = $satisfactory-status-cs#chr-0040-00001 "Satisfactory"
+* component[1].code = $newborn-daily-monitoring-cs#chr-0125-0013 "Activity level"
+* component[1].valueCodeableConcept = $newborn-activity-level-cs#chr-0076-00002 "Moderate"
+* component[2].code = $newborn-daily-monitoring-cs#chr-0125-0004 "Reflex status"
+* component[2].valueCodeableConcept = $primitive-reflex-type-cs#chr-0077-00002 "Sucking reflex"
+* component[3].code = $newborn-daily-monitoring-cs#chr-0125-0005 "Muscle tone"
+* component[3].valueCodeableConcept = $muscle-tone-status-cs#chr-0056-00001 "Normal"
+* component[4].code = $newborn-daily-monitoring-cs#chr-0125-0011 "Skin color"
+* component[4].valueCodeableConcept = $newborn-skin-color-detailed-cs#chr-0078-00001 "Normal color"
+* component[5].code = $newborn-daily-monitoring-cs#chr-0125-0012 "Respiratory condition"
+* component[5].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[6].code = $newborn-daily-monitoring-cs#chr-0125-0010 "Cardiovascular system condition"
+* component[6].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[7].code = $loinc#8310-5 "Body temperature"
+* component[7].valueQuantity = 37.0 'Cel' "°C"
+* component[8].code = $newborn-daily-monitoring-cs#chr-0125-0002 "Abdominal organ condition"
+* component[8].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[9].code.text = "Micturition"
+* component[9].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[10].code.text = "Stool finding"
+* component[10].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[11].code.text = "Laboratory investigations"
+* component[11].valueString = "TBD"
+* note.text = "TBD - problems and plans"
+
+Instance: observation-newborn-daily-review-day5-097
+InstanceOf: UZCoreObservation
+Usage: #inline
+* language = #en
+* status = #final
+* code.text = "TBD - daily review panel identifier (Лист наблюдения за новорожденным)"
+* subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
+* encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-06T00:00:00+05:00"
+* performer = Reference(urn:uuid:097000d1-1111-2222-3333-444444444444)
+* component[0].code = $newborn-daily-monitoring-cs#chr-0125-0009 "General condition of newborn"
+* component[0].valueCodeableConcept = $satisfactory-status-cs#chr-0040-00001 "Satisfactory"
+* component[1].code = $newborn-daily-monitoring-cs#chr-0125-0013 "Activity level"
+* component[1].valueCodeableConcept = $newborn-activity-level-cs#chr-0076-00002 "Moderate"
+* component[2].code = $newborn-daily-monitoring-cs#chr-0125-0004 "Reflex status"
+* component[2].valueCodeableConcept = $primitive-reflex-type-cs#chr-0077-00002 "Sucking reflex"
+* component[3].code = $newborn-daily-monitoring-cs#chr-0125-0005 "Muscle tone"
+* component[3].valueCodeableConcept = $muscle-tone-status-cs#chr-0056-00001 "Normal"
+* component[4].code = $newborn-daily-monitoring-cs#chr-0125-0011 "Skin color"
+* component[4].valueCodeableConcept = $newborn-skin-color-detailed-cs#chr-0078-00001 "Normal color"
+* component[5].code = $newborn-daily-monitoring-cs#chr-0125-0012 "Respiratory condition"
+* component[5].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[6].code = $newborn-daily-monitoring-cs#chr-0125-0010 "Cardiovascular system condition"
+* component[6].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[7].code = $loinc#8310-5 "Body temperature"
+* component[7].valueQuantity = 37.0 'Cel' "°C"
+* component[8].code = $newborn-daily-monitoring-cs#chr-0125-0002 "Abdominal organ condition"
+* component[8].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[9].code.text = "Micturition"
+* component[9].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[10].code.text = "Stool finding"
+* component[10].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[11].code.text = "Laboratory investigations"
+* component[11].valueString = "TBD"
+* note.text = "TBD - problems and plans"
+
+Instance: observation-newborn-daily-review-day6-097
+InstanceOf: UZCoreObservation
+Usage: #inline
+* language = #en
+* status = #final
+* code.text = "TBD - daily review panel identifier (Лист наблюдения за новорожденным)"
+* subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
+* encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-07T00:00:00+05:00"
+* performer = Reference(urn:uuid:097000d1-1111-2222-3333-444444444444)
+* component[0].code = $newborn-daily-monitoring-cs#chr-0125-0009 "General condition of newborn"
+* component[0].valueCodeableConcept = $satisfactory-status-cs#chr-0040-00001 "Satisfactory"
+* component[1].code = $newborn-daily-monitoring-cs#chr-0125-0013 "Activity level"
+* component[1].valueCodeableConcept = $newborn-activity-level-cs#chr-0076-00002 "Moderate"
+* component[2].code = $newborn-daily-monitoring-cs#chr-0125-0004 "Reflex status"
+* component[2].valueCodeableConcept = $primitive-reflex-type-cs#chr-0077-00002 "Sucking reflex"
+* component[3].code = $newborn-daily-monitoring-cs#chr-0125-0005 "Muscle tone"
+* component[3].valueCodeableConcept = $muscle-tone-status-cs#chr-0056-00001 "Normal"
+* component[4].code = $newborn-daily-monitoring-cs#chr-0125-0011 "Skin color"
+* component[4].valueCodeableConcept = $newborn-skin-color-detailed-cs#chr-0078-00001 "Normal color"
+* component[5].code = $newborn-daily-monitoring-cs#chr-0125-0012 "Respiratory condition"
+* component[5].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[6].code = $newborn-daily-monitoring-cs#chr-0125-0010 "Cardiovascular system condition"
+* component[6].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[7].code = $loinc#8310-5 "Body temperature"
+* component[7].valueQuantity = 37.0 'Cel' "°C"
+* component[8].code = $newborn-daily-monitoring-cs#chr-0125-0002 "Abdominal organ condition"
+* component[8].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[9].code.text = "Micturition"
+* component[9].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[10].code.text = "Stool finding"
+* component[10].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[11].code.text = "Laboratory investigations"
+* component[11].valueString = "TBD"
+* note.text = "TBD - problems and plans"
+// ============================================================
+// DISCHARGE / TRANSFER / DEATH
+// ============================================================
 
 Instance: observation-discharge-condition-097
 InstanceOf: UZCoreObservation
@@ -1764,7 +2486,6 @@ Usage: #inline
 * clinicalStatus = $condition-clinical#active
 * verificationStatus = $condition-ver-status#confirmed
 * category = $diagnosis-role#main
-// Illustrative code only - confirm the actual discharge diagnosis with clinical review
 * code.coding.system = $icd10
 * code.coding.code = #Z38.00
 * code.coding.display = "Single liveborn infant, born in hospital"
@@ -1782,6 +2503,11 @@ Usage: #inline
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * valueString = "Routine follow-up with district pediatrician within 3 days of discharge. Continue exclusive breastfeeding."
+
+
+// ============================================================
+// PROVENANCE
+// ============================================================
 
 Instance: provenance-nurse-to-mother-097
 InstanceOf: Provenance
@@ -1820,7 +2546,7 @@ Usage: #inline
 * target = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * recorded = "2026-06-01T09:00:00+05:00"
 * agent[0].type = http://terminology.hl7.org/CodeSystem/provenance-participant-type#informant "Informant"
-* agent[=].who = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)  // reusing nurse PractitionerRole as informant - see TODO
+* agent[=].who = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * agent[+].type = http://terminology.hl7.org/CodeSystem/provenance-participant-type#custodian "Custodian"
 * agent[=].who = Reference(urn:uuid:09700004-1111-2222-3333-444444444444)
 * occurredDateTime = "2026-06-01T09:00:00+05:00"
