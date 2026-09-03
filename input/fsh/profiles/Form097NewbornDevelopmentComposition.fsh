@@ -58,6 +58,6 @@ Description: "Composition profile for Form 097 newborn development medical recor
 * section[responsiblePersons].code = $loinc#LP35157-4 "Responsible party"
 * section[responsiblePersons].code 1..1
 
-* section[firstNewbornExam].entry only Reference(UZCoreObservation or UZCoreCondition)
-* section[birthEvent].entry only Reference(UZCoreObservation or UZCoreProcedure)
-* section[dischargeTransfer].entry only Reference(UZCoreObservation or UZCoreCondition or Provenance)
+* section[firstNewbornExam].entry only Reference(UZCoreObservation or UZCoreCondition or UZCoreProcedure)
+* section[birthEvent].entry only Reference(UZCoreObservation or UZCoreProcedure or UZCoreCondition or MedicationAdministration)
+* section[dischargeTransfer].entry only Reference(UZCoreObservation or UZCoreCondition or Provenance or MedicationAdministration)

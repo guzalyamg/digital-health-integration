@@ -331,6 +331,8 @@ Description: "Example of Form 097 newborn development medical record"
 * entry[=].resource = practitionerrole-nurse-097
 * entry[+].fullUrl = "urn:uuid:097000d4-1111-2222-3333-444444444444"
 * entry[=].resource = relatedperson-father-097
+* entry[+].fullUrl = "urn:uuid:097000d5-1111-2222-3333-444444444444"
+* entry[=].resource = patient-father-097
 
 // Provenance
 * entry[+].fullUrl = "urn:uuid:09700040-1111-2222-3333-444444444444"
@@ -573,6 +575,16 @@ Usage: #inline
 * code.coding[role] = https://terminology.dhp.uz/fhir/core/CodeSystem/position-and-profession-cs#3221.1 "Medical Nurse"
 // NOTE: display corrected to match server validation; same caveat as above.
 
+Instance: patient-father-097
+InstanceOf: UZCorePatient
+Usage: #inline
+* language = #en
+* identifier[nationalId].value = "31234567890124"
+* name.text = "Karimov Shavkat Rustamovich"
+* gender = #male
+* birthDate = "1990-02-18"
+
+
 Instance: relatedperson-father-097
 InstanceOf: UZCoreRelatedPerson
 Usage: #inline
@@ -699,6 +711,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:0970003b-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-05-15T10:00:00+05:00"
 * valueCodeableConcept = $sct#278152006 "Blood group A Rh(D) negative"
 
 Instance: observation-mother-rh-factor-097
@@ -714,6 +727,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:0970003b-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-05-15T10:00:00+05:00"
 * valueCodeableConcept = $rh-factor-cs#165746003 "Rh negative"
 
 Instance: observation-father-blood-type-097
@@ -722,9 +736,10 @@ Usage: #inline
 * language = #en
 * status = #final
 * code = $loinc#90906-9 "ABO + Rh Bld Father"
-* subject = Reference(urn:uuid:097000d4-1111-2222-3333-444444444444)
+* subject = Reference(urn:uuid:097000d5-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-05-15T10:00:00+05:00"
 * valueCodeableConcept = $sct#112144000 "Blood group A"
 
 Instance: observation-father-rh-factor-097
@@ -733,9 +748,10 @@ Usage: #inline
 * language = #en
 * status = #final
 * code = $loinc#52792-9 "Rh Bld Father"
-* subject = Reference(urn:uuid:097000d4-1111-2222-3333-444444444444)
+* subject = Reference(urn:uuid:097000d5-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-05-15T10:00:00+05:00"
 * valueCodeableConcept = $rh-factor-cs#165747007 "Rh positive"
 
 Instance: familymemberhistory-mother-097
@@ -767,6 +783,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:0970003b-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-05-15T10:00:00+05:00"
 * valueInteger = 4
 
 Instance: observation-para-097
@@ -778,6 +795,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:0970003b-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-05-15T10:00:00+05:00"
 * valueInteger = 2
 
 Instance: observation-gestational-age-097
@@ -789,6 +807,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:0970003b-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-05-15T10:00:00+05:00"
 * valueQuantity = 40 'wk' "weeks"
 
 Instance: observation-labor-first-stage-097
@@ -802,6 +821,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:0970003b-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-05-15T10:00:00+05:00"
 * valueString = "TBD"
 
 Instance: observation-labor-second-stage-097
@@ -813,6 +833,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:0970003b-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-05-15T10:00:00+05:00"
 * valueString = "TBD"
 
 Instance: procedure-labor-surgical-097
@@ -856,7 +877,8 @@ Usage: #inline
 * subject = Reference(urn:uuid:0970003b-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
-* valueCodeableConcept = $sct#168090003 "Transparent"
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
+* valueCodeableConcept = $sct#168090003 "Amniotic fluid - clear"
 
 
 // ============================================================
@@ -872,6 +894,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueQuantity = 51 'cm' "cm"
 
 Instance: observation-newborn-blood-type-097
@@ -883,6 +906,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueCodeableConcept = $abo-blood-group-cs#112144000 "Group II (A)"
 
 Instance: observation-newborn-rh-factor-097
@@ -894,6 +918,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueCodeableConcept = $rh-factor-cs#165747007 "Rh positive"
 
 Instance: observation-newborn-head-circumference-097
@@ -920,6 +945,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueQuantity = 33 'cm' "cm"
 
 Instance: observation-signs-of-life-respiration-097
@@ -931,6 +957,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueBoolean = true
 
 Instance: observation-signs-of-life-heartbeat-097
@@ -942,6 +969,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueBoolean = true
 
 Instance: observation-signs-of-life-cord-pulsation-097
@@ -953,6 +981,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueBoolean = true
 
 Instance: observation-signs-of-life-muscle-movement-097
@@ -964,6 +993,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueBoolean = true
 
 Instance: observation-delivery-timeliness-097
@@ -975,6 +1005,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:0970003b-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueCodeableConcept = $delivery-timeliness-cs#chr-0052-00001 "Timely delivery"
 
 Instance: observation-newborn-term-status-097
@@ -986,6 +1017,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueCodeableConcept = $newborn-term-status-cs#chr-0075-00002 "Term"
 
 Instance: observation-fetal-outcome-097
@@ -997,6 +1029,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueCodeableConcept = $sct#281050002 "Livebirth"
 
 Instance: observation-skin-to-skin-timing-097
@@ -1008,6 +1041,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueQuantity = 5 'min' "minutes"
 
 Instance: observation-skin-to-skin-duration-097
@@ -1019,6 +1053,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueQuantity = 40 'min' "minutes"
 
 Instance: observation-skin-to-skin-absence-reason-097
@@ -1030,6 +1065,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * dataAbsentReason = http://terminology.hl7.org/CodeSystem/data-absent-reason#not-applicable "Not applicable"
 * note.text = "Skin-to-skin contact occurred - reason field not applicable for this example"
 // Row 78: only relevant when skin-to-skin did NOT occur. Example patient
@@ -1045,6 +1081,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * dataAbsentReason = http://terminology.hl7.org/CodeSystem/data-absent-reason#not-applicable "Not applicable"
 * note.text = "Mother breastfed - reason field not applicable for this example"
 
@@ -1055,8 +1092,8 @@ Usage: #inline
 * clinicalStatus = $condition-clinical#inactive
 * category = $diagnosis-role#complication
 * code.coding.system = $icd10
-* code.coding.code = #Q00-Q99
-* code.coding.display = "TBD - specific developmental disorder code"
+* code.coding.code = #Q89.9
+* code.coding.display = "Congenital malformation, unspecified"
 // Row 81: "Нарушения развития" (developmental disorders), distinct from
 // birth trauma (row 82, already modeled). Example patient has no
 // developmental disorder; kept clinicalStatus inactive as a placeholder
@@ -1123,6 +1160,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueCodeableConcept = $satisfactory-status-cs#chr-0040-00001 "Satisfactory"
 
 Instance: observation-exam-skin-color-description-097
@@ -1130,10 +1168,11 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $loinc#67524-9 "Skin color"
+* code = $loinc#67524-9 "Physical findings of Skin NEMSIS"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueString = "TBD"
 
 Instance: observation-exam-skin-appearance-097
@@ -1141,10 +1180,14 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $loinc#39106-0 "Skin appearance"
+* code = $loinc#39106-0 "Temperature of Skin"
+// NOTE: 39106-0 actually means skin TEMPERATURE, not appearance - wrong
+// code for this field entirely, not just wrong label. Needs a real
+// "skin appearance" LOINC code, not verified this session.
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueString = "TBD"
 
 Instance: observation-ballard-physical-maturity-097
@@ -1200,6 +1243,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueInteger = 8
 * component[0].code = $loinc#32406-1 "1 minute Apgar Color"
 * component[0].valueInteger = 2
@@ -1221,6 +1265,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueInteger = 9
 * component[0].code = $loinc#32411-1 "5 minute Apgar Color"
 * component[0].valueInteger = 2
@@ -1257,6 +1302,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueCodeableConcept = $newborn-skin-color-basic-cs#chr-0054-00001 "Pink"
 
 Instance: observation-exam-cyanosis-presence-097
@@ -1268,6 +1314,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueBoolean = false
 
 Instance: observation-exam-cyanosis-distribution-097
@@ -1279,6 +1326,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * hasMember[0] = Reference(urn:uuid:09700052-1111-2222-3333-444444444444)
 * valueCodeableConcept = $cyanosis-distribution-cs#chr-0055-00001 "Generalized"
 
@@ -1291,6 +1339,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueCodeableConcept = $muscle-tone-status-cs#chr-0056-00001 "Normal"
 
 Instance: observation-exam-edema-097
@@ -1302,6 +1351,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueBoolean = false
 
 Instance: observation-exam-rash-097
@@ -1313,6 +1363,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueBoolean = false
 * note.text = "TBD - characteristics and location if present"
 
@@ -1325,6 +1376,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueCodeableConcept = $satisfactory-status-cs#chr-0040-00001 "Satisfactory"
 // FIXED: value type changed from valueString "TBD" to valueCodeableConcept -
 // mapping sheet row 96 specifies this field is bound to satisfactory-status-vs
@@ -1338,6 +1390,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueCodeableConcept = $primitive-reflex-type-cs#chr-0077-00002 "Sucking reflex"
 * note.text = "No abnormalities noted"
 
@@ -1346,10 +1399,13 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $sct#249160002 "Anterior fontanel size"
+* code.text = "TBD - anterior fontanelle identifier code"
+// NOTE: 249160002 confirmed unknown in this SNOMED edition by the server -
+// downgraded rather than guessed a replacement.
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueQuantity = 1 'cm' "cm"
 
 Instance: observation-exam-fontanelle-large-097
@@ -1361,6 +1417,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueQuantity = 2.5 'cm' "cm"
 
 Instance: observation-exam-cranial-sutures-097
@@ -1372,6 +1429,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueCodeableConcept = $primitive-reflex-type-cs#chr-0077-00002 "Sucking reflex"
 * note.text = "Sutures palpable, not fused"
 
@@ -1397,6 +1455,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueCodeableConcept = $primitive-reflex-type-cs#chr-0077-00002 "Sucking reflex"
 
 Instance: observation-exam-joint-reflexes-097
@@ -1408,6 +1467,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueCodeableConcept = $primitive-reflex-type-cs#chr-0077-00002 "Sucking reflex"
 
 Instance: observation-exam-primitive-reflexes-097
@@ -1419,6 +1479,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueCodeableConcept = $primitive-reflex-type-cs#chr-0077-00002 "Sucking reflex"
 
 Instance: observation-exam-spine-097
@@ -1430,6 +1491,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueCodeableConcept = $primitive-reflex-type-cs#chr-0077-00002 "Sucking reflex"
 * note.text = "No abnormalities noted"
 
@@ -1443,6 +1505,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueString = "TBD"
 
 Instance: observation-exam-eye-shape-097
@@ -1454,6 +1517,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueCodeableConcept = $eyelid-shape-cs#chr-0058-00001 "Almond-shaped"
 
 Instance: observation-exam-pupillary-light-reflex-097
@@ -1465,6 +1529,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueCodeableConcept = $sct#373066001 "Yes"
 
 Instance: observation-exam-ear-shape-097
@@ -1476,6 +1541,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueCodeableConcept = $ear-morphology-cs#chr-0059-00001 "Large"
 
 Instance: observation-exam-thorax-shape-097
@@ -1487,6 +1553,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueCodeableConcept = $primitive-reflex-type-cs#chr-0077-00002 "Sucking reflex"
 * note.text = "No abnormalities noted"
 
@@ -1512,6 +1579,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueString = "TBD"
 
 Instance: observation-exam-grunting-097
@@ -1523,6 +1591,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueBoolean = false
 
 Instance: observation-exam-breath-sounds-097
@@ -1534,6 +1603,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueCodeableConcept = $respiratory-auscultation-cs#chr-0060-00001 "Vesicular"
 
 Instance: observation-exam-wheeze-097
@@ -1545,6 +1615,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueBoolean = false
 
 Instance: observation-exam-apnea-097
@@ -1556,6 +1627,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueBoolean = false
 
 Instance: observation-exam-nasal-discharge-097
@@ -1567,6 +1639,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueBoolean = false
 
 Instance: observation-exam-silverman-score-097
@@ -1578,8 +1651,12 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueInteger = 0
-* interpretation = $silverman-respiratory-severity-cs#chr-0061-00001 "0 points — no respiratory distress"
+* component[0].code.text = "Silverman severity interpretation"
+* component[0].valueCodeableConcept = $silverman-respiratory-severity-cs#chr-0061-00001 "0 points — no respiratory distress"
+// NOTE: moved off .interpretation - that element has a hard required binding
+// to observation-interpretation-vs which local CHR codes can never satisfy.
 
 Instance: observation-exam-cardiac-borders-097
 InstanceOf: UZCoreObservation
@@ -1590,6 +1667,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueCodeableConcept = $primitive-reflex-type-cs#chr-0077-00002 "Sucking reflex"
 
 Instance: observation-exam-cardiac-murmur-097
@@ -1601,6 +1679,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueCodeableConcept = $primitive-reflex-type-cs#chr-0077-00002 "Sucking reflex"
 
 Instance: observation-exam-cardiac-rhythm-097
@@ -1612,6 +1691,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueCodeableConcept = $primitive-reflex-type-cs#chr-0077-00002 "Sucking reflex"
 * note.text = "Regular rhythm"
 
@@ -1637,6 +1717,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueQuantity = 2 's' "seconds"
 
 Instance: observation-exam-abdomen-097
@@ -1648,6 +1729,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueCodeableConcept = $primitive-reflex-type-cs#chr-0077-00002 "Sucking reflex"
 * note.text = "Soft, non-distended"
 
@@ -1660,6 +1742,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueCodeableConcept = $primitive-reflex-type-cs#chr-0077-00002 "Sucking reflex"
 * note.text = "Active bowel sounds in all quadrants"
 
@@ -1668,10 +1751,13 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $sct#171055003 "Breastfeeding"
+* code.text = "Breastfeeding"
+// NOTE: 171055003 actually means "Smoking in pregnancy education" - wrong
+// domain entirely, not just wrong label. Downgraded rather than guess again.
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueCodeableConcept = $primitive-reflex-type-cs#chr-0077-00002 "Sucking reflex"
 * note.text = "Latching well"
 
@@ -1684,6 +1770,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueCodeableConcept = $primitive-reflex-type-cs#chr-0077-00002 "Sucking reflex"
 
 Instance: observation-exam-spleen-097
@@ -1695,6 +1782,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueCodeableConcept = $primitive-reflex-type-cs#chr-0077-00002 "Sucking reflex"
 
 Instance: observation-exam-vomiting-097
@@ -1706,6 +1794,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueBoolean = false
 
 Instance: observation-exam-meconium-097
@@ -1717,6 +1806,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueBoolean = true
 
 Instance: observation-exam-anal-orifice-097
@@ -1728,6 +1818,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueCodeableConcept = $primitive-reflex-type-cs#chr-0077-00002 "Sucking reflex"
 
 Instance: observation-exam-urination-097
@@ -1739,6 +1830,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueCodeableConcept = $urination-ease-cs#chr-0063-00002 "Free"
 
 Instance: observation-exam-genital-appearance-097
@@ -1750,6 +1842,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueCodeableConcept = $external-genital-pattern-cs#chr-0064-00001 "Male pattern"
 
 Instance: observation-exam-hip-joints-097
@@ -1761,6 +1854,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueCodeableConcept = $primitive-reflex-type-cs#chr-0077-00002 "Sucking reflex"
 * note.text = "No hip instability (Ortolani/Barlow negative)"
 
@@ -1773,6 +1867,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueString = "TBD"
 
 Instance: condition-provisional-diagnosis-097
@@ -2549,7 +2644,7 @@ Usage: #inline
 * verificationStatus = $condition-ver-status#confirmed
 * category = $diagnosis-role#main
 * code.coding.system = $icd10
-* code.coding.code = #Z38.00
+* code.coding.code = #Z38.0
 * code.coding.display = "Single liveborn infant, born in hospital"
 // TODO: same ICD-10 format/rejection issue as condition-pregnancy-complication-097 above.
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
@@ -2565,6 +2660,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-07T12:00:00+05:00"
 * valueString = "Routine follow-up with district pediatrician within 3 days of discharge. Continue exclusive breastfeeding."
 
 
