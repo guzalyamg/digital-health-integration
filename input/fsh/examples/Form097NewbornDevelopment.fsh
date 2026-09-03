@@ -1,3 +1,7 @@
+// ============================================================
+// BUNDLE — Form097 Newborn Development, full example
+// ============================================================
+
 Instance: example-form-097-newborn-development
 InstanceOf: Bundle
 Usage: #example
@@ -41,6 +45,8 @@ Description: "Example of Form 097 newborn development medical record"
 * entry[=].resource = new-born-baby-097
 * entry[+].fullUrl = "urn:uuid:09700003-1111-2222-3333-444444444444"
 * entry[=].resource = relatedperson-mother-097
+* entry[+].fullUrl = "urn:uuid:0970003b-1111-2222-3333-444444444444"
+* entry[=].resource = patient-mother-097
 * entry[+].fullUrl = "urn:uuid:09700004-1111-2222-3333-444444444444"
 * entry[=].resource = organization-097-001
 * entry[+].fullUrl = "urn:uuid:09700005-1111-2222-3333-444444444444"
@@ -92,7 +98,9 @@ Description: "Example of Form 097 newborn development medical record"
 * entry[+].fullUrl = "urn:uuid:09700031-1111-2222-3333-444444444444"
 * entry[=].resource = observation-skin-to-skin-duration-097
 * entry[+].fullUrl = "urn:uuid:09700032-1111-2222-3333-444444444444"
-* entry[=].resource = procedure-gonoblenorrhea-prophylaxis-097
+* entry[=].resource = medication-eye-prophylaxis-097
+* entry[+].fullUrl = "urn:uuid:097000f6-1111-2222-3333-444444444444"
+* entry[=].resource = medicationadministration-eye-prophylaxis-097
 * entry[+].fullUrl = "urn:uuid:09700033-1111-2222-3333-444444444444"
 * entry[=].resource = observation-ballard-physical-maturity-097
 * entry[+].fullUrl = "urn:uuid:09700034-1111-2222-3333-444444444444"
@@ -358,6 +366,7 @@ Usage: #inline
 * section[motherInformation].title = "Mother Information and Antenatal History"
 * section[=].code = $form-097-section-cs#mother-information "Mother information"
 * section[=].entry[0] = Reference(urn:uuid:09700003-1111-2222-3333-444444444444)
+* section[=].entry[+] = Reference(urn:uuid:0970003b-1111-2222-3333-444444444444)
 * section[=].entry[+] = Reference(urn:uuid:09700010-1111-2222-3333-444444444444)
 * section[=].entry[+] = Reference(urn:uuid:09700011-1111-2222-3333-444444444444)
 * section[=].entry[+] = Reference(urn:uuid:09700012-1111-2222-3333-444444444444)
@@ -380,7 +389,7 @@ Usage: #inline
 * section[=].entry[+] = Reference(urn:uuid:09700021-1111-2222-3333-444444444444)
 * section[=].entry[+] = Reference(urn:uuid:09700022-1111-2222-3333-444444444444)
 * section[=].entry[+] = Reference(urn:uuid:09700023-1111-2222-3333-444444444444)
-* section[=].entry[+] = Reference(urn:uuid:09700032-1111-2222-3333-444444444444)
+* section[=].entry[+] = Reference(urn:uuid:097000f6-1111-2222-3333-444444444444)
 * section[=].entry[+] = Reference(urn:uuid:09700033-1111-2222-3333-444444444444)
 * section[=].entry[+] = Reference(urn:uuid:09700034-1111-2222-3333-444444444444)
 * section[=].entry[+] = Reference(urn:uuid:09700035-1111-2222-3333-444444444444)
@@ -538,7 +547,11 @@ Usage: #inline
 * language = #en
 * practitioner = Reference(urn:uuid:097000d0-1111-2222-3333-444444444444)
 * organization = Reference(urn:uuid:09700004-1111-2222-3333-444444444444)
-* code.coding[role] = https://terminology.dhp.uz/fhir/core/CodeSystem/position-and-profession-cs#2221.2 "Neonatologist"
+* code.coding[role] = https://terminology.dhp.uz/fhir/core/CodeSystem/position-and-profession-cs#2221.2 "Doctor of Waléol"
+// NOTE: display corrected to match server validation; original "Neonatologist"
+// label was not verified against this CodeSystem - code itself unconfirmed
+// as the correct one for a neonatologist role, worth double-checking with
+// Bekhzod/Gulhayo.
 
 Instance: practitioner-nurse-097
 InstanceOf: UZCorePractitioner
@@ -557,14 +570,15 @@ Usage: #inline
 * language = #en
 * practitioner = Reference(urn:uuid:097000d2-1111-2222-3333-444444444444)
 * organization = Reference(urn:uuid:09700004-1111-2222-3333-444444444444)
-* code.coding[role] = https://terminology.dhp.uz/fhir/core/CodeSystem/position-and-profession-cs#3221.1 "Neonatal nurse"
+* code.coding[role] = https://terminology.dhp.uz/fhir/core/CodeSystem/position-and-profession-cs#3221.1 "Medical Nurse"
+// NOTE: display corrected to match server validation; same caveat as above.
 
 Instance: relatedperson-father-097
 InstanceOf: UZCoreRelatedPerson
 Usage: #inline
 * language = #en
 * patient = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
-* relationship[0].coding[0] = $v3-RoleCode#FTH "father"
+* relationship[0].coding[0] = $v3-RoleClass#NOK "next of kin"
 * identifier[nationalId].value = "31234567890124"
 * name.use = #official
 * name.text = "Karimov Shavkat Rustamovich"
@@ -589,6 +603,16 @@ Usage: #inline
 * birthDate.extension[0].url = "http://hl7.org/fhir/StructureDefinition/patient-birthTime"
 * birthDate.extension[=].valueDateTime = "2026-06-01T14:32:00+05:00"
 * managingOrganization = Reference(urn:uuid:09700004-1111-2222-3333-444444444444)
+
+Instance: patient-mother-097
+InstanceOf: UZCorePatient
+Usage: #inline
+* language = #en
+* identifier[nationalId].value = "31234567890123"
+* name.text = "Karimova Dilnoza Farkhodovna"
+* gender = #female
+* birthDate = "1992-03-12"
+
 
 Instance: relatedperson-mother-097
 InstanceOf: UZCoreRelatedPerson
@@ -623,7 +647,7 @@ Instance: location-ward-097
 InstanceOf: UZCoreLocation
 Usage: #inline
 * language = #en
-* identifier[unit].type.text = "Ward/unit number"
+* identifier[unit].type = $location-kinds-cs#Ward "Ward"
 * identifier[unit].value = "12"
 * name = "Neonatal ward, room 12"
 * managingOrganization = Reference(urn:uuid:09700004-1111-2222-3333-444444444444)
@@ -647,7 +671,10 @@ Usage: #inline
 * admission.admitSource = $admit-source-local-cs#mserv-0006-00001 "Without referral / Self-referred"
 * admission.dischargeDisposition = $discharge-disposition-home-cs#mserv-0004-00004 "Discharged"
 * length = 6 'd' "days"
-* location[0].form = $location-form#101.0 "Neonatal ward"
+* location[0].form = $location-form#170.0 "Pediatrics (somatic)"
+// NOTE: no dedicated "neonatal/newborn ward" code exists in
+// organizational-specialization-cs - 170.0 "Pediatrics (somatic)" is the
+// closest verified real fit for routine newborn observation (not NICU-level).
 * location[0].period.start = "2026-06-01T09:00:00+05:00"
 * location[0].period.end = "2026-06-07T12:00:00+05:00"
 * location[0].location = Reference(urn:uuid:097000e4-1111-2222-3333-444444444444)
@@ -669,7 +696,7 @@ Usage: #inline
 * language = #en
 * status = #final
 * code = $loinc#90905-1 "ABO + Rh Bld Mother"
-* subject = Reference(urn:uuid:09700003-1111-2222-3333-444444444444)
+* subject = Reference(urn:uuid:0970003b-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * valueCodeableConcept = $sct#278152006 "Blood group A Rh(D) negative"
@@ -684,7 +711,7 @@ Usage: #inline
 // this mismatch was flagged early in the session (Gulhayo confirmation
 // pending) and is still open. Using the code as given in the mapping
 // sheet's row 5 hint; display name accuracy is a separate open question.
-* subject = Reference(urn:uuid:09700003-1111-2222-3333-444444444444)
+* subject = Reference(urn:uuid:0970003b-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * valueCodeableConcept = $rh-factor-cs#165746003 "Rh negative"
@@ -737,7 +764,7 @@ Usage: #inline
 * language = #en
 * status = #final
 * code = $loinc#11996-6 "Pregnancies"
-* subject = Reference(urn:uuid:09700003-1111-2222-3333-444444444444)
+* subject = Reference(urn:uuid:0970003b-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * valueInteger = 4
@@ -748,7 +775,7 @@ Usage: #inline
 * language = #en
 * status = #final
 * code = $loinc#11977-6 "Parity"
-* subject = Reference(urn:uuid:09700003-1111-2222-3333-444444444444)
+* subject = Reference(urn:uuid:0970003b-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * valueInteger = 2
@@ -759,7 +786,7 @@ Usage: #inline
 * language = #en
 * status = #final
 * code = $loinc#11884-4 "Gestational age Estimated"
-* subject = Reference(urn:uuid:09700003-1111-2222-3333-444444444444)
+* subject = Reference(urn:uuid:0970003b-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * valueQuantity = 40 'wk' "weeks"
@@ -772,7 +799,7 @@ Usage: #inline
 * code.text = "TBD - labor first stage duration/specifics identifier code"
 // Row 38: no code hint given in mapping sheet at all, only element type
 // (valueString) - genuinely unresolved, not a guess.
-* subject = Reference(urn:uuid:09700003-1111-2222-3333-444444444444)
+* subject = Reference(urn:uuid:0970003b-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * valueString = "TBD"
@@ -783,7 +810,7 @@ Usage: #inline
 * language = #en
 * status = #final
 * code.text = "TBD - labor second stage duration/specifics identifier code"
-* subject = Reference(urn:uuid:09700003-1111-2222-3333-444444444444)
+* subject = Reference(urn:uuid:0970003b-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * valueString = "TBD"
@@ -793,8 +820,9 @@ InstanceOf: UZCoreProcedure
 Usage: #inline
 * language = #en
 * status = #not-done
-* code.text = "TBD - surgical procedures during labor identifier code"
-* subject = Reference(urn:uuid:09700003-1111-2222-3333-444444444444)
+* code = $sct#200147006 "Cesarean section - pregnancy at term"
+// NOTE: verified real SNOMED code via BioPortal, used as example identifier.
+* subject = Reference(urn:uuid:0970003b-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * note.text = "No surgical intervention during labor"
 // Row 40: yes/no question with details in note. Modeled as #not-done since
@@ -809,8 +837,13 @@ Usage: #inline
 * category = $diagnosis-role#complication
 * code.coding.system = $icd10
 * code.coding.code = #O24.4
-* code.coding.display = "Gestational diabetes mellitus"
-* subject = Reference(urn:uuid:09700003-1111-2222-3333-444444444444)
+* code.coding.display = "Diabetes mellitus arising in pregnancy"
+// TODO: this server's ICD-10 edition ("2019-covid-expanded") rejected O24.4
+// as unknown, despite it being a real, valid ICD-10 code. Likely a format
+// issue (dot placement/case) specific to this server, not a wrong code -
+// needs verification against how other ICD-10 codes are formatted elsewhere
+// in this repo's working examples.
+* subject = Reference(urn:uuid:0970003b-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * onsetDateTime = "2026-05-15"
 
@@ -820,7 +853,7 @@ Usage: #inline
 * language = #en
 * status = #final
 * code = $loinc#1887-9 "Appearance of amniotic fluid"
-* subject = Reference(urn:uuid:09700003-1111-2222-3333-444444444444)
+* subject = Reference(urn:uuid:0970003b-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * valueCodeableConcept = $sct#168090003 "Transparent"
@@ -868,10 +901,12 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
+* category = http://terminology.hl7.org/CodeSystem/observation-category#vital-signs "Vital Signs"
 * code = $loinc#9843-4 "Head Occipital-frontal circumference"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueQuantity = 34 'cm' "cm"
 
 Instance: observation-newborn-chest-circumference-097
@@ -937,7 +972,7 @@ Usage: #inline
 * language = #en
 * status = #final
 * code.text = "Delivery timeliness"
-* subject = Reference(urn:uuid:09700003-1111-2222-3333-444444444444)
+* subject = Reference(urn:uuid:0970003b-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * valueCodeableConcept = $delivery-timeliness-cs#chr-0052-00001 "Timely delivery"
@@ -1029,24 +1064,36 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 
-Instance: procedure-gonoblenorrhea-prophylaxis-097
-InstanceOf: UZCoreProcedure
+Instance: medication-eye-prophylaxis-097
+InstanceOf: Medication
+Usage: #inline
+* language = #en
+* code.text = "Erythromycin ophthalmic ointment 0.5%"
+* batch.lotNumber = "TBD"
+* batch.expirationDate = "2027-06-01"
+
+Instance: medicationadministration-eye-prophylaxis-097
+InstanceOf: MedicationAdministration
 Usage: #inline
 * language = #en
 * status = #completed
-* category = $sct#367336001 "Chemoprophylaxis (procedure)"
-* code = $sct#385989002 "Prevention of gonococcal ophthalmia neonatorum (procedure)"
+* medication = Reference(urn:uuid:097000f6-1111-2222-3333-444444444444)
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
-* encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
-* occurrenceDateTime = "2026-06-01T14:40:00+05:00"
+* occurenceDateTime = "2026-06-01T14:40:00+05:00"
 * performer.actor = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
-* note.text = "TBD - medication name (e.g. tetracycline/erythromycin ointment)"
+* note.text = "Prophylaxis against gonococcal ophthalmia neonatorum"
+// NOTE: replaces the earlier Procedure-based modeling. No verifiable SNOMED
+// procedure code exists for this (5+ searches across the session came up
+// empty) - remodeled as a MedicationAdministration instead, mirroring the
+// already-working Vitamin K prophylaxis pattern, since this is fundamentally
+// "apply antibiotic ointment," not a distinct coded procedure.
 
 Instance: observation-temperature-reading1-097
 InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
+* category = http://terminology.hl7.org/CodeSystem/observation-category#vital-signs "Vital Signs"
 * code = $loinc#8310-5 "Body temperature"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
@@ -1059,6 +1106,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
+* category = http://terminology.hl7.org/CodeSystem/observation-category#vital-signs "Vital Signs"
 * code = $loinc#8310-5 "Body temperature"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
@@ -1763,6 +1811,7 @@ Usage: #inline
 * status = #final
 * category = http://terminology.hl7.org/CodeSystem/observation-category#vital-signs "Vital Signs"
 * code = $loinc#3141-9 "Body weight Measured"
+* code.coding[+] = $loinc#29463-7 "Body weight"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
@@ -1776,6 +1825,7 @@ Usage: #inline
 * status = #final
 * category = http://terminology.hl7.org/CodeSystem/observation-category#vital-signs "Vital Signs"
 * code = $loinc#3141-9 "Body weight Measured"
+* code.coding[+] = $loinc#29463-7 "Body weight"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
@@ -1789,6 +1839,7 @@ Usage: #inline
 * status = #final
 * category = http://terminology.hl7.org/CodeSystem/observation-category#vital-signs "Vital Signs"
 * code = $loinc#3141-9 "Body weight Measured"
+* code.coding[+] = $loinc#29463-7 "Body weight"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
@@ -1802,6 +1853,7 @@ Usage: #inline
 * status = #final
 * category = http://terminology.hl7.org/CodeSystem/observation-category#vital-signs "Vital Signs"
 * code = $loinc#3141-9 "Body weight Measured"
+* code.coding[+] = $loinc#29463-7 "Body weight"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
@@ -1815,6 +1867,7 @@ Usage: #inline
 * status = #final
 * category = http://terminology.hl7.org/CodeSystem/observation-category#vital-signs "Vital Signs"
 * code = $loinc#3141-9 "Body weight Measured"
+* code.coding[+] = $loinc#29463-7 "Body weight"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
@@ -1828,6 +1881,7 @@ Usage: #inline
 * status = #final
 * category = http://terminology.hl7.org/CodeSystem/observation-category#vital-signs "Vital Signs"
 * code = $loinc#3141-9 "Body weight Measured"
+* code.coding[+] = $loinc#29463-7 "Body weight"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
@@ -1841,6 +1895,7 @@ Usage: #inline
 * status = #final
 * category = http://terminology.hl7.org/CodeSystem/observation-category#vital-signs "Vital Signs"
 * code = $loinc#3141-9 "Body weight Measured"
+* code.coding[+] = $loinc#29463-7 "Body weight"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
@@ -1854,6 +1909,7 @@ Usage: #inline
 * status = #final
 * category = http://terminology.hl7.org/CodeSystem/observation-category#vital-signs "Vital Signs"
 * code = $loinc#3141-9 "Body weight Measured"
+* code.coding[+] = $loinc#29463-7 "Body weight"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
@@ -1867,6 +1923,7 @@ Usage: #inline
 * status = #final
 * category = http://terminology.hl7.org/CodeSystem/observation-category#vital-signs "Vital Signs"
 * code = $loinc#3141-9 "Body weight Measured"
+* code.coding[+] = $loinc#29463-7 "Body weight"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
@@ -1880,6 +1937,7 @@ Usage: #inline
 * status = #final
 * category = http://terminology.hl7.org/CodeSystem/observation-category#vital-signs "Vital Signs"
 * code = $loinc#3141-9 "Body weight Measured"
+* code.coding[+] = $loinc#29463-7 "Body weight"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
@@ -1895,7 +1953,9 @@ Instance: medication-vitamin-k-097
 InstanceOf: Medication
 Usage: #inline
 * language = #en
-* code = $sct#61608008 "Phytomenadione (substance)"
+* code.text = "Phytomenadione (Vitamin K)"
+// NOTE: 61608008 confirmed unresolvable in SNOMED CT by the terminology
+// server - downgraded rather than guessed a replacement.
 * batch.lotNumber = "VK-2026-0417"
 * batch.expirationDate = "2027-06-01"
 
@@ -2472,7 +2532,9 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $sct#248262006 "General condition of infant"
+* code.text = "General condition of infant"
+// NOTE: 248262006 confirmed unresolvable in SNOMED CT by the terminology
+// server - downgraded rather than guessed a replacement.
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
@@ -2489,6 +2551,7 @@ Usage: #inline
 * code.coding.system = $icd10
 * code.coding.code = #Z38.00
 * code.coding.display = "Single liveborn infant, born in hospital"
+// TODO: same ICD-10 format/rejection issue as condition-pregnancy-complication-097 above.
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * onsetDateTime = "2026-06-01"
