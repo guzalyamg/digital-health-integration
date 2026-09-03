@@ -167,11 +167,6 @@ Alias: $signature-type-cs = https://terminology.dhp.uz/fhir/core/CodeSystem/sign
 Alias: $flag-status-cs = http://hl7.org/fhir/flag-status
 Alias: $profession-specialization-cs = https://terminology.dhp.uz/fhir/core/CodeSystem/profession-specialization-cs
 
-// ============================================================
-// ALIASES — Form097 Newborn Development
-// Add these to the repo's central Aliases.fsh (or keep as a
-// standalone file if the build includes all .fsh files in the tree)
-// ============================================================
 
 Alias: $document-category-cs = https://terminology.dhp.uz/fhir/integrations/CodeSystem/document-category-cs
 Alias: $loinc = http://loinc.org
@@ -216,7 +211,5 @@ Alias: $newborn-daily-monitoring-cs = https://terminology.dhp.uz/fhir/chr/CodeSy
 Alias: $newborn-maturity-assessment-cs = https://terminology.dhp.uz/fhir/chr/CodeSystem/newborn-maturity-assessment-cs
 Alias: $newborn-care-feeding-cs = https://terminology.dhp.uz/fhir/chr/CodeSystem/newborn-care-and-feeding-cs
 Alias: $newborn-birth-anthropometry-cs = https://terminology.dhp.uz/fhir/chr/CodeSystem/newborn-birth-and-anthropometry-cs
-Alias: $abo-blood-group-cs = https://terminology.dhp.uz/fhir/chr/CodeSystem/abo-blood-group-cs
-Alias: $rh-factor-cs = https://terminology.dhp.uz/fhir/chr/CodeSystem/rh-factor-cs
 Alias: $newborn-care-location-cs = https://terminology.dhp.uz/fhir/chr/CodeSystem/newborn-care-location-cs
 Alias: $location-kinds-cs = https://terminology.dhp.uz/fhir/core/CodeSystem/location-kinds-cs

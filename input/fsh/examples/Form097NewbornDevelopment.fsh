@@ -71,6 +71,8 @@ Description: "Example of Form 097 newborn development medical record"
 * entry[=].resource = condition-pregnancy-complication-097
 * entry[+].fullUrl = "urn:uuid:09700019-1111-2222-3333-444444444444"
 * entry[=].resource = observation-amniotic-fluid-097
+* entry[+].fullUrl = "urn:uuid:097000f7-1111-2222-3333-444444444444"
+* entry[=].resource = observation-mother-workplace-097
 * entry[+].fullUrl = "urn:uuid:097000e2-1111-2222-3333-444444444444"
 * entry[=].resource = observation-mother-rh-factor-097
 * entry[+].fullUrl = "urn:uuid:097000e3-1111-2222-3333-444444444444"
@@ -384,6 +386,7 @@ Usage: #inline
 * section[=].entry[+] = Reference(urn:uuid:097000f3-1111-2222-3333-444444444444)
 * section[=].entry[+] = Reference(urn:uuid:097000f4-1111-2222-3333-444444444444)
 * section[=].entry[+] = Reference(urn:uuid:097000f5-1111-2222-3333-444444444444)
+* section[=].entry[+] = Reference(urn:uuid:097000f7-1111-2222-3333-444444444444)
 
 * section[birthEvent].title = "Birth Event"
 * section[=].code = $loinc#57075-4 "Newborn delivery information"
@@ -624,6 +627,12 @@ Usage: #inline
 * name.text = "Karimova Dilnoza Farkhodovna"
 * gender = #female
 * birthDate = "1992-03-12"
+* maritalStatus = $v3-MaritalStatus#M "Married"
+* address.line[0] = "12 Amir Temur ko'chasi"
+* address.city = "Toshkent"
+* address.country = "UZ"
+* extension[nationality].extension[code].valueCodeableConcept = $nationality-cs#44 "УЗБЕК/УЗБЕЧКА"
+
 
 
 Instance: relatedperson-mother-097
@@ -728,7 +737,7 @@ Usage: #inline
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-05-15T10:00:00+05:00"
-* valueCodeableConcept = $rh-factor-cs#165746003 "Rh negative"
+* valueCodeableConcept = $sct#165746003 "Rh negative"
 
 Instance: observation-father-blood-type-097
 InstanceOf: UZCoreObservation
@@ -752,7 +761,7 @@ Usage: #inline
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-05-15T10:00:00+05:00"
-* valueCodeableConcept = $rh-factor-cs#165747007 "Rh positive"
+* valueCodeableConcept = $sct#165747007 "Rh positive"
 
 Instance: familymemberhistory-mother-097
 InstanceOf: FamilyMemberHistory
@@ -809,6 +818,18 @@ Usage: #inline
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-05-15T10:00:00+05:00"
 * valueQuantity = 40 'wk' "weeks"
+
+Instance: observation-mother-workplace-097
+InstanceOf: UZCoreObservation
+Usage: #inline
+* language = #en
+* status = #final
+* code = $sct#224406003 "Details relating to place of work and employer"
+* subject = Reference(urn:uuid:0970003b-1111-2222-3333-444444444444)
+* encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
+* performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-05-15T10:00:00+05:00"
+* valueCodeableConcept = $position-and-profession-cs#2310.8 "O'qituvchi"
 
 Instance: observation-labor-first-stage-097
 InstanceOf: UZCoreObservation
@@ -907,7 +928,7 @@ Usage: #inline
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-06-01T09:00:00+05:00"
-* valueCodeableConcept = $abo-blood-group-cs#112144000 "Group II (A)"
+* valueCodeableConcept = $sct#112144000 "Blood group A"
 
 Instance: observation-newborn-rh-factor-097
 InstanceOf: UZCoreObservation
@@ -919,7 +940,7 @@ Usage: #inline
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-06-01T09:00:00+05:00"
-* valueCodeableConcept = $rh-factor-cs#165747007 "Rh positive"
+* valueCodeableConcept = $sct#165747007 "Rh positive"
 
 Instance: observation-newborn-head-circumference-097
 InstanceOf: UZCoreObservation
@@ -1037,7 +1058,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code.text = "TBD - skin-to-skin contact timing identifier code"
+* code = $newborn-birth-anthropometry-cs#chr-0122-0001 "Time to first breastfeeding"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
@@ -1049,7 +1070,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code.text = "TBD - duration of procedure identifier code"
+* code = $newborn-birth-anthropometry-cs#chr-0122-0003 "Duration of skin-to-skin contact"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
@@ -1180,10 +1201,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $loinc#39106-0 "Temperature of Skin"
-// NOTE: 39106-0 actually means skin TEMPERATURE, not appearance - wrong
-// code for this field entirely, not just wrong label. Needs a real
-// "skin appearance" LOINC code, not verified this session.
+* code = $loinc#10206-1 "Physical findings of Skin Narrative"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
@@ -2154,7 +2172,7 @@ Usage: #inline
 * component[5].code = $loinc#63895-7 "Breastfeeding status"
 * component[5].valueCodeableConcept = $infant-feeding-type-cs#chr-0067-00001 "Exclusive breastfeeding"
 * component[6].code = $newborn-daily-monitoring-cs#chr-0125-0003 "Feeding tolerance"
-* component[6].valueCodeableConcept.text = "TBD"
+* component[6].valueCodeableConcept.text = "Tolerating feeds well, no vomiting or abdominal distension"
 * component[7].code = $sct#62315008 "Diarrhea"
 * component[7].valueCodeableConcept = $sct#373067005 "No"
 * component[8].code = $sct#300471006 "Frequency of urination"
@@ -2187,7 +2205,7 @@ Usage: #inline
 * component[5].code = $loinc#63895-7 "Breastfeeding status"
 * component[5].valueCodeableConcept = $infant-feeding-type-cs#chr-0067-00001 "Exclusive breastfeeding"
 * component[6].code = $newborn-daily-monitoring-cs#chr-0125-0003 "Feeding tolerance"
-* component[6].valueCodeableConcept.text = "TBD"
+* component[6].valueCodeableConcept.text = "Tolerating feeds well, no vomiting or abdominal distension"
 * component[7].code = $sct#62315008 "Diarrhea"
 * component[7].valueCodeableConcept = $sct#373067005 "No"
 * component[8].code = $sct#300471006 "Frequency of urination"
@@ -2220,7 +2238,7 @@ Usage: #inline
 * component[5].code = $loinc#63895-7 "Breastfeeding status"
 * component[5].valueCodeableConcept = $infant-feeding-type-cs#chr-0067-00001 "Exclusive breastfeeding"
 * component[6].code = $newborn-daily-monitoring-cs#chr-0125-0003 "Feeding tolerance"
-* component[6].valueCodeableConcept.text = "TBD"
+* component[6].valueCodeableConcept.text = "Tolerating feeds well, no vomiting or abdominal distension"
 * component[7].code = $sct#62315008 "Diarrhea"
 * component[7].valueCodeableConcept = $sct#373067005 "No"
 * component[8].code = $sct#300471006 "Frequency of urination"
@@ -2253,7 +2271,7 @@ Usage: #inline
 * component[5].code = $loinc#63895-7 "Breastfeeding status"
 * component[5].valueCodeableConcept = $infant-feeding-type-cs#chr-0067-00001 "Exclusive breastfeeding"
 * component[6].code = $newborn-daily-monitoring-cs#chr-0125-0003 "Feeding tolerance"
-* component[6].valueCodeableConcept.text = "TBD"
+* component[6].valueCodeableConcept.text = "Tolerating feeds well, no vomiting or abdominal distension"
 * component[7].code = $sct#62315008 "Diarrhea"
 * component[7].valueCodeableConcept = $sct#373067005 "No"
 * component[8].code = $sct#300471006 "Frequency of urination"
@@ -2286,7 +2304,7 @@ Usage: #inline
 * component[5].code = $loinc#63895-7 "Breastfeeding status"
 * component[5].valueCodeableConcept = $infant-feeding-type-cs#chr-0067-00001 "Exclusive breastfeeding"
 * component[6].code = $newborn-daily-monitoring-cs#chr-0125-0003 "Feeding tolerance"
-* component[6].valueCodeableConcept.text = "TBD"
+* component[6].valueCodeableConcept.text = "Tolerating feeds well, no vomiting or abdominal distension"
 * component[7].code = $sct#62315008 "Diarrhea"
 * component[7].valueCodeableConcept = $sct#373067005 "No"
 * component[8].code = $sct#300471006 "Frequency of urination"
@@ -2319,7 +2337,7 @@ Usage: #inline
 * component[5].code = $loinc#63895-7 "Breastfeeding status"
 * component[5].valueCodeableConcept = $infant-feeding-type-cs#chr-0067-00001 "Exclusive breastfeeding"
 * component[6].code = $newborn-daily-monitoring-cs#chr-0125-0003 "Feeding tolerance"
-* component[6].valueCodeableConcept.text = "TBD"
+* component[6].valueCodeableConcept.text = "Tolerating feeds well, no vomiting or abdominal distension"
 * component[7].code = $sct#62315008 "Diarrhea"
 * component[7].valueCodeableConcept = $sct#373067005 "No"
 * component[8].code = $sct#300471006 "Frequency of urination"
@@ -2352,7 +2370,7 @@ Usage: #inline
 * component[5].code = $loinc#63895-7 "Breastfeeding status"
 * component[5].valueCodeableConcept = $infant-feeding-type-cs#chr-0067-00001 "Exclusive breastfeeding"
 * component[6].code = $newborn-daily-monitoring-cs#chr-0125-0003 "Feeding tolerance"
-* component[6].valueCodeableConcept.text = "TBD"
+* component[6].valueCodeableConcept.text = "Tolerating feeds well, no vomiting or abdominal distension"
 * component[7].code = $sct#62315008 "Diarrhea"
 * component[7].valueCodeableConcept = $sct#373067005 "No"
 * component[8].code = $sct#300471006 "Frequency of urination"
