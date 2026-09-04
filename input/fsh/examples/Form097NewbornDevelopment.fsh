@@ -415,7 +415,6 @@ Usage: #inline
 * section[=].entry[+] = Reference(urn:uuid:097000f0-1111-2222-3333-444444444444)
 * section[=].entry[+] = Reference(urn:uuid:097000f1-1111-2222-3333-444444444444)
 * section[=].entry[+] = Reference(urn:uuid:097000f2-1111-2222-3333-444444444444)
-* section[=].entry[+] = Reference(urn:uuid:09700032-1111-2222-3333-444444444444)
 
 * section[firstNewbornExam].title = "First Newborn Examination"
 * section[=].code = $form-097-section-cs#first-newborn-exam "First newborn examination"
@@ -616,8 +615,6 @@ Usage: #inline
 * name.given[+] = "Shavkatovich"
 * gender = #male
 * birthDate = "2026-06-01"
-* birthDate.extension[0].url = "http://hl7.org/fhir/StructureDefinition/patient-birthTime"
-* birthDate.extension[=].valueDateTime = "2026-06-01T14:32:00+05:00"
 * managingOrganization = Reference(urn:uuid:09700004-1111-2222-3333-444444444444)
 
 Instance: patient-mother-097
@@ -1773,9 +1770,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code.text = "Breastfeeding"
-// NOTE: 171055003 actually means "Smoking in pregnancy education" - wrong
-// domain entirely, not just wrong label. Downgraded rather than guess again.
+* code = $loinc#63895-7 "Breastfeeding status"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
@@ -2417,10 +2412,8 @@ Usage: #inline
 * component[7].valueQuantity = 37.0 'Cel' "°C"
 * component[8].code = $newborn-daily-monitoring-cs#chr-0125-0002 "Abdominal organ condition"
 * component[8].valueCodeableConcept = $normal-abnormal-status-cs#chr-0096-0001 "Normal"
-* component[9].code.text = "Micturition"
-* component[9].valueCodeableConcept = $normal-abnormal-status-cs#chr-0096-0001 "Normal"
-* component[10].code.text = "Stool finding"
-* component[10].valueCodeableConcept = $normal-abnormal-status-cs#chr-0096-0001 "Normal"
+* component[9].code = $newborn-daily-monitoring-cs#chr-0125-0007 "Urination and stool status"
+* component[9].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
 * component[11].code.text = "Laboratory investigations"
 * component[11].valueString = "TBD"
 * note.text = "TBD - problems and plans"
@@ -2453,10 +2446,8 @@ Usage: #inline
 * component[7].valueQuantity = 37.0 'Cel' "°C"
 * component[8].code = $newborn-daily-monitoring-cs#chr-0125-0002 "Abdominal organ condition"
 * component[8].valueCodeableConcept = $normal-abnormal-status-cs#chr-0096-0001 "Normal"
-* component[9].code.text = "Micturition"
-* component[9].valueCodeableConcept = $normal-abnormal-status-cs#chr-0096-0001 "Normal"
-* component[10].code.text = "Stool finding"
-* component[10].valueCodeableConcept = $normal-abnormal-status-cs#chr-0096-0001 "Normal"
+* component[9].code = $newborn-daily-monitoring-cs#chr-0125-0007 "Urination and stool status"
+* component[9].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
 * component[11].code.text = "Laboratory investigations"
 * component[11].valueString = "TBD"
 * note.text = "TBD - problems and plans"
@@ -2489,10 +2480,8 @@ Usage: #inline
 * component[7].valueQuantity = 37.0 'Cel' "°C"
 * component[8].code = $newborn-daily-monitoring-cs#chr-0125-0002 "Abdominal organ condition"
 * component[8].valueCodeableConcept = $normal-abnormal-status-cs#chr-0096-0001 "Normal"
-* component[9].code.text = "Micturition"
-* component[9].valueCodeableConcept = $normal-abnormal-status-cs#chr-0096-0001 "Normal"
-* component[10].code.text = "Stool finding"
-* component[10].valueCodeableConcept = $normal-abnormal-status-cs#chr-0096-0001 "Normal"
+* component[9].code = $newborn-daily-monitoring-cs#chr-0125-0007 "Urination and stool status"
+* component[9].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
 * component[11].code.text = "Laboratory investigations"
 * component[11].valueString = "TBD"
 * note.text = "TBD - problems and plans"
@@ -2525,10 +2514,8 @@ Usage: #inline
 * component[7].valueQuantity = 37.0 'Cel' "°C"
 * component[8].code = $newborn-daily-monitoring-cs#chr-0125-0002 "Abdominal organ condition"
 * component[8].valueCodeableConcept = $normal-abnormal-status-cs#chr-0096-0001 "Normal"
-* component[9].code.text = "Micturition"
-* component[9].valueCodeableConcept = $normal-abnormal-status-cs#chr-0096-0001 "Normal"
-* component[10].code.text = "Stool finding"
-* component[10].valueCodeableConcept = $normal-abnormal-status-cs#chr-0096-0001 "Normal"
+* component[9].code = $newborn-daily-monitoring-cs#chr-0125-0007 "Urination and stool status"
+* component[9].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
 * component[11].code.text = "Laboratory investigations"
 * component[11].valueString = "TBD"
 * note.text = "TBD - problems and plans"
@@ -2561,10 +2548,8 @@ Usage: #inline
 * component[7].valueQuantity = 37.0 'Cel' "°C"
 * component[8].code = $newborn-daily-monitoring-cs#chr-0125-0002 "Abdominal organ condition"
 * component[8].valueCodeableConcept = $normal-abnormal-status-cs#chr-0096-0001 "Normal"
-* component[9].code.text = "Micturition"
-* component[9].valueCodeableConcept = $normal-abnormal-status-cs#chr-0096-0001 "Normal"
-* component[10].code.text = "Stool finding"
-* component[10].valueCodeableConcept = $normal-abnormal-status-cs#chr-0096-0001 "Normal"
+* component[9].code = $newborn-daily-monitoring-cs#chr-0125-0007 "Urination and stool status"
+* component[9].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
 * component[11].code.text = "Laboratory investigations"
 * component[11].valueString = "TBD"
 * note.text = "TBD - problems and plans"
@@ -2597,10 +2582,8 @@ Usage: #inline
 * component[7].valueQuantity = 37.0 'Cel' "°C"
 * component[8].code = $newborn-daily-monitoring-cs#chr-0125-0002 "Abdominal organ condition"
 * component[8].valueCodeableConcept = $normal-abnormal-status-cs#chr-0096-0001 "Normal"
-* component[9].code.text = "Micturition"
-* component[9].valueCodeableConcept = $normal-abnormal-status-cs#chr-0096-0001 "Normal"
-* component[10].code.text = "Stool finding"
-* component[10].valueCodeableConcept = $normal-abnormal-status-cs#chr-0096-0001 "Normal"
+* component[9].code = $newborn-daily-monitoring-cs#chr-0125-0007 "Urination and stool status"
+* component[9].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
 * component[11].code.text = "Laboratory investigations"
 * component[11].valueString = "TBD"
 * note.text = "TBD - problems and plans"
@@ -2633,10 +2616,8 @@ Usage: #inline
 * component[7].valueQuantity = 37.0 'Cel' "°C"
 * component[8].code = $newborn-daily-monitoring-cs#chr-0125-0002 "Abdominal organ condition"
 * component[8].valueCodeableConcept = $normal-abnormal-status-cs#chr-0096-0001 "Normal"
-* component[9].code.text = "Micturition"
-* component[9].valueCodeableConcept = $normal-abnormal-status-cs#chr-0096-0001 "Normal"
-* component[10].code.text = "Stool finding"
-* component[10].valueCodeableConcept = $normal-abnormal-status-cs#chr-0096-0001 "Normal"
+* component[9].code = $newborn-daily-monitoring-cs#chr-0125-0007 "Urination and stool status"
+* component[9].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
 * component[11].code.text = "Laboratory investigations"
 * component[11].valueString = "TBD"
 * note.text = "TBD - problems and plans"
