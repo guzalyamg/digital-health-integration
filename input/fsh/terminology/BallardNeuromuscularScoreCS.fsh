@@ -2,55 +2,41 @@ CodeSystem: BallardNeuromuscularScoreCS
 Id: ballard-neuromuscular-score-cs
 Title: "Form097 Ballard Neuromuscular Score"
 Description: "Local codes for ballard neuromuscular score, Form097 newborn development record."
-* ^language = #en
 
 * insert OriginalCodeSystemDraft(ballard-neuromuscular-score-cs)
 
-* #chr-0118-0001 "-1 points"
-  * ^designation[0].language = #en
+* #chr-0118-0001 "-1 ball"
+  * ^designation[0].language = #ru
+  * ^designation[=].value = "-1 балл"
+  * ^designation[+].language = #en
   * ^designation[=].value = "-1 points"
-  * ^designation[+].language = #ru
-  * ^designation[=].value = "-1 баллов"
-  * ^designation[+].language = #uz
-  * ^designation[=].value = "-1 ball"
 
-* #chr-0118-0002 "0 points"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "0 points"
-  * ^designation[+].language = #ru
+* #chr-0118-0002 "0 ball"
+  * ^designation[0].language = #ru
   * ^designation[=].value = "0 баллов"
-  * ^designation[+].language = #uz
-  * ^designation[=].value = "0 ball"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "0 points"
 
-* #chr-0118-0003 "1 points"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "1 points"
-  * ^designation[+].language = #ru
+* #chr-0118-0003 "1 ball"
+  * ^designation[0].language = #ru
   * ^designation[=].value = "1 балл"
-  * ^designation[+].language = #uz
-  * ^designation[=].value = "1 ball"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "1 points"
 
-* #chr-0118-0004 "2 points"
-  * ^designation[0].language = #en
+* #chr-0118-0004 "2 ball"
+  * ^designation[0].language = #ru
+  * ^designation[=].value = "2 баллов"
+  * ^designation[+].language = #en
   * ^designation[=].value = "2 points"
-  * ^designation[+].language = #ru
-  * ^designation[=].value = "2 балла"
-  * ^designation[+].language = #uz
-  * ^designation[=].value = "2 ball"
 
-* #chr-0118-0005 "3 points"
-  * ^designation[0].language = #en
+* #chr-0118-0005 "3 ball"
+  * ^designation[0].language = #ru
+  * ^designation[=].value = "3 баллов"
+  * ^designation[+].language = #en
   * ^designation[=].value = "3 points"
-  * ^designation[+].language = #ru
-  * ^designation[=].value = "3 балла"
-  * ^designation[+].language = #uz
-  * ^designation[=].value = "3 ball"
 
-* #chr-0118-0006 "4 points"
-  * ^designation[0].language = #en
+* #chr-0118-0006 "4 ball"
+  * ^designation[0].language = #ru
+  * ^designation[=].value = "4 баллов"
+  * ^designation[+].language = #en
   * ^designation[=].value = "4 points"
-  * ^designation[+].language = #ru
-  * ^designation[=].value = "4 балла"
-  * ^designation[+].language = #uz
-  * ^designation[=].value = "4 ball"
-

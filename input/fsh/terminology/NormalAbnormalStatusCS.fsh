@@ -2,22 +2,17 @@ CodeSystem: NormalAbnormalStatusCS
 Id: normal-abnormal-status-cs
 Title: "Form097 Normal Abnormal Status"
 Description: "Local codes for normal abnormal status, Form097 newborn development record."
-* ^language = #en
 
 * insert OriginalCodeSystemDraft(normal-abnormal-status-cs)
 
-* #chr-0096-0001 "Normal"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Normal"
-  * ^designation[+].language = #ru
+* #chr-0096-0001 "Me'yor"
+  * ^designation[0].language = #ru
   * ^designation[=].value = "Норма"
-  * ^designation[+].language = #uz
-  * ^designation[=].value = "Me'yor"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "Normal"
 
-* #chr-0096-0002 "Abnormal"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Abnormal"
-  * ^designation[+].language = #ru
+* #chr-0096-0002 "Me'yordan chetga chiqish"
+  * ^designation[0].language = #ru
   * ^designation[=].value = "Отклонение от нормы"
-  * ^designation[+].language = #uz
-  * ^designation[=].value = "Me'yordan chetga chiqish"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "Abnormal"

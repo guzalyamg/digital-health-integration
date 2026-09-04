@@ -2,55 +2,41 @@ CodeSystem: BallardMaleGenitalMaturityCS
 Id: ballard-male-genital-maturity-cs
 Title: "Form097 Ballard Male Genital Maturity"
 Description: "Local codes for ballard male genital maturity, Form097 newborn development record."
-* ^language = #en
 
 * insert OriginalCodeSystemDraft(ballard-male-genital-maturity-cs)
 
-* #chr-0112-0001 "−1: scrotum flat and smooth"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "−1: scrotum flat and smooth"
-  * ^designation[+].language = #ru
+* #chr-0112-0001 "−1: yorg'oq yassi va silliq"
+  * ^designation[0].language = #ru
   * ^designation[=].value = "−1: мошонка плоская и гладкая"
-  * ^designation[+].language = #uz
-  * ^designation[=].value = "−1: yorg'oq yassi va silliq"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "−1: scrotum flat and smooth"
 
-* #chr-0112-0002 "0: scrotum empty, faint rugae"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "0: scrotum empty, faint rugae"
-  * ^designation[+].language = #ru
+* #chr-0112-0002 "0: yorg'oq bo'sh, burmalar xira"
+  * ^designation[0].language = #ru
   * ^designation[=].value = "0: мошонка пустая, слабые складки"
-  * ^designation[+].language = #uz
-  * ^designation[=].value = "0: yorg'oq bo'sh, burmalar xira"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "0: scrotum empty, faint rugae"
 
-* #chr-0112-0003 "1: testes in upper canal"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "1: testes in upper canal"
-  * ^designation[+].language = #ru
+* #chr-0112-0003 "1: moyaklar kanalning yuqori qismida"
+  * ^designation[0].language = #ru
   * ^designation[=].value = "1: яички в верхней части канала"
-  * ^designation[+].language = #uz
-  * ^designation[=].value = "1: moyaklar kanalning yuqori qismida"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "1: testes in upper canal"
 
-* #chr-0112-0004 "2: testes descending, few rugae"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "2: testes descending, few rugae"
-  * ^designation[+].language = #ru
+* #chr-0112-0004 "2: moyaklar tushmoqda, burmalar kam"
+  * ^designation[0].language = #ru
   * ^designation[=].value = "2: яички опускаются, немного складок"
-  * ^designation[+].language = #uz
-  * ^designation[=].value = "2: moyaklar tushmoqda, burmalar kam"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "2: testes descending, few rugae"
 
-* #chr-0112-0005 "3: testes down, good rugae"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "3: testes down, good rugae"
-  * ^designation[+].language = #ru
+* #chr-0112-0005 "3: moyaklar tushgan, burmalar yaxshi rivojlangan"
+  * ^designation[0].language = #ru
   * ^designation[=].value = "3: яички опущены, складки выражены"
-  * ^designation[+].language = #uz
-  * ^designation[=].value = "3: moyaklar tushgan, burmalar yaxshi rivojlangan"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "3: testes down, good rugae"
 
-* #chr-0112-0006 "4: testes pendulous, deep rugae"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "4: testes pendulous, deep rugae"
-  * ^designation[+].language = #ru
+* #chr-0112-0006 "4: moyaklar osilgan, burmalar chuqur"
+  * ^designation[0].language = #ru
   * ^designation[=].value = "4: яички свисают, складки глубокие"
-  * ^designation[+].language = #uz
-  * ^designation[=].value = "4: moyaklar osilgan, burmalar chuqur"
-
+  * ^designation[+].language = #en
+  * ^designation[=].value = "4: testes pendulous, deep rugae"

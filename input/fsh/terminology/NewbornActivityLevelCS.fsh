@@ -2,30 +2,23 @@ CodeSystem: NewbornActivityLevelCS
 Id: newborn-activity-level-cs
 Title: "Form097 Newborn Activity Level"
 Description: "Local codes for newborn activity level, Form097 newborn development record."
-* ^language = #en
 
 * insert OriginalCodeSystemDraft(newborn-activity-level-cs)
 
-* #chr-0115-0001 "Increased"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Increased"
-  * ^designation[+].language = #ru
+* #chr-0115-0001 "Yuqori"
+  * ^designation[0].language = #ru
   * ^designation[=].value = "Повышенная"
-  * ^designation[+].language = #uz
-  * ^designation[=].value = "Yuqori"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "Increased"
 
-* #chr-0115-0002 "Moderate"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Moderate"
-  * ^designation[+].language = #ru
+* #chr-0115-0002 "O'rtacha"
+  * ^designation[0].language = #ru
   * ^designation[=].value = "Умеренная"
-  * ^designation[+].language = #uz
-  * ^designation[=].value = "O'rtacha"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "Moderate"
 
-* #chr-0115-0003 "Low"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Low"
-  * ^designation[+].language = #ru
+* #chr-0115-0003 "Past"
+  * ^designation[0].language = #ru
   * ^designation[=].value = "Низкая"
-  * ^designation[+].language = #uz
-  * ^designation[=].value = "Past"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "Low"

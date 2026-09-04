@@ -415,6 +415,7 @@ Usage: #inline
 * section[=].entry[+] = Reference(urn:uuid:097000f0-1111-2222-3333-444444444444)
 * section[=].entry[+] = Reference(urn:uuid:097000f1-1111-2222-3333-444444444444)
 * section[=].entry[+] = Reference(urn:uuid:097000f2-1111-2222-3333-444444444444)
+* section[=].entry[+] = Reference(urn:uuid:09700032-1111-2222-3333-444444444444)
 
 * section[firstNewbornExam].title = "First Newborn Examination"
 * section[=].code = $form-097-section-cs#first-newborn-exam "First newborn examination"

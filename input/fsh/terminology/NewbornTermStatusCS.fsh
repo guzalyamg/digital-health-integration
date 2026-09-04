@@ -2,30 +2,23 @@ CodeSystem: NewbornTermStatusCS
 Id: newborn-term-status-cs
 Title: "Form097 Newborn Term Status"
 Description: "Local codes for newborn term status, Form097 newborn development record."
-* ^language = #en
 
 * insert OriginalCodeSystemDraft(newborn-term-status-cs)
 
-* #chr-0114-0001 "Preterm"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Preterm"
-  * ^designation[+].language = #ru
+* #chr-0114-0001 "Muddatidan oldin tug'ilgan"
+  * ^designation[0].language = #ru
   * ^designation[=].value = "Родился раньше срока"
-  * ^designation[+].language = #uz
-  * ^designation[=].value = "Muddatidan oldin tug'ilgan"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "Preterm"
 
-* #chr-0114-0002 "Term"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Term"
-  * ^designation[+].language = #ru
+* #chr-0114-0002 "Muddatida tug'ilgan"
+  * ^designation[0].language = #ru
   * ^designation[=].value = "Родился в срок"
-  * ^designation[+].language = #uz
-  * ^designation[=].value = "Muddatida tug'ilgan"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "Term"
 
-* #chr-0114-0003 "Post-term"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Post-term"
-  * ^designation[+].language = #ru
+* #chr-0114-0003 "Muddatidan kech tug'ilgan"
+  * ^designation[0].language = #ru
   * ^designation[=].value = "Родился позже срока"
-  * ^designation[+].language = #uz
-  * ^designation[=].value = "Muddatidan kech tug'ilgan"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "Post-term"

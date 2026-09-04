@@ -2,30 +2,23 @@ CodeSystem: CyanosisDistributionCS
 Id: cyanosis-distribution-cs
 Title: "Form097 Cyanosis Distribution"
 Description: "Local codes for cyanosis distribution, Form097 newborn development record."
-* ^language = #en
 
 * insert OriginalCodeSystemDraft(cyanosis-distribution-cs)
 
-* #chr-0094-0001 "Generalized"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Generalized"
-  * ^designation[+].language = #ru
+* #chr-0094-0001 "Umumiy"
+  * ^designation[0].language = #ru
   * ^designation[=].value = "Общий"
-  * ^designation[+].language = #uz
-  * ^designation[=].value = "Umumiy"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "Generalized"
 
-* #chr-0094-0002 "Perioral"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Perioral"
-  * ^designation[+].language = #ru
+* #chr-0094-0002 "Og'iz atrofi"
+  * ^designation[0].language = #ru
   * ^designation[=].value = "Вокруг рта"
-  * ^designation[+].language = #uz
-  * ^designation[=].value = "Og'iz atrofi"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "Perioral"
 
-* #chr-0094-0003 "Acrocyanosis"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Acrocyanosis"
-  * ^designation[+].language = #ru
+* #chr-0094-0003 "Akrosianoz"
+  * ^designation[0].language = #ru
   * ^designation[=].value = "Акроцианоз"
-  * ^designation[+].language = #uz
-  * ^designation[=].value = "Akrosianoz"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "Acrocyanosis"

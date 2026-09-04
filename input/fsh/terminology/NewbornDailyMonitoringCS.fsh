@@ -2,110 +2,83 @@ CodeSystem: NewbornDailyMonitoringCS
 Id: newborn-daily-monitoring-cs
 Title: "Form097 Newborn Daily Monitoring"
 Description: "Local codes for newborn daily monitoring, Form097 newborn development record."
-* ^language = #en
 
 * insert OriginalCodeSystemDraft(newborn-daily-monitoring-cs)
 
-* #chr-0125-0001 "Cause of newborn death"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Cause of newborn death"
-  * ^designation[+].language = #ru
+* #chr-0125-0001 "Yangi tug'ilgan chaqaloq o'limining sababi"
+  * ^designation[0].language = #ru
   * ^designation[=].value = "Причина смерти новорождённого"
-  * ^designation[+].language = #uz
-  * ^designation[=].value = "Yangi tug'ilgan chaqaloq o'limining sababi"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "Cause of newborn death"
 
-* #chr-0125-0002 "Abdominal organ condition"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Abdominal organ condition"
-  * ^designation[+].language = #ru
+* #chr-0125-0002 "Qorin bo'shlig'i a'zolari holati"
+  * ^designation[0].language = #ru
   * ^designation[=].value = "Состояние органов брюшной полости"
-  * ^designation[+].language = #uz
-  * ^designation[=].value = "Qorin bo'shlig'i a'zolari holati"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "Abdominal organ condition"
 
-* #chr-0125-0003 "Feeding tolerance"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Feeding tolerance"
-  * ^designation[+].language = #ru
+* #chr-0125-0003 "Ovqatlanishni o'zlashtirish holati"
+  * ^designation[0].language = #ru
   * ^designation[=].value = "Переносимость кормления"
-  * ^designation[+].language = #uz
-  * ^designation[=].value = "Ovqatlanishni o'zlashtirish holati"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "Feeding tolerance"
 
-* #chr-0125-0004 "Reflex status"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Reflex status"
-  * ^designation[+].language = #ru
+* #chr-0125-0004 "Reflekslar holati"
+  * ^designation[0].language = #ru
   * ^designation[=].value = "Состояние рефлексов"
-  * ^designation[+].language = #uz
-  * ^designation[=].value = "Reflekslar holati"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "Reflex status"
 
-* #chr-0125-0005 "Muscle tone"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Muscle tone"
-  * ^designation[+].language = #ru
+* #chr-0125-0005 "Mushak tonusi"
+  * ^designation[0].language = #ru
   * ^designation[=].value = "Мышечный тонус"
-  * ^designation[+].language = #uz
-  * ^designation[=].value = "Mushak tonusi"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "Muscle tone"
 
-* #chr-0125-0006 "Eye and mucous membrane condition"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Eye and mucous membrane condition"
-  * ^designation[+].language = #ru
+* #chr-0125-0006 "Ko'zlar va shilliq qavatlar holati"
+  * ^designation[0].language = #ru
   * ^designation[=].value = "Состояние глаз и слизистых оболочек"
-  * ^designation[+].language = #uz
-  * ^designation[=].value = "Ko'zlar va shilliq qavatlar holati"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "Eye and mucous membrane condition"
 
-* #chr-0125-0007 "Urination and stool status"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Urination and stool status"
-  * ^designation[+].language = #ru
+* #chr-0125-0007 "Siydik va najas holati"
+  * ^designation[0].language = #ru
   * ^designation[=].value = "Состояние мочеиспускания и стула"
-  * ^designation[+].language = #uz
-  * ^designation[=].value = "Siydik va najas holati"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "Urination and stool status"
 
-* #chr-0125-0008 "Umbilical wound condition"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Umbilical wound condition"
-  * ^designation[+].language = #ru
+* #chr-0125-0008 "Kindik yarasi holati"
+  * ^designation[0].language = #ru
   * ^designation[=].value = "Состояние пупочной ранки"
-  * ^designation[+].language = #uz
-  * ^designation[=].value = "Kindik yarasi holati"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "Umbilical wound condition"
 
-* #chr-0125-0009 "General condition of newborn"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "General condition of newborn"
-  * ^designation[+].language = #ru
+* #chr-0125-0009 "Yangi tug'ilgan chaqaloqning umumiy holati"
+  * ^designation[0].language = #ru
   * ^designation[=].value = "Общее состояние новорождённого"
-  * ^designation[+].language = #uz
-  * ^designation[=].value = "Yangi tug'ilgan chaqaloqning umumiy holati"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "General condition of newborn"
 
-* #chr-0125-0010 "Cardiovascular system condition"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Cardiovascular system condition"
-  * ^designation[+].language = #ru
+* #chr-0125-0010 "Yurak-qon tomir tizimi holati"
+  * ^designation[0].language = #ru
   * ^designation[=].value = "Состояние сердечно-сосудистой системы"
-  * ^designation[+].language = #uz
-  * ^designation[=].value = "Yurak-qon tomir tizimi holati"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "Cardiovascular system condition"
 
-* #chr-0125-0011 "Skin color"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Skin color"
-  * ^designation[+].language = #ru
+* #chr-0125-0011 "Teri rangi"
+  * ^designation[0].language = #ru
   * ^designation[=].value = "Цвет кожи"
-  * ^designation[+].language = #uz
-  * ^designation[=].value = "Teri rangi"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "Skin color"
 
-* #chr-0125-0012 "Respiratory condition"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Respiratory condition"
-  * ^designation[+].language = #ru
+* #chr-0125-0012 "Nafas olish holati"
+  * ^designation[0].language = #ru
   * ^designation[=].value = "Состояние дыхания"
-  * ^designation[+].language = #uz
-  * ^designation[=].value = "Nafas olish holati"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "Respiratory condition"
 
-* #chr-0125-0013 "Activity level"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Activity level"
-  * ^designation[+].language = #ru
+* #chr-0125-0013 "Faollik darajasi"
+  * ^designation[0].language = #ru
   * ^designation[=].value = "Уровень активности"
-  * ^designation[+].language = #uz
-  * ^designation[=].value = "Faollik darajasi"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "Activity level"

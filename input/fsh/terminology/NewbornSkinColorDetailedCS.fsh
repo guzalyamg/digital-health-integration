@@ -2,94 +2,71 @@ CodeSystem: NewbornSkinColorDetailedCS
 Id: newborn-skin-color-detailed-cs
 Title: "Form097 Newborn Skin Color Detailed"
 Description: "Local codes for newborn skin color detailed, Form097 newborn development record."
-* ^language = #en
 
 * insert OriginalCodeSystemDraft(newborn-skin-color-detailed-cs)
 
-* #chr-0117-0001 "Normal color"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Normal color"
-  * ^designation[+].language = #ru
+* #chr-0117-0001 "Me'yoriy rang"
+  * ^designation[0].language = #ru
   * ^designation[=].value = "Нормальный цвет"
-  * ^designation[+].language = #uz
-  * ^designation[=].value = "Me'yoriy rang"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "Normal color"
 
-* #chr-0117-0002 "Pink"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Pink"
-  * ^designation[+].language = #ru
+* #chr-0117-0002 "Pushti"
+  * ^designation[0].language = #ru
   * ^designation[=].value = "Розовый"
-  * ^designation[+].language = #uz
-  * ^designation[=].value = "Pushti"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "Pink"
 
-* #chr-0117-0003 "Light pink"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Light pink"
-  * ^designation[+].language = #ru
+* #chr-0117-0003 "Och pushti"
+  * ^designation[0].language = #ru
   * ^designation[=].value = "Светло-розовый"
-  * ^designation[+].language = #uz
-  * ^designation[=].value = "Och pushti"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "Light pink"
 
-* #chr-0117-0004 "Pale"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Pale"
-  * ^designation[+].language = #ru
+* #chr-0117-0004 "Oqargan"
+  * ^designation[0].language = #ru
   * ^designation[=].value = "Бледный"
-  * ^designation[+].language = #uz
-  * ^designation[=].value = "Oqargan"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "Pale"
 
-* #chr-0117-0005 "Mottled"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Mottled"
-  * ^designation[+].language = #ru
+* #chr-0117-0005 "Marmarsimon"
+  * ^designation[0].language = #ru
   * ^designation[=].value = "Мраморный"
-  * ^designation[+].language = #uz
-  * ^designation[=].value = "Marmarsimon"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "Mottled"
 
-* #chr-0117-0006 "Subicteric"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Subicteric"
-  * ^designation[+].language = #ru
+* #chr-0117-0006 "Subikterik"
+  * ^designation[0].language = #ru
   * ^designation[=].value = "Субжелтушный"
-  * ^designation[+].language = #uz
-  * ^designation[=].value = "Subikterik"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "Subicteric"
 
-* #chr-0117-0007 "Icteric"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Icteric"
-  * ^designation[+].language = #ru
+* #chr-0117-0007 "Sarg'aygan"
+  * ^designation[0].language = #ru
   * ^designation[=].value = "Желтушный"
-  * ^designation[+].language = #uz
-  * ^designation[=].value = "Sarg'aygan"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "Icteric"
 
-* #chr-0117-0008 "Cyanotic"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Cyanotic"
-  * ^designation[+].language = #ru
+* #chr-0117-0008 "Sianoz"
+  * ^designation[0].language = #ru
   * ^designation[=].value = "Цианоз"
-  * ^designation[+].language = #uz
-  * ^designation[=].value = "Sianoz"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "Cyanotic"
 
-* #chr-0117-0009 "Acrocyanotic"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Acrocyanotic"
-  * ^designation[+].language = #ru
+* #chr-0117-0009 "Akrosianoz"
+  * ^designation[0].language = #ru
   * ^designation[=].value = "Акроцианоз"
-  * ^designation[+].language = #uz
-  * ^designation[=].value = "Akrosianoz"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "Acrocyanotic"
 
-* #chr-0117-0010 "Rash"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Rash"
-  * ^designation[+].language = #ru
+* #chr-0117-0010 "Toshma"
+  * ^designation[0].language = #ru
   * ^designation[=].value = "Сыпь"
-  * ^designation[+].language = #uz
-  * ^designation[=].value = "Toshma"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "Rash"
 
-* #chr-0117-0011 "Transparent"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Transparent"
-  * ^designation[+].language = #ru
+* #chr-0117-0011 "Shaffof"
+  * ^designation[0].language = #ru
   * ^designation[=].value = "Прозрачный"
-  * ^designation[+].language = #uz
-  * ^designation[=].value = "Shaffof"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "Transparent"

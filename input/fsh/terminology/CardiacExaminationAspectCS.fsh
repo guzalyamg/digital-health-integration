@@ -2,30 +2,23 @@ CodeSystem: CardiacExaminationAspectCS
 Id: cardiac-examination-aspect-cs
 Title: "Form097 Cardiac Examination Aspect"
 Description: "Local codes for cardiac examination aspect, Form097 newborn development record."
-* ^language = #en
 
 * insert OriginalCodeSystemDraft(cardiac-examination-aspect-cs)
 
-* #chr-0101-0001 "Cardiac borders"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Cardiac borders"
-  * ^designation[+].language = #ru
+* #chr-0101-0001 "Yurak chegaralari"
+  * ^designation[0].language = #ru
   * ^designation[=].value = "Границы сердца"
-  * ^designation[+].language = #uz
-  * ^designation[=].value = "Yurak chegaralari"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "Cardiac borders"
 
-* #chr-0101-0002 "Presence of murmurs"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Presence of murmurs"
-  * ^designation[+].language = #ru
+* #chr-0101-0002 "Shovqinlar mavjudligi"
+  * ^designation[0].language = #ru
   * ^designation[=].value = "Наличие шумов"
-  * ^designation[+].language = #uz
-  * ^designation[=].value = "Shovqinlar mavjudligi"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "Presence of murmurs"
 
-* #chr-0101-0003 "Rhythm characteristic"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Rhythm characteristic"
-  * ^designation[+].language = #ru
+* #chr-0101-0003 "Ritm xususiyati"
+  * ^designation[0].language = #ru
   * ^designation[=].value = "Особенность ритма"
-  * ^designation[+].language = #uz
-  * ^designation[=].value = "Ritm xususiyati"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "Rhythm characteristic"
