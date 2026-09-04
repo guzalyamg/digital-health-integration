@@ -5,59 +5,58 @@ Description: "Local codes for ballard eye ear maturity, Form097 newborn developm
 
 * insert OriginalCodeSystemDraft(ballard-eye-ear-maturity-cs)
 
-* #chr-0072-0001 "-1: lids fused loosely, -1"
+* #chr-0111-0001 "−2: lids fused tightly"
   * ^designation[0].language = #en
-  * ^designation[=].value = "-1: lids fused loosely, -1"
+  * ^designation[=].value = "−2: lids fused tightly"
   * ^designation[+].language = #ru
-  * ^designation[=].value = "-1: веки слабо сращены"
+  * ^designation[=].value = "−2: веки плотно закрыты"
   * ^designation[+].language = #uz
-  * ^designation[=].value = "-1: qovoqlar bo'sh birlashgan"
+  * ^designation[=].value = "−2: qovoqlar mahkam yopishgan"
 
-* #chr-0072-0002 "-1: lids fused tightly, -2"
+* #chr-0111-0002 "−1: lids fused loosely"
   * ^designation[0].language = #en
-  * ^designation[=].value = "-1: lids fused tightly, -2"
+  * ^designation[=].value = "−1: lids fused loosely"
   * ^designation[+].language = #ru
-  * ^designation[=].value = "-1: веки плотно сращены"
+  * ^designation[=].value = "−1: веки закрыты неплотно"
   * ^designation[+].language = #uz
-  * ^designation[=].value = "-1: qovoqlar zich birlashgan"
+  * ^designation[=].value = "−1: qovoqlar bo'shroq yopishgan"
 
-* #chr-0072-0003 "0: lids open, pinna flat, stays folded"
+* #chr-0111-0003 "0: lids open, pinna flat"
   * ^designation[0].language = #en
-  * ^designation[=].value = "0: lids open, pinna flat, stays folded"
+  * ^designation[=].value = "0: lids open, pinna flat"
   * ^designation[+].language = #ru
-  * ^designation[=].value = "0: веки открыты, ушная раковина плоская, остается сложенной"
+  * ^designation[=].value = "0: веки открыты, ушная раковина плоская"
   * ^designation[+].language = #uz
-  * ^designation[=].value = "0: qovoqlar ochiq, quloq supasi yassi, buklangan holda qoladi"
+  * ^designation[=].value = "0: qovoqlar ochiq, quloq suprasi yassi"
 
-* #chr-0072-0004 "1: slightly curved pinna, soft, slow recoil"
+* #chr-0111-0004 "1: soft pinna, slow recoil"
   * ^designation[0].language = #en
-  * ^designation[=].value = "1: slightly curved pinna, soft, slow recoil"
+  * ^designation[=].value = "1: soft pinna, slow recoil"
   * ^designation[+].language = #ru
-  * ^designation[=].value = "1: слегка изогнутая ушная раковина, мягкая, медленно расправляется"
+  * ^designation[=].value = "1: ушная раковина мягкая, легко складывается"
   * ^designation[+].language = #uz
-  * ^designation[=].value = "1: sal egilgan quloq supasi, yumshoq, sekin yozilyadi"
+  * ^designation[=].value = "1: quloq suprasi yumshoq, sekin tiklanadi"
 
-* #chr-0072-0005 "2: curved pinna, soft but ready recoil"
+* #chr-0111-0005 "2: curved pinna, soft"
   * ^designation[0].language = #en
-  * ^designation[=].value = "2: curved pinna, soft but ready recoil"
+  * ^designation[=].value = "2: curved pinna, soft"
   * ^designation[+].language = #ru
-  * ^designation[=].value = "2: изогнутая ушная раковина, мягкая, но быстро расправляется"
+  * ^designation[=].value = "2: ушная раковина изогнута, мягкая"
   * ^designation[+].language = #uz
-  * ^designation[=].value = "2: egilgan quloq supasi, yumshoq, lekin tez yozilyadi"
+  * ^designation[=].value = "2: quloq suprasi bukilgan, yumshoq"
 
-* #chr-0072-0006 "3: formed and firm, instant recoil"
+* #chr-0111-0006 "3: formed pinna, instant recoil"
   * ^designation[0].language = #en
-  * ^designation[=].value = "3: formed and firm, instant recoil"
+  * ^designation[=].value = "3: formed pinna, instant recoil"
   * ^designation[+].language = #ru
-  * ^designation[=].value = "3: сформирована и упругая, мгновенно расправляется"
+  * ^designation[=].value = "3: ушная раковина сформирована, быстро расправляется"
   * ^designation[+].language = #uz
-  * ^designation[=].value = "3: shakllangan va qattiq, zudlik bilan yozilyadi"
+  * ^designation[=].value = "3: quloq suprasi shakllangan, darhol tiklanadi"
 
-* #chr-0072-0007 "4: thick cartilage, ear stiff"
+* #chr-0111-0007 "4: thick cartilage, stiff ear"
   * ^designation[0].language = #en
-  * ^designation[=].value = "4: thick cartilage, ear stiff"
+  * ^designation[=].value = "4: thick cartilage, stiff ear"
   * ^designation[+].language = #ru
-  * ^designation[=].value = "4: толстый хрящ, ухо жесткое"
+  * ^designation[=].value = "4: хрящ плотный, ухо твёрдое"
   * ^designation[+].language = #uz
-  * ^designation[=].value = "4: qalin tog'ay, quloq qattiq"
-
+  * ^designation[=].value = "4: tog'ay qalin, quloq qattiq"

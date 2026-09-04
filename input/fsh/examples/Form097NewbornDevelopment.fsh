@@ -2157,7 +2157,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $newborn-daily-observation-component-cs#daily-observation-panel "TODO(Ernest-CS): Daily newborn observation panel"
+* code = $newborn-daily-observation-component-cs#daily-observation-panel "Daily newborn observation panel"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-06-01T00:00:00+05:00"
@@ -2190,7 +2190,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $newborn-daily-observation-component-cs#daily-observation-panel "TODO(Ernest-CS): Daily newborn observation panel"
+* code = $newborn-daily-observation-component-cs#daily-observation-panel "Daily newborn observation panel"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-06-02T00:00:00+05:00"
@@ -2223,7 +2223,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $newborn-daily-observation-component-cs#daily-observation-panel "TODO(Ernest-CS): Daily newborn observation panel"
+* code = $newborn-daily-observation-component-cs#daily-observation-panel "Daily newborn observation panel"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-06-03T00:00:00+05:00"
@@ -2256,7 +2256,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $newborn-daily-observation-component-cs#daily-observation-panel "TODO(Ernest-CS): Daily newborn observation panel"
+* code = $newborn-daily-observation-component-cs#daily-observation-panel "Daily newborn observation panel"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-06-04T00:00:00+05:00"
@@ -2289,7 +2289,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $newborn-daily-observation-component-cs#daily-observation-panel "TODO(Ernest-CS): Daily newborn observation panel"
+* code = $newborn-daily-observation-component-cs#daily-observation-panel "Daily newborn observation panel"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-06-05T00:00:00+05:00"
@@ -2322,7 +2322,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $newborn-daily-observation-component-cs#daily-observation-panel "TODO(Ernest-CS): Daily newborn observation panel"
+* code = $newborn-daily-observation-component-cs#daily-observation-panel "Daily newborn observation panel"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-06-06T00:00:00+05:00"
@@ -2355,7 +2355,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $newborn-daily-observation-component-cs#daily-observation-panel "TODO(Ernest-CS): Daily newborn observation panel"
+* code = $newborn-daily-observation-component-cs#daily-observation-panel "Daily newborn observation panel"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-06-07T00:00:00+05:00"
