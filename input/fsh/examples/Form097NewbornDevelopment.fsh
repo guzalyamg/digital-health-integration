@@ -629,10 +629,13 @@ Usage: #inline
 * birthDate = "1992-03-12"
 * maritalStatus = $v3-MaritalStatus#M "Married"
 * address.line[0] = "12 Amir Temur ko'chasi"
-* address.city = "Toshkent"
 * address.country = "UZ"
-* extension[nationality].extension[code].valueCodeableConcept = $nationality-cs#44 "УЗБЕК/УЗБЕЧКА"
-
+// TODO: address.city requires a coded value from mahalla-vs - a Uzbekistan-
+// specific neighborhood/mahalla code, not plain text. Removed rather than
+// guess a code; needs the real mahalla-vs list.
+* extension[nationality].extension[code].valueCodeableConcept = $nationality-cs#44 "UZBEK"
+// TODO(Gulhayo): workplace, position still pending - need real
+// Organization/employer details, not fabricated.
 
 
 Instance: relatedperson-mother-097
@@ -829,7 +832,7 @@ Usage: #inline
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-05-15T10:00:00+05:00"
-* valueCodeableConcept = $position-and-profession-cs#2310.8 "O'qituvchi"
+* valueCodeableConcept = $position-and-profession-cs#2310.8 "Lecturer"
 
 Instance: observation-labor-first-stage-097
 InstanceOf: UZCoreObservation
@@ -1027,7 +1030,7 @@ Usage: #inline
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-06-01T09:00:00+05:00"
-* valueCodeableConcept = $delivery-timeliness-cs#chr-0052-00001 "Timely delivery"
+* valueCodeableConcept = $delivery-timeliness-cs#chr-0091-0001 "Timely delivery"
 
 Instance: observation-newborn-term-status-097
 InstanceOf: UZCoreObservation
@@ -1039,7 +1042,7 @@ Usage: #inline
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-06-01T09:00:00+05:00"
-* valueCodeableConcept = $newborn-term-status-cs#chr-0075-00002 "Term"
+* valueCodeableConcept = $newborn-term-status-cs#chr-0114-0002 "Term"
 
 Instance: observation-fetal-outcome-097
 InstanceOf: UZCoreObservation
@@ -1182,7 +1185,7 @@ Usage: #inline
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-06-01T09:00:00+05:00"
-* valueCodeableConcept = $satisfactory-status-cs#chr-0040-00001 "Satisfactory"
+* valueCodeableConcept = $satisfactory-status-cs#chr-0040-0001 "Satisfactory"
 
 Instance: observation-exam-skin-color-description-097
 InstanceOf: UZCoreObservation
@@ -1219,19 +1222,19 @@ Usage: #inline
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * component[0].code = $newborn-maturity-assessment-cs#chr-0126-0003 "Skin maturity"
-* component[0].valueCodeableConcept = $ballard-skin-maturity-cs#chr-0068-00003 "1: smooth pink, visible veins"
+* component[0].valueCodeableConcept = $ballard-skin-maturity-cs#chr-0107-0003 "1: smooth pink, visible veins"
 * component[1].code = $newborn-maturity-assessment-cs#chr-0126-0002 "Lanugo maturity"
-* component[1].valueCodeableConcept = $ballard-lanugo-maturity-cs#chr-0069-00003 "1: abundant"
+* component[1].valueCodeableConcept = $ballard-lanugo-maturity-cs#chr-0108-0003 "1: abundant"
 * component[2].code = $newborn-maturity-assessment-cs#chr-0126-0004 "Plantar surface maturity"
-* component[2].valueCodeableConcept = $ballard-plantar-surface-cs#chr-0070-00004 "1: faint red marks"
+* component[2].valueCodeableConcept = $ballard-plantar-surface-cs#chr-0109-0004 "1: faint red marks"
 * component[3].code = $newborn-maturity-assessment-cs#chr-0126-0005 "Breast maturity"
-* component[3].valueCodeableConcept = $ballard-breast-maturity-cs#chr-0071-00003 "1: flat areola, no bud"
+* component[3].valueCodeableConcept = $ballard-breast-maturity-cs#chr-0110-0003 "1: flat areola, no bud"
 * component[4].code = $newborn-maturity-assessment-cs#chr-0126-0006 "Eye and ear maturity"
-* component[4].valueCodeableConcept = $ballard-eye-ear-maturity-cs#chr-0072-00005 "2: curved pinna, soft"
+* component[4].valueCodeableConcept = $ballard-eye-ear-maturity-cs#chr-0111-0005 "2: curved pinna, soft"
 * component[5].code = $newborn-maturity-assessment-cs#chr-0126-0008 "Male genital maturity"
-* component[5].valueCodeableConcept = $ballard-male-genital-maturity-cs#chr-0073-00003 "1: testes in upper canal"
+* component[5].valueCodeableConcept = $ballard-male-genital-maturity-cs#chr-0112-0003 "1: testes in upper canal"
 * component[6].code = $newborn-maturity-assessment-cs#chr-0126-0009 "Female genital maturity"
-* component[6].valueCodeableConcept = $ballard-female-genital-maturity-cs#chr-0074-00003 "1: prominent clitoris and labia minora"
+* component[6].valueCodeableConcept = $ballard-female-genital-maturity-cs#chr-0113-0003 "1: prominent clitoris and labia minora"
 
 Instance: observation-ballard-neuromuscular-maturity-097
 InstanceOf: UZCoreObservation
@@ -1244,13 +1247,13 @@ Usage: #inline
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * component[0].code.text = "Square window"
-* component[0].valueCodeableConcept = $ballard-square-window-cs#chr-0080-00004 "45°"
+* component[0].valueCodeableConcept = $ballard-square-window-cs#chr-0119-0004 "45°"
 * component[1].code.text = "Arm recoil"
-* component[1].valueCodeableConcept = $ballard-arm-recoil-cs#chr-0081-00002 "140–180°"
+* component[1].valueCodeableConcept = $ballard-arm-recoil-cs#chr-0120-0002 "140–180°"
 * component[2].code.text = "Popliteal angle"
-* component[2].valueCodeableConcept = $ballard-popliteal-angle-cs#chr-0082-00003 "140°"
+* component[2].valueCodeableConcept = $ballard-popliteal-angle-cs#chr-0121-0003 "140°"
 // TODO: posture, scarf sign, heel-to-ear — no CodeSystem exists yet
-* valueCodeableConcept = $ballard-neuromuscular-score-cs#chr-0079-00003 "1 points"
+* valueCodeableConcept = $ballard-neuromuscular-score-cs#chr-0118-0003 "1 points"
 
 Instance: observation-apgar-1min-097
 InstanceOf: UZCoreObservation
@@ -1309,7 +1312,7 @@ Usage: #inline
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-06-01T09:00:00+05:00"
-* valueCodeableConcept = $satisfactory-status-cs#chr-0040-00001 "Satisfactory"
+* valueCodeableConcept = $satisfactory-status-cs#chr-0040-0001 "Satisfactory"
 
 Instance: observation-exam-skin-color-097
 InstanceOf: UZCoreObservation
@@ -1321,7 +1324,7 @@ Usage: #inline
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-06-01T09:00:00+05:00"
-* valueCodeableConcept = $newborn-skin-color-basic-cs#chr-0054-00001 "Pink"
+* valueCodeableConcept = $newborn-skin-color-basic-cs#chr-0093-0001 "Pink"
 
 Instance: observation-exam-cyanosis-presence-097
 InstanceOf: UZCoreObservation
@@ -1346,7 +1349,7 @@ Usage: #inline
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * hasMember[0] = Reference(urn:uuid:09700052-1111-2222-3333-444444444444)
-* valueCodeableConcept = $cyanosis-distribution-cs#chr-0055-00001 "Generalized"
+* valueCodeableConcept = $cyanosis-distribution-cs#chr-0094-0001 "Generalized"
 
 Instance: observation-exam-skin-elasticity-097
 InstanceOf: UZCoreObservation
@@ -1358,7 +1361,7 @@ Usage: #inline
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-06-01T09:00:00+05:00"
-* valueCodeableConcept = $muscle-tone-status-cs#chr-0056-00001 "Normal"
+* valueCodeableConcept = $muscle-tone-status-cs#chr-0095-0001 "Normal"
 
 Instance: observation-exam-edema-097
 InstanceOf: UZCoreObservation
@@ -1395,7 +1398,7 @@ Usage: #inline
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-06-01T09:00:00+05:00"
-* valueCodeableConcept = $satisfactory-status-cs#chr-0040-00001 "Satisfactory"
+* valueCodeableConcept = $satisfactory-status-cs#chr-0040-0001 "Satisfactory"
 // FIXED: value type changed from valueString "TBD" to valueCodeableConcept -
 // mapping sheet row 96 specifies this field is bound to satisfactory-status-vs
 
@@ -1409,7 +1412,7 @@ Usage: #inline
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-06-01T09:00:00+05:00"
-* valueCodeableConcept = $primitive-reflex-type-cs#chr-0077-00002 "Sucking reflex"
+* valueCodeableConcept = $primitive-reflex-type-cs#chr-0116-0002 "Sucking reflex"
 * note.text = "No abnormalities noted"
 
 Instance: observation-exam-fontanelle-small-097
@@ -1448,7 +1451,7 @@ Usage: #inline
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-06-01T09:00:00+05:00"
-* valueCodeableConcept = $primitive-reflex-type-cs#chr-0077-00002 "Sucking reflex"
+* valueCodeableConcept = $primitive-reflex-type-cs#chr-0116-0002 "Sucking reflex"
 * note.text = "Sutures palpable, not fused"
 
 Instance: condition-birth-trauma-097
@@ -1474,7 +1477,7 @@ Usage: #inline
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-06-01T09:00:00+05:00"
-* valueCodeableConcept = $primitive-reflex-type-cs#chr-0077-00002 "Sucking reflex"
+* valueCodeableConcept = $primitive-reflex-type-cs#chr-0116-0002 "Sucking reflex"
 
 Instance: observation-exam-joint-reflexes-097
 InstanceOf: UZCoreObservation
@@ -1486,7 +1489,7 @@ Usage: #inline
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-06-01T09:00:00+05:00"
-* valueCodeableConcept = $primitive-reflex-type-cs#chr-0077-00002 "Sucking reflex"
+* valueCodeableConcept = $primitive-reflex-type-cs#chr-0116-0002 "Sucking reflex"
 
 Instance: observation-exam-primitive-reflexes-097
 InstanceOf: UZCoreObservation
@@ -1498,7 +1501,7 @@ Usage: #inline
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-06-01T09:00:00+05:00"
-* valueCodeableConcept = $primitive-reflex-type-cs#chr-0077-00002 "Sucking reflex"
+* valueCodeableConcept = $primitive-reflex-type-cs#chr-0116-0002 "Sucking reflex"
 
 Instance: observation-exam-spine-097
 InstanceOf: UZCoreObservation
@@ -1510,7 +1513,7 @@ Usage: #inline
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-06-01T09:00:00+05:00"
-* valueCodeableConcept = $primitive-reflex-type-cs#chr-0077-00002 "Sucking reflex"
+* valueCodeableConcept = $primitive-reflex-type-cs#chr-0116-0002 "Sucking reflex"
 * note.text = "No abnormalities noted"
 
 Instance: observation-exam-eye-position-097
@@ -1536,7 +1539,7 @@ Usage: #inline
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-06-01T09:00:00+05:00"
-* valueCodeableConcept = $eyelid-shape-cs#chr-0058-00001 "Almond-shaped"
+* valueCodeableConcept = $eyelid-shape-cs#chr-0097-0001 "Almond-shaped"
 
 Instance: observation-exam-pupillary-light-reflex-097
 InstanceOf: UZCoreObservation
@@ -1560,7 +1563,7 @@ Usage: #inline
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-06-01T09:00:00+05:00"
-* valueCodeableConcept = $ear-morphology-cs#chr-0059-00001 "Large"
+* valueCodeableConcept = $ear-morphology-cs#chr-0098-0001 "Large"
 
 Instance: observation-exam-thorax-shape-097
 InstanceOf: UZCoreObservation
@@ -1572,7 +1575,7 @@ Usage: #inline
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-06-01T09:00:00+05:00"
-* valueCodeableConcept = $primitive-reflex-type-cs#chr-0077-00002 "Sucking reflex"
+* valueCodeableConcept = $primitive-reflex-type-cs#chr-0116-0002 "Sucking reflex"
 * note.text = "No abnormalities noted"
 
 Instance: observation-exam-respiratory-rate-097
@@ -1622,7 +1625,7 @@ Usage: #inline
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-06-01T09:00:00+05:00"
-* valueCodeableConcept = $respiratory-auscultation-cs#chr-0060-00001 "Vesicular"
+* valueCodeableConcept = $respiratory-auscultation-cs#chr-0099-0001 "Vesicular"
 
 Instance: observation-exam-wheeze-097
 InstanceOf: UZCoreObservation
@@ -1672,7 +1675,7 @@ Usage: #inline
 * effectiveDateTime = "2026-06-01T09:00:00+05:00"
 * valueInteger = 0
 * component[0].code.text = "Silverman severity interpretation"
-* component[0].valueCodeableConcept = $silverman-respiratory-severity-cs#chr-0061-00001 "0 points — no respiratory distress"
+* component[0].valueCodeableConcept = $silverman-respiratory-severity-cs#chr-0100-0001 "0 points — no respiratory distress"
 // NOTE: moved off .interpretation - that element has a hard required binding
 // to observation-interpretation-vs which local CHR codes can never satisfy.
 
@@ -1681,36 +1684,36 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $cardiac-examination-aspect-cs#chr-0062-00001 "Cardiac borders"
+* code = $cardiac-examination-aspect-cs#chr-0101-0001 "Cardiac borders"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-06-01T09:00:00+05:00"
-* valueCodeableConcept = $primitive-reflex-type-cs#chr-0077-00002 "Sucking reflex"
+* valueCodeableConcept = $primitive-reflex-type-cs#chr-0116-0002 "Sucking reflex"
 
 Instance: observation-exam-cardiac-murmur-097
 InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $cardiac-examination-aspect-cs#chr-0062-00002 "Presence of murmurs"
+* code = $cardiac-examination-aspect-cs#chr-0101-0002 "Presence of murmurs"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-06-01T09:00:00+05:00"
-* valueCodeableConcept = $primitive-reflex-type-cs#chr-0077-00002 "Sucking reflex"
+* valueCodeableConcept = $primitive-reflex-type-cs#chr-0116-0002 "Sucking reflex"
 
 Instance: observation-exam-cardiac-rhythm-097
 InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $cardiac-examination-aspect-cs#chr-0062-00003 "Rhythm characteristic"
+* code = $cardiac-examination-aspect-cs#chr-0101-0003 "Rhythm characteristic"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-06-01T09:00:00+05:00"
-* valueCodeableConcept = $primitive-reflex-type-cs#chr-0077-00002 "Sucking reflex"
+* valueCodeableConcept = $primitive-reflex-type-cs#chr-0116-0002 "Sucking reflex"
 * note.text = "Regular rhythm"
 
 Instance: observation-exam-heart-rate-097
@@ -1748,7 +1751,7 @@ Usage: #inline
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-06-01T09:00:00+05:00"
-* valueCodeableConcept = $primitive-reflex-type-cs#chr-0077-00002 "Sucking reflex"
+* valueCodeableConcept = $primitive-reflex-type-cs#chr-0116-0002 "Sucking reflex"
 * note.text = "Soft, non-distended"
 
 Instance: observation-exam-bowel-sounds-097
@@ -1761,7 +1764,7 @@ Usage: #inline
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-06-01T09:00:00+05:00"
-* valueCodeableConcept = $primitive-reflex-type-cs#chr-0077-00002 "Sucking reflex"
+* valueCodeableConcept = $primitive-reflex-type-cs#chr-0116-0002 "Sucking reflex"
 * note.text = "Active bowel sounds in all quadrants"
 
 Instance: observation-exam-breastfeeding-097
@@ -1776,7 +1779,7 @@ Usage: #inline
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-06-01T09:00:00+05:00"
-* valueCodeableConcept = $primitive-reflex-type-cs#chr-0077-00002 "Sucking reflex"
+* valueCodeableConcept = $primitive-reflex-type-cs#chr-0116-0002 "Sucking reflex"
 * note.text = "Latching well"
 
 Instance: observation-exam-liver-size-097
@@ -1789,7 +1792,7 @@ Usage: #inline
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-06-01T09:00:00+05:00"
-* valueCodeableConcept = $primitive-reflex-type-cs#chr-0077-00002 "Sucking reflex"
+* valueCodeableConcept = $primitive-reflex-type-cs#chr-0116-0002 "Sucking reflex"
 
 Instance: observation-exam-spleen-097
 InstanceOf: UZCoreObservation
@@ -1801,7 +1804,7 @@ Usage: #inline
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-06-01T09:00:00+05:00"
-* valueCodeableConcept = $primitive-reflex-type-cs#chr-0077-00002 "Sucking reflex"
+* valueCodeableConcept = $primitive-reflex-type-cs#chr-0116-0002 "Sucking reflex"
 
 Instance: observation-exam-vomiting-097
 InstanceOf: UZCoreObservation
@@ -1837,7 +1840,7 @@ Usage: #inline
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-06-01T09:00:00+05:00"
-* valueCodeableConcept = $primitive-reflex-type-cs#chr-0077-00002 "Sucking reflex"
+* valueCodeableConcept = $primitive-reflex-type-cs#chr-0116-0002 "Sucking reflex"
 
 Instance: observation-exam-urination-097
 InstanceOf: UZCoreObservation
@@ -1849,7 +1852,7 @@ Usage: #inline
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-06-01T09:00:00+05:00"
-* valueCodeableConcept = $urination-ease-cs#chr-0063-00002 "Free"
+* valueCodeableConcept = $urination-ease-cs#chr-0102-0002 "Free"
 
 Instance: observation-exam-genital-appearance-097
 InstanceOf: UZCoreObservation
@@ -1861,7 +1864,7 @@ Usage: #inline
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-06-01T09:00:00+05:00"
-* valueCodeableConcept = $external-genital-pattern-cs#chr-0064-00001 "Male pattern"
+* valueCodeableConcept = $external-genital-pattern-cs#chr-0103-0001 "Male pattern"
 
 Instance: observation-exam-hip-joints-097
 InstanceOf: UZCoreObservation
@@ -1873,7 +1876,7 @@ Usage: #inline
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-06-01T09:00:00+05:00"
-* valueCodeableConcept = $primitive-reflex-type-cs#chr-0077-00002 "Sucking reflex"
+* valueCodeableConcept = $primitive-reflex-type-cs#chr-0116-0002 "Sucking reflex"
 * note.text = "No hip instability (Ortolani/Barlow negative)"
 
 Instance: observation-exam-conclusion-097
@@ -2170,7 +2173,7 @@ Usage: #inline
 * component[4].code = $loinc#8310-5 "Body temperature"
 * component[4].valueQuantity = 36.8 'Cel' "°C"
 * component[5].code = $loinc#63895-7 "Breastfeeding status"
-* component[5].valueCodeableConcept = $infant-feeding-type-cs#chr-0067-00001 "Exclusive breastfeeding"
+* component[5].valueCodeableConcept = $infant-feeding-type-cs#chr-0106-0001 "Exclusive breastfeeding"
 * component[6].code = $newborn-daily-monitoring-cs#chr-0125-0003 "Feeding tolerance"
 * component[6].valueCodeableConcept.text = "Tolerating feeds well, no vomiting or abdominal distension"
 * component[7].code = $sct#62315008 "Diarrhea"
@@ -2203,7 +2206,7 @@ Usage: #inline
 * component[4].code = $loinc#8310-5 "Body temperature"
 * component[4].valueQuantity = 36.8 'Cel' "°C"
 * component[5].code = $loinc#63895-7 "Breastfeeding status"
-* component[5].valueCodeableConcept = $infant-feeding-type-cs#chr-0067-00001 "Exclusive breastfeeding"
+* component[5].valueCodeableConcept = $infant-feeding-type-cs#chr-0106-0001 "Exclusive breastfeeding"
 * component[6].code = $newborn-daily-monitoring-cs#chr-0125-0003 "Feeding tolerance"
 * component[6].valueCodeableConcept.text = "Tolerating feeds well, no vomiting or abdominal distension"
 * component[7].code = $sct#62315008 "Diarrhea"
@@ -2236,7 +2239,7 @@ Usage: #inline
 * component[4].code = $loinc#8310-5 "Body temperature"
 * component[4].valueQuantity = 36.8 'Cel' "°C"
 * component[5].code = $loinc#63895-7 "Breastfeeding status"
-* component[5].valueCodeableConcept = $infant-feeding-type-cs#chr-0067-00001 "Exclusive breastfeeding"
+* component[5].valueCodeableConcept = $infant-feeding-type-cs#chr-0106-0001 "Exclusive breastfeeding"
 * component[6].code = $newborn-daily-monitoring-cs#chr-0125-0003 "Feeding tolerance"
 * component[6].valueCodeableConcept.text = "Tolerating feeds well, no vomiting or abdominal distension"
 * component[7].code = $sct#62315008 "Diarrhea"
@@ -2269,7 +2272,7 @@ Usage: #inline
 * component[4].code = $loinc#8310-5 "Body temperature"
 * component[4].valueQuantity = 36.8 'Cel' "°C"
 * component[5].code = $loinc#63895-7 "Breastfeeding status"
-* component[5].valueCodeableConcept = $infant-feeding-type-cs#chr-0067-00001 "Exclusive breastfeeding"
+* component[5].valueCodeableConcept = $infant-feeding-type-cs#chr-0106-0001 "Exclusive breastfeeding"
 * component[6].code = $newborn-daily-monitoring-cs#chr-0125-0003 "Feeding tolerance"
 * component[6].valueCodeableConcept.text = "Tolerating feeds well, no vomiting or abdominal distension"
 * component[7].code = $sct#62315008 "Diarrhea"
@@ -2302,7 +2305,7 @@ Usage: #inline
 * component[4].code = $loinc#8310-5 "Body temperature"
 * component[4].valueQuantity = 36.8 'Cel' "°C"
 * component[5].code = $loinc#63895-7 "Breastfeeding status"
-* component[5].valueCodeableConcept = $infant-feeding-type-cs#chr-0067-00001 "Exclusive breastfeeding"
+* component[5].valueCodeableConcept = $infant-feeding-type-cs#chr-0106-0001 "Exclusive breastfeeding"
 * component[6].code = $newborn-daily-monitoring-cs#chr-0125-0003 "Feeding tolerance"
 * component[6].valueCodeableConcept.text = "Tolerating feeds well, no vomiting or abdominal distension"
 * component[7].code = $sct#62315008 "Diarrhea"
@@ -2335,7 +2338,7 @@ Usage: #inline
 * component[4].code = $loinc#8310-5 "Body temperature"
 * component[4].valueQuantity = 36.8 'Cel' "°C"
 * component[5].code = $loinc#63895-7 "Breastfeeding status"
-* component[5].valueCodeableConcept = $infant-feeding-type-cs#chr-0067-00001 "Exclusive breastfeeding"
+* component[5].valueCodeableConcept = $infant-feeding-type-cs#chr-0106-0001 "Exclusive breastfeeding"
 * component[6].code = $newborn-daily-monitoring-cs#chr-0125-0003 "Feeding tolerance"
 * component[6].valueCodeableConcept.text = "Tolerating feeds well, no vomiting or abdominal distension"
 * component[7].code = $sct#62315008 "Diarrhea"
@@ -2368,7 +2371,7 @@ Usage: #inline
 * component[4].code = $loinc#8310-5 "Body temperature"
 * component[4].valueQuantity = 36.8 'Cel' "°C"
 * component[5].code = $loinc#63895-7 "Breastfeeding status"
-* component[5].valueCodeableConcept = $infant-feeding-type-cs#chr-0067-00001 "Exclusive breastfeeding"
+* component[5].valueCodeableConcept = $infant-feeding-type-cs#chr-0106-0001 "Exclusive breastfeeding"
 * component[6].code = $newborn-daily-monitoring-cs#chr-0125-0003 "Feeding tolerance"
 * component[6].valueCodeableConcept.text = "Tolerating feeds well, no vomiting or abdominal distension"
 * component[7].code = $sct#62315008 "Diarrhea"
@@ -2396,27 +2399,27 @@ Usage: #inline
 * effectiveDateTime = "2026-06-01T00:00:00+05:00"
 * performer = Reference(urn:uuid:097000d1-1111-2222-3333-444444444444)
 * component[0].code = $newborn-daily-monitoring-cs#chr-0125-0009 "General condition of newborn"
-* component[0].valueCodeableConcept = $satisfactory-status-cs#chr-0040-00001 "Satisfactory"
+* component[0].valueCodeableConcept = $satisfactory-status-cs#chr-0040-0001 "Satisfactory"
 * component[1].code = $newborn-daily-monitoring-cs#chr-0125-0013 "Activity level"
-* component[1].valueCodeableConcept = $newborn-activity-level-cs#chr-0076-00002 "Moderate"
+* component[1].valueCodeableConcept = $newborn-activity-level-cs#chr-0115-0002 "Moderate"
 * component[2].code = $newborn-daily-monitoring-cs#chr-0125-0004 "Reflex status"
-* component[2].valueCodeableConcept = $primitive-reflex-type-cs#chr-0077-00002 "Sucking reflex"
+* component[2].valueCodeableConcept = $primitive-reflex-type-cs#chr-0116-0002 "Sucking reflex"
 * component[3].code = $newborn-daily-monitoring-cs#chr-0125-0005 "Muscle tone"
-* component[3].valueCodeableConcept = $muscle-tone-status-cs#chr-0056-00001 "Normal"
+* component[3].valueCodeableConcept = $muscle-tone-status-cs#chr-0095-0001 "Normal"
 * component[4].code = $newborn-daily-monitoring-cs#chr-0125-0011 "Skin color"
-* component[4].valueCodeableConcept = $newborn-skin-color-detailed-cs#chr-0078-00001 "Normal color"
+* component[4].valueCodeableConcept = $newborn-skin-color-detailed-cs#chr-0117-0001 "Normal color"
 * component[5].code = $newborn-daily-monitoring-cs#chr-0125-0012 "Respiratory condition"
-* component[5].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[5].valueCodeableConcept = $normal-abnormal-status-cs#chr-0096-0001 "Normal"
 * component[6].code = $newborn-daily-monitoring-cs#chr-0125-0010 "Cardiovascular system condition"
-* component[6].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[6].valueCodeableConcept = $normal-abnormal-status-cs#chr-0096-0001 "Normal"
 * component[7].code = $loinc#8310-5 "Body temperature"
 * component[7].valueQuantity = 37.0 'Cel' "°C"
 * component[8].code = $newborn-daily-monitoring-cs#chr-0125-0002 "Abdominal organ condition"
-* component[8].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[8].valueCodeableConcept = $normal-abnormal-status-cs#chr-0096-0001 "Normal"
 * component[9].code.text = "Micturition"
-* component[9].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[9].valueCodeableConcept = $normal-abnormal-status-cs#chr-0096-0001 "Normal"
 * component[10].code.text = "Stool finding"
-* component[10].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[10].valueCodeableConcept = $normal-abnormal-status-cs#chr-0096-0001 "Normal"
 * component[11].code.text = "Laboratory investigations"
 * component[11].valueString = "TBD"
 * note.text = "TBD - problems and plans"
@@ -2432,27 +2435,27 @@ Usage: #inline
 * effectiveDateTime = "2026-06-02T00:00:00+05:00"
 * performer = Reference(urn:uuid:097000d1-1111-2222-3333-444444444444)
 * component[0].code = $newborn-daily-monitoring-cs#chr-0125-0009 "General condition of newborn"
-* component[0].valueCodeableConcept = $satisfactory-status-cs#chr-0040-00001 "Satisfactory"
+* component[0].valueCodeableConcept = $satisfactory-status-cs#chr-0040-0001 "Satisfactory"
 * component[1].code = $newborn-daily-monitoring-cs#chr-0125-0013 "Activity level"
-* component[1].valueCodeableConcept = $newborn-activity-level-cs#chr-0076-00002 "Moderate"
+* component[1].valueCodeableConcept = $newborn-activity-level-cs#chr-0115-0002 "Moderate"
 * component[2].code = $newborn-daily-monitoring-cs#chr-0125-0004 "Reflex status"
-* component[2].valueCodeableConcept = $primitive-reflex-type-cs#chr-0077-00002 "Sucking reflex"
+* component[2].valueCodeableConcept = $primitive-reflex-type-cs#chr-0116-0002 "Sucking reflex"
 * component[3].code = $newborn-daily-monitoring-cs#chr-0125-0005 "Muscle tone"
-* component[3].valueCodeableConcept = $muscle-tone-status-cs#chr-0056-00001 "Normal"
+* component[3].valueCodeableConcept = $muscle-tone-status-cs#chr-0095-0001 "Normal"
 * component[4].code = $newborn-daily-monitoring-cs#chr-0125-0011 "Skin color"
-* component[4].valueCodeableConcept = $newborn-skin-color-detailed-cs#chr-0078-00001 "Normal color"
+* component[4].valueCodeableConcept = $newborn-skin-color-detailed-cs#chr-0117-0001 "Normal color"
 * component[5].code = $newborn-daily-monitoring-cs#chr-0125-0012 "Respiratory condition"
-* component[5].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[5].valueCodeableConcept = $normal-abnormal-status-cs#chr-0096-0001 "Normal"
 * component[6].code = $newborn-daily-monitoring-cs#chr-0125-0010 "Cardiovascular system condition"
-* component[6].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[6].valueCodeableConcept = $normal-abnormal-status-cs#chr-0096-0001 "Normal"
 * component[7].code = $loinc#8310-5 "Body temperature"
 * component[7].valueQuantity = 37.0 'Cel' "°C"
 * component[8].code = $newborn-daily-monitoring-cs#chr-0125-0002 "Abdominal organ condition"
-* component[8].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[8].valueCodeableConcept = $normal-abnormal-status-cs#chr-0096-0001 "Normal"
 * component[9].code.text = "Micturition"
-* component[9].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[9].valueCodeableConcept = $normal-abnormal-status-cs#chr-0096-0001 "Normal"
 * component[10].code.text = "Stool finding"
-* component[10].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[10].valueCodeableConcept = $normal-abnormal-status-cs#chr-0096-0001 "Normal"
 * component[11].code.text = "Laboratory investigations"
 * component[11].valueString = "TBD"
 * note.text = "TBD - problems and plans"
@@ -2468,27 +2471,27 @@ Usage: #inline
 * effectiveDateTime = "2026-06-03T00:00:00+05:00"
 * performer = Reference(urn:uuid:097000d1-1111-2222-3333-444444444444)
 * component[0].code = $newborn-daily-monitoring-cs#chr-0125-0009 "General condition of newborn"
-* component[0].valueCodeableConcept = $satisfactory-status-cs#chr-0040-00001 "Satisfactory"
+* component[0].valueCodeableConcept = $satisfactory-status-cs#chr-0040-0001 "Satisfactory"
 * component[1].code = $newborn-daily-monitoring-cs#chr-0125-0013 "Activity level"
-* component[1].valueCodeableConcept = $newborn-activity-level-cs#chr-0076-00002 "Moderate"
+* component[1].valueCodeableConcept = $newborn-activity-level-cs#chr-0115-0002 "Moderate"
 * component[2].code = $newborn-daily-monitoring-cs#chr-0125-0004 "Reflex status"
-* component[2].valueCodeableConcept = $primitive-reflex-type-cs#chr-0077-00002 "Sucking reflex"
+* component[2].valueCodeableConcept = $primitive-reflex-type-cs#chr-0116-0002 "Sucking reflex"
 * component[3].code = $newborn-daily-monitoring-cs#chr-0125-0005 "Muscle tone"
-* component[3].valueCodeableConcept = $muscle-tone-status-cs#chr-0056-00001 "Normal"
+* component[3].valueCodeableConcept = $muscle-tone-status-cs#chr-0095-0001 "Normal"
 * component[4].code = $newborn-daily-monitoring-cs#chr-0125-0011 "Skin color"
-* component[4].valueCodeableConcept = $newborn-skin-color-detailed-cs#chr-0078-00001 "Normal color"
+* component[4].valueCodeableConcept = $newborn-skin-color-detailed-cs#chr-0117-0001 "Normal color"
 * component[5].code = $newborn-daily-monitoring-cs#chr-0125-0012 "Respiratory condition"
-* component[5].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[5].valueCodeableConcept = $normal-abnormal-status-cs#chr-0096-0001 "Normal"
 * component[6].code = $newborn-daily-monitoring-cs#chr-0125-0010 "Cardiovascular system condition"
-* component[6].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[6].valueCodeableConcept = $normal-abnormal-status-cs#chr-0096-0001 "Normal"
 * component[7].code = $loinc#8310-5 "Body temperature"
 * component[7].valueQuantity = 37.0 'Cel' "°C"
 * component[8].code = $newborn-daily-monitoring-cs#chr-0125-0002 "Abdominal organ condition"
-* component[8].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[8].valueCodeableConcept = $normal-abnormal-status-cs#chr-0096-0001 "Normal"
 * component[9].code.text = "Micturition"
-* component[9].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[9].valueCodeableConcept = $normal-abnormal-status-cs#chr-0096-0001 "Normal"
 * component[10].code.text = "Stool finding"
-* component[10].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[10].valueCodeableConcept = $normal-abnormal-status-cs#chr-0096-0001 "Normal"
 * component[11].code.text = "Laboratory investigations"
 * component[11].valueString = "TBD"
 * note.text = "TBD - problems and plans"
@@ -2504,27 +2507,27 @@ Usage: #inline
 * effectiveDateTime = "2026-06-04T00:00:00+05:00"
 * performer = Reference(urn:uuid:097000d1-1111-2222-3333-444444444444)
 * component[0].code = $newborn-daily-monitoring-cs#chr-0125-0009 "General condition of newborn"
-* component[0].valueCodeableConcept = $satisfactory-status-cs#chr-0040-00001 "Satisfactory"
+* component[0].valueCodeableConcept = $satisfactory-status-cs#chr-0040-0001 "Satisfactory"
 * component[1].code = $newborn-daily-monitoring-cs#chr-0125-0013 "Activity level"
-* component[1].valueCodeableConcept = $newborn-activity-level-cs#chr-0076-00002 "Moderate"
+* component[1].valueCodeableConcept = $newborn-activity-level-cs#chr-0115-0002 "Moderate"
 * component[2].code = $newborn-daily-monitoring-cs#chr-0125-0004 "Reflex status"
-* component[2].valueCodeableConcept = $primitive-reflex-type-cs#chr-0077-00002 "Sucking reflex"
+* component[2].valueCodeableConcept = $primitive-reflex-type-cs#chr-0116-0002 "Sucking reflex"
 * component[3].code = $newborn-daily-monitoring-cs#chr-0125-0005 "Muscle tone"
-* component[3].valueCodeableConcept = $muscle-tone-status-cs#chr-0056-00001 "Normal"
+* component[3].valueCodeableConcept = $muscle-tone-status-cs#chr-0095-0001 "Normal"
 * component[4].code = $newborn-daily-monitoring-cs#chr-0125-0011 "Skin color"
-* component[4].valueCodeableConcept = $newborn-skin-color-detailed-cs#chr-0078-00001 "Normal color"
+* component[4].valueCodeableConcept = $newborn-skin-color-detailed-cs#chr-0117-0001 "Normal color"
 * component[5].code = $newborn-daily-monitoring-cs#chr-0125-0012 "Respiratory condition"
-* component[5].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[5].valueCodeableConcept = $normal-abnormal-status-cs#chr-0096-0001 "Normal"
 * component[6].code = $newborn-daily-monitoring-cs#chr-0125-0010 "Cardiovascular system condition"
-* component[6].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[6].valueCodeableConcept = $normal-abnormal-status-cs#chr-0096-0001 "Normal"
 * component[7].code = $loinc#8310-5 "Body temperature"
 * component[7].valueQuantity = 37.0 'Cel' "°C"
 * component[8].code = $newborn-daily-monitoring-cs#chr-0125-0002 "Abdominal organ condition"
-* component[8].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[8].valueCodeableConcept = $normal-abnormal-status-cs#chr-0096-0001 "Normal"
 * component[9].code.text = "Micturition"
-* component[9].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[9].valueCodeableConcept = $normal-abnormal-status-cs#chr-0096-0001 "Normal"
 * component[10].code.text = "Stool finding"
-* component[10].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[10].valueCodeableConcept = $normal-abnormal-status-cs#chr-0096-0001 "Normal"
 * component[11].code.text = "Laboratory investigations"
 * component[11].valueString = "TBD"
 * note.text = "TBD - problems and plans"
@@ -2540,27 +2543,27 @@ Usage: #inline
 * effectiveDateTime = "2026-06-05T00:00:00+05:00"
 * performer = Reference(urn:uuid:097000d1-1111-2222-3333-444444444444)
 * component[0].code = $newborn-daily-monitoring-cs#chr-0125-0009 "General condition of newborn"
-* component[0].valueCodeableConcept = $satisfactory-status-cs#chr-0040-00001 "Satisfactory"
+* component[0].valueCodeableConcept = $satisfactory-status-cs#chr-0040-0001 "Satisfactory"
 * component[1].code = $newborn-daily-monitoring-cs#chr-0125-0013 "Activity level"
-* component[1].valueCodeableConcept = $newborn-activity-level-cs#chr-0076-00002 "Moderate"
+* component[1].valueCodeableConcept = $newborn-activity-level-cs#chr-0115-0002 "Moderate"
 * component[2].code = $newborn-daily-monitoring-cs#chr-0125-0004 "Reflex status"
-* component[2].valueCodeableConcept = $primitive-reflex-type-cs#chr-0077-00002 "Sucking reflex"
+* component[2].valueCodeableConcept = $primitive-reflex-type-cs#chr-0116-0002 "Sucking reflex"
 * component[3].code = $newborn-daily-monitoring-cs#chr-0125-0005 "Muscle tone"
-* component[3].valueCodeableConcept = $muscle-tone-status-cs#chr-0056-00001 "Normal"
+* component[3].valueCodeableConcept = $muscle-tone-status-cs#chr-0095-0001 "Normal"
 * component[4].code = $newborn-daily-monitoring-cs#chr-0125-0011 "Skin color"
-* component[4].valueCodeableConcept = $newborn-skin-color-detailed-cs#chr-0078-00001 "Normal color"
+* component[4].valueCodeableConcept = $newborn-skin-color-detailed-cs#chr-0117-0001 "Normal color"
 * component[5].code = $newborn-daily-monitoring-cs#chr-0125-0012 "Respiratory condition"
-* component[5].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[5].valueCodeableConcept = $normal-abnormal-status-cs#chr-0096-0001 "Normal"
 * component[6].code = $newborn-daily-monitoring-cs#chr-0125-0010 "Cardiovascular system condition"
-* component[6].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[6].valueCodeableConcept = $normal-abnormal-status-cs#chr-0096-0001 "Normal"
 * component[7].code = $loinc#8310-5 "Body temperature"
 * component[7].valueQuantity = 37.0 'Cel' "°C"
 * component[8].code = $newborn-daily-monitoring-cs#chr-0125-0002 "Abdominal organ condition"
-* component[8].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[8].valueCodeableConcept = $normal-abnormal-status-cs#chr-0096-0001 "Normal"
 * component[9].code.text = "Micturition"
-* component[9].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[9].valueCodeableConcept = $normal-abnormal-status-cs#chr-0096-0001 "Normal"
 * component[10].code.text = "Stool finding"
-* component[10].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[10].valueCodeableConcept = $normal-abnormal-status-cs#chr-0096-0001 "Normal"
 * component[11].code.text = "Laboratory investigations"
 * component[11].valueString = "TBD"
 * note.text = "TBD - problems and plans"
@@ -2576,27 +2579,27 @@ Usage: #inline
 * effectiveDateTime = "2026-06-06T00:00:00+05:00"
 * performer = Reference(urn:uuid:097000d1-1111-2222-3333-444444444444)
 * component[0].code = $newborn-daily-monitoring-cs#chr-0125-0009 "General condition of newborn"
-* component[0].valueCodeableConcept = $satisfactory-status-cs#chr-0040-00001 "Satisfactory"
+* component[0].valueCodeableConcept = $satisfactory-status-cs#chr-0040-0001 "Satisfactory"
 * component[1].code = $newborn-daily-monitoring-cs#chr-0125-0013 "Activity level"
-* component[1].valueCodeableConcept = $newborn-activity-level-cs#chr-0076-00002 "Moderate"
+* component[1].valueCodeableConcept = $newborn-activity-level-cs#chr-0115-0002 "Moderate"
 * component[2].code = $newborn-daily-monitoring-cs#chr-0125-0004 "Reflex status"
-* component[2].valueCodeableConcept = $primitive-reflex-type-cs#chr-0077-00002 "Sucking reflex"
+* component[2].valueCodeableConcept = $primitive-reflex-type-cs#chr-0116-0002 "Sucking reflex"
 * component[3].code = $newborn-daily-monitoring-cs#chr-0125-0005 "Muscle tone"
-* component[3].valueCodeableConcept = $muscle-tone-status-cs#chr-0056-00001 "Normal"
+* component[3].valueCodeableConcept = $muscle-tone-status-cs#chr-0095-0001 "Normal"
 * component[4].code = $newborn-daily-monitoring-cs#chr-0125-0011 "Skin color"
-* component[4].valueCodeableConcept = $newborn-skin-color-detailed-cs#chr-0078-00001 "Normal color"
+* component[4].valueCodeableConcept = $newborn-skin-color-detailed-cs#chr-0117-0001 "Normal color"
 * component[5].code = $newborn-daily-monitoring-cs#chr-0125-0012 "Respiratory condition"
-* component[5].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[5].valueCodeableConcept = $normal-abnormal-status-cs#chr-0096-0001 "Normal"
 * component[6].code = $newborn-daily-monitoring-cs#chr-0125-0010 "Cardiovascular system condition"
-* component[6].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[6].valueCodeableConcept = $normal-abnormal-status-cs#chr-0096-0001 "Normal"
 * component[7].code = $loinc#8310-5 "Body temperature"
 * component[7].valueQuantity = 37.0 'Cel' "°C"
 * component[8].code = $newborn-daily-monitoring-cs#chr-0125-0002 "Abdominal organ condition"
-* component[8].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[8].valueCodeableConcept = $normal-abnormal-status-cs#chr-0096-0001 "Normal"
 * component[9].code.text = "Micturition"
-* component[9].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[9].valueCodeableConcept = $normal-abnormal-status-cs#chr-0096-0001 "Normal"
 * component[10].code.text = "Stool finding"
-* component[10].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[10].valueCodeableConcept = $normal-abnormal-status-cs#chr-0096-0001 "Normal"
 * component[11].code.text = "Laboratory investigations"
 * component[11].valueString = "TBD"
 * note.text = "TBD - problems and plans"
@@ -2612,27 +2615,27 @@ Usage: #inline
 * effectiveDateTime = "2026-06-07T00:00:00+05:00"
 * performer = Reference(urn:uuid:097000d1-1111-2222-3333-444444444444)
 * component[0].code = $newborn-daily-monitoring-cs#chr-0125-0009 "General condition of newborn"
-* component[0].valueCodeableConcept = $satisfactory-status-cs#chr-0040-00001 "Satisfactory"
+* component[0].valueCodeableConcept = $satisfactory-status-cs#chr-0040-0001 "Satisfactory"
 * component[1].code = $newborn-daily-monitoring-cs#chr-0125-0013 "Activity level"
-* component[1].valueCodeableConcept = $newborn-activity-level-cs#chr-0076-00002 "Moderate"
+* component[1].valueCodeableConcept = $newborn-activity-level-cs#chr-0115-0002 "Moderate"
 * component[2].code = $newborn-daily-monitoring-cs#chr-0125-0004 "Reflex status"
-* component[2].valueCodeableConcept = $primitive-reflex-type-cs#chr-0077-00002 "Sucking reflex"
+* component[2].valueCodeableConcept = $primitive-reflex-type-cs#chr-0116-0002 "Sucking reflex"
 * component[3].code = $newborn-daily-monitoring-cs#chr-0125-0005 "Muscle tone"
-* component[3].valueCodeableConcept = $muscle-tone-status-cs#chr-0056-00001 "Normal"
+* component[3].valueCodeableConcept = $muscle-tone-status-cs#chr-0095-0001 "Normal"
 * component[4].code = $newborn-daily-monitoring-cs#chr-0125-0011 "Skin color"
-* component[4].valueCodeableConcept = $newborn-skin-color-detailed-cs#chr-0078-00001 "Normal color"
+* component[4].valueCodeableConcept = $newborn-skin-color-detailed-cs#chr-0117-0001 "Normal color"
 * component[5].code = $newborn-daily-monitoring-cs#chr-0125-0012 "Respiratory condition"
-* component[5].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[5].valueCodeableConcept = $normal-abnormal-status-cs#chr-0096-0001 "Normal"
 * component[6].code = $newborn-daily-monitoring-cs#chr-0125-0010 "Cardiovascular system condition"
-* component[6].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[6].valueCodeableConcept = $normal-abnormal-status-cs#chr-0096-0001 "Normal"
 * component[7].code = $loinc#8310-5 "Body temperature"
 * component[7].valueQuantity = 37.0 'Cel' "°C"
 * component[8].code = $newborn-daily-monitoring-cs#chr-0125-0002 "Abdominal organ condition"
-* component[8].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[8].valueCodeableConcept = $normal-abnormal-status-cs#chr-0096-0001 "Normal"
 * component[9].code.text = "Micturition"
-* component[9].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[9].valueCodeableConcept = $normal-abnormal-status-cs#chr-0096-0001 "Normal"
 * component[10].code.text = "Stool finding"
-* component[10].valueCodeableConcept = $normal-abnormal-status-cs#chr-0057-00001 "Normal"
+* component[10].valueCodeableConcept = $normal-abnormal-status-cs#chr-0096-0001 "Normal"
 * component[11].code.text = "Laboratory investigations"
 * component[11].valueString = "TBD"
 * note.text = "TBD - problems and plans"
@@ -2652,7 +2655,7 @@ Usage: #inline
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-06-07T12:00:00+05:00"
-* valueCodeableConcept = $satisfactory-status-cs#chr-0040-00001 "Satisfactory"
+* valueCodeableConcept = $satisfactory-status-cs#chr-0040-0001 "Satisfactory"
 
 Instance: condition-discharge-diagnosis-097
 InstanceOf: UZCoreCondition
@@ -2663,7 +2666,7 @@ Usage: #inline
 * category = $diagnosis-role#main
 * code.coding.system = $icd10
 * code.coding.code = #Z38.0
-* code.coding.display = "Single liveborn infant, born in hospital"
+* code.coding.display = "Singleton, born in hospital"
 // TODO: same ICD-10 format/rejection issue as condition-pregnancy-complication-097 above.
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
