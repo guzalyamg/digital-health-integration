@@ -168,6 +168,12 @@ Alias: $flag-status-cs = http://hl7.org/fhir/flag-status
 Alias: $profession-specialization-cs = https://terminology.dhp.uz/fhir/core/CodeSystem/profession-specialization-cs
 
 
+// ============================================================
+// ALIASES — Form097 Newborn Development
+// Add these to the repo's central Aliases.fsh (or keep as a
+// standalone file if the build includes all .fsh files in the tree)
+// ============================================================
+
 Alias: $document-category-cs = https://terminology.dhp.uz/fhir/integrations/CodeSystem/document-category-cs
 Alias: $loinc = http://loinc.org
 Alias: $newborn-daily-observation-component-cs = https://terminology.dhp.uz/fhir/integrations/CodeSystem/newborn-daily-observation-component-cs
@@ -209,7 +215,7 @@ Alias: $form-097-section-cs = https://terminology.dhp.uz/fhir/integrations/CodeS
 Alias: $newborn-physical-examination-cs = https://terminology.dhp.uz/fhir/integrations/CodeSystem/newborn-physical-examination-cs
 Alias: $newborn-daily-monitoring-cs = https://terminology.dhp.uz/fhir/integrations/CodeSystem/newborn-daily-monitoring-cs
 Alias: $newborn-maturity-assessment-cs = https://terminology.dhp.uz/fhir/integrations/CodeSystem/newborn-maturity-assessment-cs
-Alias: $newborn-care-feeding-cs = https://terminology.dhp.uz/fhir/integrations/CodeSystem/newborn-care-and-feeding-cs
-Alias: $newborn-birth-anthropometry-cs = https://terminology.dhp.uz/fhir/integrations/CodeSystem/newborn-birth-and-anthropometry-cs
+Alias: $newborn-care-feeding-cs = https://terminology.dhp.uz/fhir/integrations/CodeSystem/newborn-care-feeding-cs
+Alias: $newborn-birth-anthropometry-cs = https://terminology.dhp.uz/fhir/integrations/CodeSystem/newborn-birth-anthropometry-cs
 Alias: $newborn-care-location-cs = https://terminology.dhp.uz/fhir/integrations/CodeSystem/newborn-care-location-cs
 Alias: $location-kinds-cs = https://terminology.dhp.uz/fhir/core/CodeSystem/location-kinds-cs

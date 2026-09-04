@@ -865,7 +865,7 @@ InstanceOf: UZCoreProcedure
 Usage: #inline
 * language = #en
 * status = #not-done
-* code = $sct#200147006 "Cesarean section - pregnancy at term"
+* code = $sct#11466000 "Cesarean section"
 // NOTE: verified real SNOMED code via BioPortal, used as example identifier.
 * subject = Reference(urn:uuid:0970003b-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
