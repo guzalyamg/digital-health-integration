@@ -1,7 +1,8 @@
 CodeSystem: ApgarComponentScoreCS
 Id: apgar-component-score-cs
-Title: "Apgar Component Score"
+Title: "Form097 Apgar Component Score"
 Description: "Local codes for apgar component score, Form097 newborn development record."
+* ^language = #en
 
 * insert OriginalCodeSystemDraft(apgar-component-score-cs)
 

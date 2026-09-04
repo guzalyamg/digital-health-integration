@@ -1,7 +1,8 @@
 CodeSystem: YesNoCS
 Id: yes-no-cs
-Title: "Yes No"
+Title: "Form097 Yes No"
 Description: "Local codes for yes no, Form097 newborn development record."
+* ^language = #en
 
 * insert OriginalCodeSystemDraft(yes-no-cs)
 

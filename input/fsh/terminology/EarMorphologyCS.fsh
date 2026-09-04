@@ -1,7 +1,8 @@
 CodeSystem: EarMorphologyCS
 Id: ear-morphology-cs
-Title: "Ear Morphology"
+Title: "Form097 Ear Morphology"
 Description: "Local codes for ear morphology, Form097 newborn development record."
+* ^language = #en
 
 * insert OriginalCodeSystemDraft(ear-morphology-cs)
 

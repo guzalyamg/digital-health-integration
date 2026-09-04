@@ -1,7 +1,8 @@
 CodeSystem: NewbornSkinColorDetailedCS
 Id: newborn-skin-color-detailed-cs
-Title: "Newborn Skin Color Detailed"
+Title: "Form097 Newborn Skin Color Detailed"
 Description: "Local codes for newborn skin color detailed, Form097 newborn development record."
+* ^language = #en
 
 * insert OriginalCodeSystemDraft(newborn-skin-color-detailed-cs)
 

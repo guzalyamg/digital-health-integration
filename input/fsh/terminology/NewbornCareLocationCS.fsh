@@ -1,7 +1,8 @@
 CodeSystem: NewbornCareLocationCS
 Id: newborn-care-location-cs
-Title: "Newborn Care Location"
+Title: "Form097 Newborn Care Location"
 Description: "Local codes for newborn care location, Form097 newborn development record."
+* ^language = #en
 
 * insert OriginalCodeSystemDraft(newborn-care-location-cs)
 

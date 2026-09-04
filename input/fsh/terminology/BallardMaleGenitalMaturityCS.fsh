@@ -1,7 +1,8 @@
 CodeSystem: BallardMaleGenitalMaturityCS
 Id: ballard-male-genital-maturity-cs
-Title: "Ballard Male Genital Maturity"
+Title: "Form097 Ballard Male Genital Maturity"
 Description: "Local codes for ballard male genital maturity, Form097 newborn development record."
+* ^language = #en
 
 * insert OriginalCodeSystemDraft(ballard-male-genital-maturity-cs)
 

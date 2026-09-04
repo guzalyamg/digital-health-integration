@@ -1,6 +1,6 @@
 ValueSet: BallardMaleGenitalMaturityVS
 Id: ballard-male-genital-maturity-vs
-Title: "Ballard Male Genital Maturity"
+Title: "Form097 Ballard Male Genital Maturity"
 Description: "ValueSet for ballard male genital maturity, Form097 newborn development record."
 * insert IntegrationsValueSet(ballard-male-genital-maturity-vs)
 * ^experimental = true

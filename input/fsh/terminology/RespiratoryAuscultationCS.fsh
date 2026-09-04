@@ -1,7 +1,8 @@
 CodeSystem: RespiratoryAuscultationCS
 Id: respiratory-auscultation-cs
-Title: "Respiratory Auscultation"
+Title: "Form097 Respiratory Auscultation"
 Description: "Local codes for respiratory auscultation, Form097 newborn development record."
+* ^language = #en
 
 * insert OriginalCodeSystemDraft(respiratory-auscultation-cs)
 

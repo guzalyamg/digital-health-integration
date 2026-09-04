@@ -1,7 +1,8 @@
 CodeSystem: PrimitiveReflexTypeCS
 Id: primitive-reflex-type-cs
-Title: "Primitive Reflex Type"
+Title: "Form097 Primitive Reflex Type"
 Description: "Local codes for primitive reflex type, Form097 newborn development record."
+* ^language = #en
 
 * insert OriginalCodeSystemDraft(primitive-reflex-type-cs)
 

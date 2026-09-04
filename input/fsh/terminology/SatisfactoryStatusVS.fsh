@@ -1,6 +1,6 @@
 ValueSet: SatisfactoryStatusVS
 Id: satisfactory-status-vs
-Title: "Satisfactory Status"
+Title: "Form097 Satisfactory Status"
 Description: "ValueSet for satisfactory status, Form097 newborn development record."
 * insert IntegrationsValueSet(satisfactory-status-vs)
 * ^experimental = true

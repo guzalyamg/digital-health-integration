@@ -7,8 +7,9 @@
 
 CodeSystem: Form097SectionCS
 Id: form-097-section-cs
-Title: "Form 097 Composition Section Codes"
+Title: "Form097 Form 097 Composition Section Codes"
 Description: "Codes identifying each top-level section of the Form 097 Newborn Development Medical Record Composition."
+* ^language = #en
 
 * insert OriginalCodeSystemDraft(form-097-section-cs)
 

@@ -1,7 +1,8 @@
 CodeSystem: NormalAbnormalStatusCS
 Id: normal-abnormal-status-cs
-Title: "Normal Abnormal Status"
+Title: "Form097 Normal Abnormal Status"
 Description: "Local codes for normal abnormal status, Form097 newborn development record."
+* ^language = #en
 
 * insert OriginalCodeSystemDraft(normal-abnormal-status-cs)
 

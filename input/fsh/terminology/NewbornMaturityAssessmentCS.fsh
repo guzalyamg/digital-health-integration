@@ -1,7 +1,8 @@
 CodeSystem: NewbornMaturityAssessmentCS
 Id: newborn-maturity-assessment-cs
-Title: "Newborn Maturity Assessment"
+Title: "Form097 Newborn Maturity Assessment"
 Description: "Local codes for newborn maturity assessment, Form097 newborn development record."
+* ^language = #en
 
 * insert OriginalCodeSystemDraft(newborn-maturity-assessment-cs)
 

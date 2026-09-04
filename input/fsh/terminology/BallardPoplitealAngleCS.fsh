@@ -1,7 +1,8 @@
 CodeSystem: BallardPoplitealAngleCS
 Id: ballard-popliteal-angle-cs
-Title: "Ballard Popliteal Angle"
+Title: "Form097 Ballard Popliteal Angle"
 Description: "Local codes for ballard popliteal angle, Form097 newborn development record."
+* ^language = #en
 
 * insert OriginalCodeSystemDraft(ballard-popliteal-angle-cs)
 

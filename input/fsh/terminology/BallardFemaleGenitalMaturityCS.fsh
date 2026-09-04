@@ -1,7 +1,8 @@
 CodeSystem: BallardFemaleGenitalMaturityCS
 Id: ballard-female-genital-maturity-cs
-Title: "Ballard Female Genital Maturity"
+Title: "Form097 Ballard Female Genital Maturity"
 Description: "Local codes for ballard female genital maturity, Form097 newborn development record."
+* ^language = #en
 
 * insert OriginalCodeSystemDraft(ballard-female-genital-maturity-cs)
 

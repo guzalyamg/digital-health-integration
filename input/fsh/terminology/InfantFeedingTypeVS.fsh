@@ -1,6 +1,6 @@
 ValueSet: InfantFeedingTypeVS
 Id: infant-feeding-type-vs
-Title: "Infant Feeding Type"
+Title: "Form097 Infant Feeding Type"
 Description: "ValueSet for infant feeding type, Form097 newborn development record."
 * insert IntegrationsValueSet(infant-feeding-type-vs)
 * ^experimental = true

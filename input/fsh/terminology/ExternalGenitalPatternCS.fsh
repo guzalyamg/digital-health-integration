@@ -1,7 +1,8 @@
 CodeSystem: ExternalGenitalPatternCS
 Id: external-genital-pattern-cs
-Title: "External Genital Pattern"
+Title: "Form097 External Genital Pattern"
 Description: "Local codes for external genital pattern, Form097 newborn development record."
+* ^language = #en
 
 * insert OriginalCodeSystemDraft(external-genital-pattern-cs)
 

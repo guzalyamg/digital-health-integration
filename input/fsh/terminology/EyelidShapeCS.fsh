@@ -1,7 +1,8 @@
 CodeSystem: EyelidShapeCS
 Id: eyelid-shape-cs
-Title: "Eyelid Shape"
+Title: "Form097 Eyelid Shape"
 Description: "Local codes for eyelid shape, Form097 newborn development record."
+* ^language = #en
 
 * insert OriginalCodeSystemDraft(eyelid-shape-cs)
 

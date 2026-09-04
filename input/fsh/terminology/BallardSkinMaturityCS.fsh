@@ -1,7 +1,8 @@
 CodeSystem: BallardSkinMaturityCS
 Id: ballard-skin-maturity-cs
-Title: "Ballard Skin Maturity"
+Title: "Form097 Ballard Skin Maturity"
 Description: "Local codes for ballard skin maturity, Form097 newborn development record."
+* ^language = #en
 
 * insert OriginalCodeSystemDraft(ballard-skin-maturity-cs)
 

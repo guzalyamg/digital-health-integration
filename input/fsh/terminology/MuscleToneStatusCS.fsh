@@ -1,7 +1,8 @@
 CodeSystem: MuscleToneStatusCS
 Id: muscle-tone-status-cs
-Title: "Muscle Tone Status"
+Title: "Form097 Muscle Tone Status"
 Description: "Local codes for muscle tone status, Form097 newborn development record."
+* ^language = #en
 
 * insert OriginalCodeSystemDraft(muscle-tone-status-cs)
 

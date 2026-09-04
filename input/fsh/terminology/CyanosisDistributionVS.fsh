@@ -1,6 +1,6 @@
 ValueSet: CyanosisDistributionVS
 Id: cyanosis-distribution-vs
-Title: "Cyanosis Distribution"
+Title: "Form097 Cyanosis Distribution"
 Description: "ValueSet for cyanosis distribution, Form097 newborn development record."
 * insert IntegrationsValueSet(cyanosis-distribution-vs)
 * ^experimental = true

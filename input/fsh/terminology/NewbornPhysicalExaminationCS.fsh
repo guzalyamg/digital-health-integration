@@ -1,7 +1,8 @@
 CodeSystem: NewbornPhysicalExaminationCS
 Id: newborn-physical-examination-cs
-Title: "Newborn Physical Examination"
+Title: "Form097 Newborn Physical Examination"
 Description: "Local codes for newborn physical examination, Form097 newborn development record."
+* ^language = #en
 
 * insert OriginalCodeSystemDraft(newborn-physical-examination-cs)
 

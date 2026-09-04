@@ -1,7 +1,8 @@
 CodeSystem: NewbornActivityLevelCS
 Id: newborn-activity-level-cs
-Title: "Newborn Activity Level"
+Title: "Form097 Newborn Activity Level"
 Description: "Local codes for newborn activity level, Form097 newborn development record."
+* ^language = #en
 
 * insert OriginalCodeSystemDraft(newborn-activity-level-cs)
 

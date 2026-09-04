@@ -1,7 +1,8 @@
 CodeSystem: BallardLanugoMaturityCS
 Id: ballard-lanugo-maturity-cs
-Title: "Ballard Lanugo Maturity"
+Title: "Form097 Ballard Lanugo Maturity"
 Description: "Local codes for ballard lanugo maturity, Form097 newborn development record."
+* ^language = #en
 
 * insert OriginalCodeSystemDraft(ballard-lanugo-maturity-cs)
 

@@ -1,7 +1,8 @@
 CodeSystem: InfantFeedingTypeCS
 Id: infant-feeding-type-cs
-Title: "Infant Feeding Type"
+Title: "Form097 Infant Feeding Type"
 Description: "Local codes for infant feeding type, Form097 newborn development record."
+* ^language = #en
 
 * insert OriginalCodeSystemDraft(infant-feeding-type-cs)
 

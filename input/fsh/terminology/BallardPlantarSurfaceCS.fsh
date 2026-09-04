@@ -1,7 +1,8 @@
 CodeSystem: BallardPlantarSurfaceCS
 Id: ballard-plantar-surface-cs
-Title: "Ballard Plantar Surface"
+Title: "Form097 Ballard Plantar Surface"
 Description: "Local codes for ballard plantar surface, Form097 newborn development record."
+* ^language = #en
 
 * insert OriginalCodeSystemDraft(ballard-plantar-surface-cs)
 

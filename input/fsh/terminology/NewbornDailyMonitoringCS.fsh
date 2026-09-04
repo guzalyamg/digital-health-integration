@@ -1,7 +1,8 @@
 CodeSystem: NewbornDailyMonitoringCS
 Id: newborn-daily-monitoring-cs
-Title: "Newborn Daily Monitoring"
+Title: "Form097 Newborn Daily Monitoring"
 Description: "Local codes for newborn daily monitoring, Form097 newborn development record."
+* ^language = #en
 
 * insert OriginalCodeSystemDraft(newborn-daily-monitoring-cs)
 

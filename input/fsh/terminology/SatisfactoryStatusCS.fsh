@@ -1,7 +1,8 @@
 CodeSystem: SatisfactoryStatusCS
 Id: satisfactory-status-cs
-Title: "Satisfactory Status"
+Title: "Form097 Satisfactory Status"
 Description: "Local codes for satisfactory status, Form097 newborn development record."
+* ^language = #en
 
 * insert OriginalCodeSystemDraft(satisfactory-status-cs)
 

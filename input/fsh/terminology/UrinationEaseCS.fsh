@@ -1,7 +1,8 @@
 CodeSystem: UrinationEaseCS
 Id: urination-ease-cs
-Title: "Urination Ease"
+Title: "Form097 Urination Ease"
 Description: "Local codes for urination ease, Form097 newborn development record."
+* ^language = #en
 
 * insert OriginalCodeSystemDraft(urination-ease-cs)
 

@@ -1,7 +1,8 @@
 CodeSystem: CyanosisDistributionCS
 Id: cyanosis-distribution-cs
-Title: "Cyanosis Distribution"
+Title: "Form097 Cyanosis Distribution"
 Description: "Local codes for cyanosis distribution, Form097 newborn development record."
+* ^language = #en
 
 * insert OriginalCodeSystemDraft(cyanosis-distribution-cs)
 

@@ -1,7 +1,8 @@
 CodeSystem: BallardNeuromuscularScoreCS
 Id: ballard-neuromuscular-score-cs
-Title: "Ballard Neuromuscular Score"
+Title: "Form097 Ballard Neuromuscular Score"
 Description: "Local codes for ballard neuromuscular score, Form097 newborn development record."
+* ^language = #en
 
 * insert OriginalCodeSystemDraft(ballard-neuromuscular-score-cs)
 

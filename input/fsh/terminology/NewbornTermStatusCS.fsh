@@ -1,7 +1,8 @@
 CodeSystem: NewbornTermStatusCS
 Id: newborn-term-status-cs
-Title: "Newborn Term Status"
+Title: "Form097 Newborn Term Status"
 Description: "Local codes for newborn term status, Form097 newborn development record."
+* ^language = #en
 
 * insert OriginalCodeSystemDraft(newborn-term-status-cs)
 
